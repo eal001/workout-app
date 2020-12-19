@@ -7,6 +7,11 @@
 
 import UIKit
 
+/*
+ Cycle will have a start and end date, some days within it, it can calculate another (next)
+ cycle based on the completion of this one
+ */
+
 class Cycle: NSObject, Codable {
     
     //MARK: INSTANCE VARS

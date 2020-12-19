@@ -6,6 +6,11 @@
 //
 
 import UIKit
+/*
+ Single set will be a class to hold the data of weight and rep amount of a set
+ there will be an iscomplete method, that changes the set
+ may change to a struct later
+ */
 
 class Single_Set: NSObject, Codable {
     
@@ -29,10 +34,14 @@ class Single_Set: NSObject, Codable {
         self.is_complete = set.is_complete
     }
     
-    //MARK: SET COMPLETE METHOD
+    //MARK: COMPLETION METHODS
     
     func complete(){
         is_complete = true
+    }
+    
+    func not_complete(){
+        is_complete = false
     }
     
 }

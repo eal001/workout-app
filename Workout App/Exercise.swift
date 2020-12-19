@@ -7,6 +7,10 @@
 
 import UIKit
 
+/*
+ An exercise will consist of some sets, it will have maximum rep weight volume stats, a type and a name
+ */
+
 class Exercise: NSObject, Codable {
     
     //MARK: INSTANCE VARS
@@ -45,7 +49,7 @@ class Exercise: NSObject, Codable {
      is max weight, and the (reps*weight) max volume is the max volume, just set the values do not return anything
      */
     func compute_maxes(){
-        
+        //TODO: figure out based on completed sets what the maximum stats for this exercise is 
     }
     
     /*
@@ -61,7 +65,10 @@ class Exercise: NSObject, Codable {
 }
 
 //MARK: ENUM EXERCISE TYPE
-
+/*
+ Exercise tyoe makes it easier to keep track of the type of exercise. This will make incremental calculations easier,
+ as they can be automated based on a type
+ */
 enum ExerciseType : Int, Codable {
     case Primary = 0
     case Secondary = 1

@@ -7,6 +7,10 @@
 
 import UIKit
 
+/*
+ Day will be a way to hold certain exercises for that day as well as a name and exact time
+ */
+
 class Day: NSObject, Codable {
     
     //MARK: INSTANCE VARS

@@ -6,6 +6,12 @@
 //
 
 import UIKit
+/*
+ a routine will be able to save itself to UDM, and a static funuctionality to load
+ a routine from a JSON encoding, given the key
+ It will store (weekly) cycles and have a name
+ Eventually there will be an ability to index all exercises across these cycles, and check each one for the maximum stats
+ */
 
 class Routine: NSObject, Codable {
     
