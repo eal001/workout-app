@@ -36,10 +36,12 @@ class Single_Set: NSObject, Codable {
     
     //MARK: COMPLETION METHODS
     
+    //called when a set is marked as complete
     func complete(){
         is_complete = true
     }
     
+    //called when a set is changed from complete to incomplete (all sets start as incomplete)
     func not_complete(){
         is_complete = false
     }

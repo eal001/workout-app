@@ -30,32 +30,54 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    /*
+     what to do when the view is touched
+     --remove keyboard
+     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    /*
+     the sections of exercises in this "day" is 1
+     */
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    /*
+     the name of the section(s)
+     */
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Exercises"
     }
     
+    /*
+     the number of exercises should be reresentative of the actual exercise array count
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exercises.count
     }
     
+    /*
+     the cell anmes should be that of the exercise names
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "proto_cell", for: indexPath)
         cell.textLabel?.text = exercises[indexPath.row].name
         return cell
     }
     
+    /*
+     implement on tapped funtionality
+     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         stored_cell = exercises[indexPath.row]
     }
     
+    /*
+     implement delete fuctionality
+     */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             exercises.remove(at: indexPath.row)
@@ -65,6 +87,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         exercise_table.reloadData()
     }
+    
     // MARK: - Navigation
     /*
      this function needs to exist, becasue in another function it is going to be used to pass data back

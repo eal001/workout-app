@@ -136,10 +136,10 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="set_cell" id="vtv-Qd-Ko1" customClass="SingleSetCell" customModule="Workout_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="46.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vtv-Qd-Ko1" id="0FH-F0-4DP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHy-sf-vvf">
@@ -159,7 +159,7 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqN-9D-Nm4">
-                                                    <rect key="frame" x="20" y="11.5" width="69" height="20.5"/>
+                                                    <rect key="frame" x="20" y="13" width="69" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="69" id="7VP-vw-G0o"/>
                                                     </constraints>
@@ -174,7 +174,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYo-Yp-pcl">
-                                                    <rect key="frame" x="97" y="11.5" width="39" height="20.5"/>
+                                                    <rect key="frame" x="97" y="13" width="39" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -186,7 +186,7 @@
                                                 <constraint firstItem="EwY-c8-ARH" firstAttribute="leading" secondItem="3z3-nH-3jT" secondAttribute="trailing" constant="8" symbolic="YES" id="5Ve-yj-oSZ"/>
                                                 <constraint firstItem="SHy-sf-vvf" firstAttribute="bottom" secondItem="EwY-c8-ARH" secondAttribute="bottom" id="84Y-dX-G4N"/>
                                                 <constraint firstItem="vYo-Yp-pcl" firstAttribute="leading" secondItem="BqN-9D-Nm4" secondAttribute="trailing" constant="8" symbolic="YES" id="C6U-st-Lcq"/>
-                                                <constraint firstItem="3z3-nH-3jT" firstAttribute="bottom" secondItem="0FH-F0-4DP" secondAttribute="bottomMargin" id="IPd-sS-6Zb"/>
+                                                <constraint firstItem="3z3-nH-3jT" firstAttribute="bottom" secondItem="0FH-F0-4DP" secondAttribute="bottomMargin" constant="-1.5" id="IPd-sS-6Zb"/>
                                                 <constraint firstItem="3z3-nH-3jT" firstAttribute="centerY" secondItem="EwY-c8-ARH" secondAttribute="centerY" id="Jy9-oj-VPK"/>
                                                 <constraint firstItem="BqN-9D-Nm4" firstAttribute="firstBaseline" secondItem="vYo-Yp-pcl" secondAttribute="firstBaseline" id="M1l-9x-ppL"/>
                                                 <constraint firstItem="BqN-9D-Nm4" firstAttribute="centerY" secondItem="0FH-F0-4DP" secondAttribute="centerY" id="NWH-7a-XsJ"/>

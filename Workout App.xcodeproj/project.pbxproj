@@ -119,16 +119,16 @@
 		8BA8ED962588AE0E001110A0 /* Workout App */ = {
 			isa = PBXGroup;
 			children = (
+				8BA8EDA52588AE0F001110A0 /* Info.plist */,
 				8BA8ED972588AE0E001110A0 /* AppDelegate.swift */,
 				8BA8ED992588AE0E001110A0 /* SceneDelegate.swift */,
-				8B704D9D258A13D200AEA9E3 /* NewExerciseViewController.swift */,
 				8BA8ED9B2588AE0E001110A0 /* ViewController.swift */,
 				8BA8ED9D2588AE0E001110A0 /* Main.storyboard */,
-				8B704DAA258A188500AEA9E3 /* SingleSetCell.swift */,
-				8B704D982589B77E00AEA9E3 /* NewDayViewController.swift */,
-				8BA8EDA02588AE0F001110A0 /* Assets.xcassets */,
 				8BA8EDA22588AE0F001110A0 /* LaunchScreen.storyboard */,
-				8BA8EDA52588AE0F001110A0 /* Info.plist */,
+				8BA8EDA02588AE0F001110A0 /* Assets.xcassets */,
+				8B704DAA258A188500AEA9E3 /* SingleSetCell.swift */,
+				8B704D9D258A13D200AEA9E3 /* NewExerciseViewController.swift */,
+				8B704D982589B77E00AEA9E3 /* NewDayViewController.swift */,
 				8B704D6F25898AD500AEA9E3 /* NewRoutineViewController.swift */,
 				8B704D7425898AF300AEA9E3 /* RoutinesTableViewController.swift */,
 				8B704D7C25898D0200AEA9E3 /* Cycle.swift */,

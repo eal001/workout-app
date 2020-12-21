@@ -33,22 +33,39 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    /*
+     when tapping anything not in a special view:
+     --remove keyboard
+     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    /*
+     the number of secions in an exercises set in 1, for the tableview
+     */
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    /*
+     the name of the section(s) for the tableview
+     */
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Sets"
     }
     
+    /*
+     the number of cells in the set field should represent the count of the sets for the tableview
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sets.count
     }
     
+    /*
+     edit the necessary fields when each cell is appearing, text should say the set number and the
+     weight and rep amount should be shown in the fields, for the tableview
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "set_cell") as! SingleSetCell
         cell.set_label.text = "Set \(indexPath.row + 1)"
@@ -57,6 +74,9 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    /*
+     implement delete funvtionality for the tableview
+     */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             sets.remove(at: indexPath.row)
@@ -67,14 +87,23 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         set_table.reloadData()
     }
     
+    /*
+     the number of components in the type pickerview
+     */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    /*
+     the number of elements in each component. This should be the number of exercise types
+     */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 6
     }
     
+    /*
+     the names of each cell represents one of each of the given exercise types
+     */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch row {
         case 0:
@@ -94,20 +123,30 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    /*
+     linked to the button click event, creates a new set, adds to exercise and resets the tableview
+     the new set should be created as a deep copy of the previous set in the list
+     (same reps and weight, but this new set is not completed or witht the same label text)
+     */
     @IBAction func add_set(_ sender: Any) {
-        var new_set : Single_Set
-        if ( sets.count == 0){
+        let new_set : Single_Set
+        if ( sets.count == 0 ){
             new_set = Single_Set(0,0)
         } else {
             new_set = Single_Set(sets[sets.count - 1])
         }
         sets.append(new_set)
-        load_sets()
+        update_sets()
         set_table.reloadData()
     }
     
     //MARK: Calculations
     
+    /*
+     based on everything that is picked in this window, a new exercise will be created
+     the pickerview, set amount, and name are taken into consideration
+     @return a new Exercise based on name, sets and type
+     */
     func compute_exercise() -> Exercise{
         let name = name_field?.text ?? "none"
         let type : ExerciseType
@@ -127,11 +166,16 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         default:
             type = ExerciseType.Other
         }
-        load_sets()
+        update_sets()
         return Exercise(name, type, sets)
     }
     
-    func load_sets(){
+    /*
+     iterate through all of the cells in the table and set the [set array] equal to to
+     the values in the table. this method should be called during the vc's operations, in
+     order to update the set array to be consistent with the table values
+     */
+    func update_sets(){
         var i = 0
         for cell in set_table.visibleCells as! [SingleSetCell] {
             sets[i].weight = Double(cell.weight_field?.text ?? "0") ?? 0.0
@@ -140,6 +184,11 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    /*
+     iterate through all the given sets and set the cell's values equal to the set
+     representation. this should be used on load of the view controller to make sure that the
+     sets and the table values are equivalent.
+     */
     func load_cells(){
         let cells = set_table.visibleCells as! [SingleSetCell]
         var i = 0

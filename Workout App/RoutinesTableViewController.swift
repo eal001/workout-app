@@ -9,6 +9,10 @@ import UIKit
 
 class RoutinesTableViewController: UITableViewController {
 
+    /*
+     the master key will be used to access the array of key strings that are used to access the data for
+     the routines
+     */
     let MASTER_KEY : String = "MASTER KEY"
     var routines : [Routine] = [Routine]()
     
@@ -17,7 +21,6 @@ class RoutinesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         load_routines()
-        
     }
 
     // MARK: save and load
@@ -70,17 +73,25 @@ class RoutinesTableViewController: UITableViewController {
     
     // MARK: Table view data source
 
+    /*
+     the number of routine sections should be one (all routines are stored in one tableview section)
+     */
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
+    /*
+    the number of active cells in the table view should be representative of the cells in routines
+     */
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return routines.count
     }
 
-    
+    /*
+     the cells should ahve the names of the routines, to differentiate 
+     */
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "proto_cell", for: indexPath)
         cell.textLabel?.text = routines[indexPath.row].name

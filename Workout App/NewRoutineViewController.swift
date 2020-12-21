@@ -29,24 +29,39 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
+    /*
+     on touching the screen (not in a text/button view)
+     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         
         adjust_rest_days()
     }
     
+    /*
+     the sections of days taht a routine holds is 1
+     */
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    /*
+     the name of the section(s)
+     */
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
         return "Days"
     }
     
+    /*
+     the amount of cells should be representative of the days in a cycle in a routine
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return days.count
     }
     
+    /*
+     the day cells should have light gray for rest days, and dark gray for exercise days
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "proto_cell", for: indexPath)
         cell.textLabel?.text = days[indexPath.row].name
@@ -56,12 +71,18 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    /*
+     on tapping the cell, perform an action
+     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //note thta this method is executed after the prepare method
         stored_cell = days[indexPath.row]
         returning_index = indexPath.row
     }
     
+    /*
+     implement delete finctionality
+     */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
