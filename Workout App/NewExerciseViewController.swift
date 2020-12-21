@@ -129,6 +129,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
      (same reps and weight, but this new set is not completed or witht the same label text)
      */
     @IBAction func add_set(_ sender: Any) {
+        update_sets() //update the sets to match the cells in the table, because we want the cells to always accurately represent the set information
         let new_set : Single_Set
         if ( sets.count == 0 ){
             new_set = Single_Set(0,0)
@@ -136,7 +137,6 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
             new_set = Single_Set(sets[sets.count - 1])
         }
         sets.append(new_set)
-        update_sets()
         set_table.reloadData()
     }
     
@@ -178,8 +178,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func update_sets(){
         var i = 0
         for cell in set_table.visibleCells as! [SingleSetCell] {
-            sets[i].weight = Double(cell.weight_field?.text ?? "0") ?? 0.0
-            sets[i].reps = Int(cell.rep_field?.text ?? "0") ?? 0
+            sets[i].weight = Double(cell.weight_field.text! ) ?? 0.0
+            sets[i].reps = Int(cell.rep_field.text! ) ?? 0
             i+=1
         }
     }
