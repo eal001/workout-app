@@ -51,7 +51,7 @@ class Day: NSObject, Codable {
      @return the string date
      */
     func get_day_str() -> String {
-        return ""
+        return "\(name) : \(get_weekday_str())"
     }
     
     /*
@@ -60,7 +60,26 @@ class Day: NSObject, Codable {
      @return the string of the day that it is
      */
     func get_weekday_str() -> String {
-        return ""
+        let week_str : String
+        switch(dow){
+        case 1:
+            week_str = "Sunday"
+        case 2:
+            week_str = "Monday"
+        case 3:
+            week_str = "Tuesday"
+        case 4:
+            week_str = "Wedneday"
+        case 5:
+            week_str = "Thursday"
+        case 6:
+            week_str = "Friday"
+        case 7:
+            week_str = "Saturday"
+        default:
+            week_str = "NULL"
+        }
+        return week_str
     }
     
 }

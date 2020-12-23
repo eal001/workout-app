@@ -18,18 +18,21 @@ class DayExerciseViewController: UIPageViewController, UIPageViewControllerDeleg
         self.delegate = self
         self.dataSource = self
         
+        if let previous = cycles_delegate as? CyclesViewController {
+            self.days = previous.stored_cell?.days ?? [Day]()
+        }
+        
         for day in days {
             //can edit the values for day here
-            
             if let day_vc = create_day_vcs(id: "certain_day") as? SingleDayViewController {
                 //can initialize the values for the day vc here
-                day_vc.day_name_label?.text = day.name
+                day_vc.day = day
                 day_vc.exercises = day.exercises
                 day_views.append(day_vc)
             }
         
         }
-        print("pageview initialized")
+        
         
         if let first_vc = day_views.first {
             setViewControllers([first_vc] as [SingleDayViewController], direction: .forward, animated: true, completion: nil)

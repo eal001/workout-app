@@ -528,8 +528,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugV-1T-lvr">
-                                <rect key="frame" x="0.0" y="165" width="414" height="58"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugV-1T-lvr">
+                                <rect key="frame" x="0.0" y="165" width="415" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
@@ -538,15 +539,9 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mRq-Gs-qNU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="ugV-1T-lvr" firstAttribute="top" secondItem="mRq-Gs-qNU" secondAttribute="top" constant="121" id="KTJ-4y-W5p"/>
-                            <constraint firstItem="ugV-1T-lvr" firstAttribute="centerX" secondItem="Wwn-1e-rQY" secondAttribute="centerX" id="hTV-yF-CBv"/>
-                            <constraint firstItem="mRq-Gs-qNU" firstAttribute="bottom" secondItem="ugV-1T-lvr" secondAttribute="bottom" constant="639" id="yGw-pT-rhx"/>
-                            <constraint firstItem="ugV-1T-lvr" firstAttribute="leading" secondItem="mRq-Gs-qNU" secondAttribute="leading" id="zgG-Yv-RsM"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="day_name_label" destination="ugV-1T-lvr" id="zvo-fa-5Zv"/>
+                        <outlet property="day_name_label" destination="ugV-1T-lvr" id="RQZ-Yf-jAX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4d-2r-V4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

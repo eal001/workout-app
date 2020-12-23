@@ -16,7 +16,8 @@ class SingleDayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //print("loaded")
+        day_name_label.text = day?.get_day_str()
         // Do any additional setup after loading the view.
     }
     

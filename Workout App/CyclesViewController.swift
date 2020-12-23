@@ -92,9 +92,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? DayExerciseViewController{
             destination.cycles_delegate = self
-            destination.days = stored_cell?.days ?? [Day]()
         }
-        stored_cell = nil
     }
     
 
