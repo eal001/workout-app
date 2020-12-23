@@ -7,9 +7,10 @@
 
 import UIKit
 
-class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CyclesViewControllerDelegate {
 
     var cycles = [Cycle]()
+    var stored_cell : Cycle?
     
     @IBOutlet weak var cycles_table: UITableView!
     
@@ -17,6 +18,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         cycles_table.dataSource = self
         cycles_table.delegate = self
+        stored_cell = nil
         //cycles =
         // Do any additional setup after loading the view.
     }
@@ -65,13 +67,39 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     /*
+     implement on tapped functionality
+     */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        stored_cell = cycles[indexPath.row]
+    }
+    
+    /*
+     this method will create a new cycle based on the most recent cycle, whether the elements are completed or not
+     does not matter. This methtod will use the cycle increment function, and add the returned cycle to the cycle
+     array
+     */
+    @IBAction func create_new_cycle(_ sender: Any) {
+        cycles.append(cycles[cycles.count - 1].compute_next())
+    }
+    
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? DayExerciseViewController{
+            destination.cycles_delegate = self
+            destination.days = stored_cell?.days ?? [Day]()
+        }
+        stored_cell = nil
     }
-    */
+    
 
+}
+
+protocol CyclesViewControllerDelegate{
+    
 }

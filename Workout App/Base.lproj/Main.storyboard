@@ -469,6 +469,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="L1i-ne-FFm" kind="show" id="QIJ-PG-RLk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -481,6 +484,9 @@
                                 <state key="normal">
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="create_new_cycle:" destination="ifX-7A-wtk" eventType="touchUpInside" id="sYF-mJ-6zR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="j0B-O2-jlt"/>
@@ -503,6 +509,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tuj-hG-yQQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1582.608695652174" y="-230.35714285714283"/>
+        </scene>
+        <!--Day Exercise View Controller-->
+        <scene sceneID="tJk-2J-vyv">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="L1i-ne-FFm" customClass="DayExerciseViewController" customModule="Workout_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wlE-dI-sbn"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f68-TB-J2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2358" y="-230"/>
+        </scene>
+        <!--Single Day View Controller-->
+        <scene sceneID="eby-4i-3Ee">
+            <objects>
+                <viewController storyboardIdentifier="certain_day" id="1mb-MV-Si6" customClass="SingleDayViewController" customModule="Workout_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wwn-1e-rQY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugV-1T-lvr">
+                                <rect key="frame" x="0.0" y="165" width="414" height="58"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mRq-Gs-qNU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ugV-1T-lvr" firstAttribute="top" secondItem="mRq-Gs-qNU" secondAttribute="top" constant="121" id="KTJ-4y-W5p"/>
+                            <constraint firstItem="ugV-1T-lvr" firstAttribute="centerX" secondItem="Wwn-1e-rQY" secondAttribute="centerX" id="hTV-yF-CBv"/>
+                            <constraint firstItem="mRq-Gs-qNU" firstAttribute="bottom" secondItem="ugV-1T-lvr" secondAttribute="bottom" constant="639" id="yGw-pT-rhx"/>
+                            <constraint firstItem="ugV-1T-lvr" firstAttribute="leading" secondItem="mRq-Gs-qNU" secondAttribute="leading" id="zgG-Yv-RsM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="day_name_label" destination="ugV-1T-lvr" id="zvo-fa-5Zv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C4d-2r-V4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3070" y="-230"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="npN-MA-9co">
