@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RoutinesTableViewController: UITableViewController {
+class RoutinesTableViewController: UITableViewController, RoutinesTableViewControllerDelegate {
 
     /*
      the master key will be used to access the array of key strings that are used to access the data for
@@ -15,6 +15,7 @@ class RoutinesTableViewController: UITableViewController {
      */
     let MASTER_KEY : String = "MASTER KEY"
     var routines : [Routine] = [Routine]()
+    var stored_cell : Routine?
     
     @IBOutlet weak var create_button: UIBarButtonItem!
     
@@ -110,13 +111,21 @@ class RoutinesTableViewController: UITableViewController {
         }    
     }
     
+    /*
+     implement on tapped fuctionality
+     the stored cell will be used to determine aspects of the next screen
+     */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
+        stored_cell = routines[indexPath.row]
     }
     
+    /*
+     the title of the section(s)
+     */
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Routines"
     }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -160,15 +169,24 @@ class RoutinesTableViewController: UITableViewController {
         
     }
     
-    /*
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        self.view.endEditing(true)
+        
+        if let destination = segue.destination as? TabViewController {
+            destination.nav_bar.title = stored_cell?.name
+        }
+        stored_cell = nil
     }
-    */
+    
     
 
 }
 
+protocol RoutinesTableViewControllerDelegate {
+    func save_routines();
+}
 
