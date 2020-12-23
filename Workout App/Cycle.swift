@@ -33,6 +33,18 @@ class Cycle: NSObject, Codable {
         }
     }
     
+    func to_string() -> String {
+        let sm = Calendar.current.component(.month, from: start_date)
+        let sd = Calendar.current.component(.day, from: start_date)
+        let sy = Calendar.current.component(.year, from: start_date)
+        
+        let em = Calendar.current.component(.month, from: end_date)
+        let ed = Calendar.current.component(.day, from: end_date)
+        let ey = Calendar.current.component(.year, from: end_date)
+        
+        return "\(sm)/\(sd)/\(sy) - \(em)/\(ed)/\(ey)"
+    }
+    
     //MARK: CREATE THE NEXT CYCLE
     
     /*

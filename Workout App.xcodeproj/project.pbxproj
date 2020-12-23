@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8B62BE9E2592FFD100A9DCA8 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BE9D2592FFD100A9DCA8 /* TabViewController.swift */; };
 		8B62BEA7259306A800A9DCA8 /* CyclesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BEA6259306A800A9DCA8 /* CyclesViewController.swift */; };
+		8B62BEB225931E1C00A9DCA8 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BEB125931E1C00A9DCA8 /* ProgressViewController.swift */; };
 		8B704D7025898AD500AEA9E3 /* NewRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B704D6F25898AD500AEA9E3 /* NewRoutineViewController.swift */; };
 		8B704D7525898AF300AEA9E3 /* RoutinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B704D7425898AF300AEA9E3 /* RoutinesTableViewController.swift */; };
 		8B704D7D25898D0200AEA9E3 /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B704D7C25898D0200AEA9E3 /* Cycle.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		8B62BE9D2592FFD100A9DCA8 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		8B62BEA6259306A800A9DCA8 /* CyclesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclesViewController.swift; sourceTree = "<group>"; };
+		8B62BEB125931E1C00A9DCA8 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		8B704D6F25898AD500AEA9E3 /* NewRoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoutineViewController.swift; sourceTree = "<group>"; };
 		8B704D7425898AF300AEA9E3 /* RoutinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesTableViewController.swift; sourceTree = "<group>"; };
 		8B704D7C25898D0200AEA9E3 /* Cycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				8BA8ED9D2588AE0E001110A0 /* Main.storyboard */,
 				8BA8EDA22588AE0F001110A0 /* LaunchScreen.storyboard */,
 				8BA8EDA02588AE0F001110A0 /* Assets.xcassets */,
+				8B62BEB125931E1C00A9DCA8 /* ProgressViewController.swift */,
 				8B62BEA6259306A800A9DCA8 /* CyclesViewController.swift */,
 				8B62BE9D2592FFD100A9DCA8 /* TabViewController.swift */,
 				8B704DAA258A188500AEA9E3 /* SingleSetCell.swift */,
@@ -137,10 +140,10 @@
 				8B704D982589B77E00AEA9E3 /* NewDayViewController.swift */,
 				8B704D6F25898AD500AEA9E3 /* NewRoutineViewController.swift */,
 				8B704D7425898AF300AEA9E3 /* RoutinesTableViewController.swift */,
-				8B704D7C25898D0200AEA9E3 /* Cycle.swift */,
-				8B704D8625898D0700AEA9E3 /* Exercise.swift */,
-				8B704D8125898D0400AEA9E3 /* Day.swift */,
 				8B704D8B25898D0900AEA9E3 /* Routine.swift */,
+				8B704D7C25898D0200AEA9E3 /* Cycle.swift */,
+				8B704D8125898D0400AEA9E3 /* Day.swift */,
+				8B704D8625898D0700AEA9E3 /* Exercise.swift */,
 				8B704D9025898D0A00AEA9E3 /* Single_Set.swift */,
 			);
 			path = "Workout App";
@@ -305,6 +308,7 @@
 				8B704D9125898D0A00AEA9E3 /* Single_Set.swift in Sources */,
 				8B704D992589B77E00AEA9E3 /* NewDayViewController.swift in Sources */,
 				8BA8ED982588AE0E001110A0 /* AppDelegate.swift in Sources */,
+				8B62BEB225931E1C00A9DCA8 /* ProgressViewController.swift in Sources */,
 				8B704D7525898AF300AEA9E3 /* RoutinesTableViewController.swift in Sources */,
 				8BA8ED9A2588AE0E001110A0 /* SceneDelegate.swift in Sources */,
 				8B62BE9E2592FFD100A9DCA8 /* TabViewController.swift in Sources */,

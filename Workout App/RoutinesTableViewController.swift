@@ -162,7 +162,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
             if(new_routine.name == ""){
                 return
             }
-            routines.append(from_view.create_routine())
+            routines.append(new_routine)
             save_routines()
             load_routines()
         }
@@ -176,8 +176,9 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         // Pass the selected object to the new view controller.
         self.view.endEditing(true)
         
+        //if the destination is the tab view
         if let destination = segue.destination as? TabViewController {
-            destination.nav_bar.title = stored_cell?.name
+            destination.routine_delegate = self
         }
         stored_cell = nil
     }

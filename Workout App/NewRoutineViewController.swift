@@ -34,7 +34,6 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
      */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        
         adjust_rest_days()
     }
     
@@ -110,10 +109,13 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
      @return new routine
      */
     func create_routine() -> Routine {
+        //print("called")
         let first_cycle = Cycle(days)   // we are assuming days is initialized as something useful here;
                                         //if not things would just be blank
         var cycles = [Cycle]()
         cycles.append(first_cycle)
+        //print("days: \(days[0].name)")
+        //print("cycles: \(Calendar.current.component(.day, from: cycles[0].start_date))")
         return Routine(routine_name_field?.text ?? "none", cycles)
     }
     
