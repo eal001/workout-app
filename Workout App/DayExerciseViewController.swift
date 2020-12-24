@@ -12,6 +12,8 @@ class DayExerciseViewController: UIPageViewController, UIPageViewControllerDeleg
     var day_views = [SingleDayViewController]()
     var days = [Day]()
     var cycles_delegate : CyclesViewControllerDelegate?
+    var routine_delegate : RoutinesTableViewControllerDelegate?
+    
     @IBOutlet weak var nav_bar: UINavigationItem!
     
     override func viewDidLoad() {
@@ -29,6 +31,7 @@ class DayExerciseViewController: UIPageViewController, UIPageViewControllerDeleg
                 //can initialize the values for the day vc here
                 day_vc.day = day
                 day_vc.exercises = day.exercises
+                day_vc.routine_delegate = self.routine_delegate
                 day_views.append(day_vc)
             }
         

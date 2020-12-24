@@ -12,6 +12,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var cycles = [Cycle]()
     var stored_cell : Cycle?
     var nav_title = String()
+    var routine_delegate : RoutinesTableViewControllerDelegate?
     
     @IBOutlet weak var cycles_table: UITableView!
     
@@ -90,6 +91,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? DayExerciseViewController{
+            destination.routine_delegate = routine_delegate
             destination.cycles_delegate = self
             destination.nav_bar.title = self.nav_title
         }
@@ -98,6 +100,6 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 }
 
-protocol CyclesViewControllerDelegate{
+protocol CyclesViewControllerDelegate {
     
 }

@@ -26,6 +26,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         for vc in viewControllers ?? [UIViewController]() {
             
             if let current = vc as? CyclesViewController{
+                current.routine_delegate = self.routine_delegate
                 current.cycles = cycles
                 current.nav_title = nav_bar.title ?? ""
             }

@@ -11,6 +11,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var sets = [Single_Set]()
     var day_delegate : SingleDayViewControllerDelegate?
+    var routine_delegate : RoutinesTableViewControllerDelegate?
     
     @IBOutlet weak var set_table: UITableView!
     @IBOutlet weak var exercise_name_label: UILabel!
@@ -59,6 +60,8 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             sets[indexPath.row].complete()
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
+        
+        routine_delegate?.save_routines()
     }
     
     

@@ -12,6 +12,7 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
     var day : Day?
     var exercises = [Exercise]()
     var set_delegate : SetViewControllerDelegate?
+    var routine_delegate : RoutinesTableViewControllerDelegate?
     var stored_index = 0
     
     @IBOutlet weak var day_name_label: UILabel!
@@ -66,6 +67,7 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if let destination = segue.destination as? SetViewController{
             destination.day_delegate = self
+            destination.routine_delegate = routine_delegate
         }
         
     }
