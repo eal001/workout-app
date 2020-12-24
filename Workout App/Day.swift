@@ -36,10 +36,28 @@ class Day: NSObject, Codable {
     init(_ day : Day, _ date : Date){
         self.name =  day.name
         self.is_rest = day.is_rest
-        self.exercises = day.exercises
+        self.exercises = [Exercise]()
+        
+        for exercise in day.exercises{
+            exercises.append(Exercise(exercise: exercise))
+        }
         
         self.date = date
         self.dow = Calendar.current.component(.weekday, from: date)
+
+    }
+    
+    init(_ day : Day){
+        self.name =  day.name
+        self.is_rest = day.is_rest
+        self.exercises = [Exercise]()
+        
+        for exercise in day.exercises{
+            exercises.append(Exercise(exercise: exercise))
+        }
+        
+        self.date = day.date
+        self.dow = Calendar.current.component(.weekday, from: day.date)
 
     }
     
@@ -80,6 +98,27 @@ class Day: NSObject, Codable {
             week_str = "NULL"
         }
         return week_str
+    }
+    
+    func compute_next(day_offset: Int ) -> Day {
+        
+        var new_exercises = [Exercise]()
+        for exercise in exercises{
+            new_exercises.append(exercise.compute_next())
+        }
+        
+        var components = DateComponents()
+        components.year = Calendar.current.component(.year, from: date)
+        components.month = Calendar.current.component(.month, from: date)
+        components.day = Calendar.current.component(.day, from: date) + day_offset
+        components.hour = Calendar.current.component(.hour, from: date)
+        components.minute = Calendar.current.component(.minute, from: date)
+        components.second = Calendar.current.component(.minute, from: date)
+            
+        let new_date = Calendar.current.date(from: components) ?? Date()
+        
+        return Day(self.name, new_date, self.is_rest, new_exercises)
+        
     }
     
 }

@@ -10,7 +10,6 @@ import UIKit
 class TabViewController: UITabBarController, UITabBarControllerDelegate {
 
     var routine_delegate : RoutinesTableViewControllerDelegate?
-    var cycles = [Cycle]()
     @IBOutlet weak var nav_bar: UINavigationItem!
     
     override func viewDidLoad() {
@@ -18,6 +17,8 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         // Do any additional setup after loading the view.
         self.delegate = self
         routine_delegate?.save_routines()
+        
+        var cycles = [Cycle]()
         if let previous = routine_delegate as? RoutinesTableViewController{
             nav_bar.title = previous.stored_cell?.name
             cycles = previous.stored_cell?.cycles ?? [Cycle]()
@@ -35,6 +36,22 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
                 current.cycles = cycles
             }
         }
+    }
+    
+    @IBAction func create_new_cycle(_ sender: Any) {
+        
+        if let current = selectedViewController as? CyclesViewController{
+            current.cycles.insert(current.cycles[0].compute_next(), at: 0)
+            current.cycles_table.reloadData()
+            
+            if let first_vc = routine_delegate as? RoutinesTableViewController {
+                let i = first_vc.routines.firstIndex(of: first_vc.stored_cell!)
+                first_vc.routines[i ?? 0].cycles = current.cycles
+            }
+        }
+        
+        routine_delegate?.save_routines()
+        
     }
     
     

@@ -9,23 +9,29 @@ import UIKit
 
 class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SetViewControllerDelegate {
     
+    var exercise : Exercise?
     var sets = [Single_Set]()
     var day_delegate : SingleDayViewControllerDelegate?
     var routine_delegate : RoutinesTableViewControllerDelegate?
     
+    @IBOutlet weak var max_label: UILabel!
     @IBOutlet weak var set_table: UITableView!
     @IBOutlet weak var exercise_name_label: UILabel!
+    @IBOutlet weak var info_segment: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         set_table.dataSource = self
         set_table.delegate = self
         
+        info_segment.selectedSegmentIndex = 0
     }
     
-    func initialize(sets: [Single_Set], name: String){
+    func initialize(exercise: Exercise, sets: [Single_Set], name: String){
+        self.exercise = exercise
         self.sets = sets
         self.exercise_name_label.text = name
+        max_label.text = "\(self.exercise!.max_weight.weight) Kgs"
         set_table.reloadData()
     }
     
@@ -60,8 +66,19 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             sets[indexPath.row].complete()
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
-        
+        exercise?.compute_maxes()
         routine_delegate?.save_routines()
+    }
+    
+    @IBAction func changed_val(_ sender: Any) {
+        if info_segment.selectedSegmentIndex == 0{
+            max_label.text = "\(exercise!.max_weight.weight) Kgs"
+        } else if info_segment.selectedSegmentIndex == 1 {
+            max_label.text = "\(exercise!.max_reps.reps) Reps"
+        } else {
+            let vol = exercise!.max_volume.weight * Double(exercise!.max_volume.reps)
+            max_label.text = "\(vol) Kgs x Reps"
+        }
     }
     
     
@@ -83,5 +100,5 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 }
 
 protocol SetViewControllerDelegate {
-    func initialize(sets: [Single_Set], name: String)
+    func initialize(exercise: Exercise, sets: [Single_Set], name: String)
 }

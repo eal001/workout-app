@@ -23,9 +23,13 @@ class Cycle: NSObject, Codable {
     //MARK: INITIALIZATION
     
     init(_ days : [Day]){
-        self.days = days
+        self.days = [Day]()
         self.start_date = Date()
         self.end_date = Date()
+        
+        for day in days{
+            self.days.append(Day(day))
+        }
         
         if days.count != 0 {
             start_date = days[0].date
@@ -54,7 +58,13 @@ class Cycle: NSObject, Codable {
      @return the new Cycle
      */
     func compute_next() -> Cycle {
-        return Cycle([Day]()) //make sure to remove this one
+        
+        var new_days = [Day]()
+        
+        for day in days {
+            new_days.append(day.compute_next(day_offset: days.count ) )
+        }
+        return Cycle(new_days) 
     }
     
 }

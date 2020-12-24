@@ -65,7 +65,14 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+        
+        if let first_vc = routine_delegate as? RoutinesTableViewController{
+            let i = first_vc.routines.firstIndex(of: first_vc.stored_cell!)
+            first_vc.routines[i ?? 0].cycles = cycles
+        }
+        
         cycles_table.reloadData()
+        routine_delegate?.save_routines()
     }
     
     /*
@@ -80,9 +87,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
      does not matter. This methtod will use the cycle increment function, and add the returned cycle to the cycle
      array
      */
-    @IBAction func create_new_cycle(_ sender: Any) {
-        cycles.append(cycles[cycles.count - 1].compute_next())
-    }
+    
     
     // MARK: - Navigation
 
