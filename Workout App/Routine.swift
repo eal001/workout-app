@@ -47,7 +47,7 @@ class Routine: NSObject, Codable {
             UDM.shared.defaults?.setValue(data, forKey: name )
             return name
         } else {
-            print("\(Constants.SAVE_ERR_MSG) \(name)")
+            print("\(Constants.SAVE_ERR_MSG_0) \(name)")
         }
         return ""
     }
