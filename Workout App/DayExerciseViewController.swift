@@ -12,6 +12,7 @@ class DayExerciseViewController: UIPageViewController, UIPageViewControllerDeleg
     var day_views = [SingleDayViewController]()
     var days = [Day]()
     var cycles_delegate : CyclesViewControllerDelegate?
+    @IBOutlet weak var nav_bar: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()

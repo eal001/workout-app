@@ -7,10 +7,12 @@
 
 import UIKit
 
-class SingleDayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SingleDayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SingleDayViewControllerDelegate {
     
     var day : Day?
     var exercises = [Exercise]()
+    var set_delegate : SetViewControllerDelegate?
+    var stored_index = 0
     
     @IBOutlet weak var day_name_label: UILabel!
     @IBOutlet weak var exercise_table: UITableView!
@@ -24,12 +26,16 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
+    func update_sets(sets : [Single_Set]){
+        self.exercises[stored_index].sets = sets
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Exercices"
+        return "Exercises"
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,15 +47,34 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.textLabel?.text = exercises[indexPath.row].name
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        stored_index = indexPath.row
+        set_delegate?.initialize(sets: exercises[indexPath.row].sets, name: exercises[indexPath.row].name )
+    }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? SetViewControllerDelegate{
+            set_delegate = destination
+        }
+        
+        if let destination = segue.destination as? SetViewController{
+            destination.day_delegate = self
+        }
+        
     }
-    */
+    
 
 }
+
+protocol SingleDayViewControllerDelegate {
+    func update_sets(sets : [Single_Set])
+}
+
+

@@ -11,6 +11,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     var cycles = [Cycle]()
     var stored_cell : Cycle?
+    var nav_title = String()
     
     @IBOutlet weak var cycles_table: UITableView!
     
@@ -82,8 +83,6 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cycles.append(cycles[cycles.count - 1].compute_next())
     }
     
-    
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -92,6 +91,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? DayExerciseViewController{
             destination.cycles_delegate = self
+            destination.nav_bar.title = self.nav_title
         }
     }
     

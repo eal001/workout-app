@@ -17,6 +17,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.delegate = self
+        routine_delegate?.save_routines()
         if let previous = routine_delegate as? RoutinesTableViewController{
             nav_bar.title = previous.stored_cell?.name
             cycles = previous.stored_cell?.cycles ?? [Cycle]()
@@ -26,6 +27,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
             
             if let current = vc as? CyclesViewController{
                 current.cycles = cycles
+                current.nav_title = nav_bar.title ?? ""
             }
             
             if let current = vc as? ProgressViewController{
@@ -34,36 +36,15 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         }
     }
     
-    /*
-     called every time the views of this tab controller is switched
-     we will set the values of the sub view controllers so that they can be initialized correctly
-     */
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
-        /*
-        //if clicked on the cyclesView Controller
-        if let destination = viewController as? CyclesViewController {
-            print("cycles")
-            //destination.cycles = cycles
-        }
-        //if clicked on the progress view controller
-        if let destination = viewController as? ProgressViewController{
-            print("progress")
-            //destination.cycles = cycles
-        }*/
-        
-    }
     
     // MARK: - Navigation
-    /*
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if let destination = segue.destination as? CyclesViewController {
-            destination.cycles = self.routine?.cycles ?? [Cycle]()
-        }
+        routine_delegate?.save_routines()
     }
-    */
+    
 
 }

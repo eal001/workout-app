@@ -30,6 +30,7 @@
 		8BA8EDA42588AE0F001110A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA8EDA22588AE0F001110A0 /* LaunchScreen.storyboard */; };
 		8BA8EDAF2588AE0F001110A0 /* Workout_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8EDAE2588AE0F001110A0 /* Workout_AppTests.swift */; };
 		8BA8EDBA2588AE0F001110A0 /* Workout_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8EDB92588AE0F001110A0 /* Workout_AppUITests.swift */; };
+		8BF44DFE2594624B00C9DC0D /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF44DFD2594624B00C9DC0D /* SetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		8BA8EDB52588AE0F001110A0 /* Workout AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Workout AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA8EDB92588AE0F001110A0 /* Workout_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout_AppUITests.swift; sourceTree = "<group>"; };
 		8BA8EDBB2588AE0F001110A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BF44DFD2594624B00C9DC0D /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				8BA8EDA22588AE0F001110A0 /* LaunchScreen.storyboard */,
 				8BA8EDA02588AE0F001110A0 /* Assets.xcassets */,
 				8B62BEB125931E1C00A9DCA8 /* ProgressViewController.swift */,
+				8BF44DFD2594624B00C9DC0D /* SetViewController.swift */,
 				8B62BEBB2593336C00A9DCA8 /* SingleDayViewController.swift */,
 				8B62BEB62593317300A9DCA8 /* DayExerciseViewController.swift */,
 				8B62BEA6259306A800A9DCA8 /* CyclesViewController.swift */,
@@ -305,6 +308,7 @@
 			files = (
 				8B704D8225898D0400AEA9E3 /* Day.swift in Sources */,
 				8B62BEBC2593336C00A9DCA8 /* SingleDayViewController.swift in Sources */,
+				8BF44DFE2594624B00C9DC0D /* SetViewController.swift in Sources */,
 				8B704D8725898D0700AEA9E3 /* Exercise.swift in Sources */,
 				8B704D7025898AD500AEA9E3 /* NewRoutineViewController.swift in Sources */,
 				8BA8ED9C2588AE0E001110A0 /* ViewController.swift in Sources */,
