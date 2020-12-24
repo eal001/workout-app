@@ -38,6 +38,10 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         }
     }
     
+    /*
+     use the plus button in this view's navigation bar to create a new cycle
+     we will also need to save this cycle to the first vc'c routines, and save to user defaults
+     */
     @IBAction func create_new_cycle(_ sender: Any) {
         
         if let current = selectedViewController as? CyclesViewController{

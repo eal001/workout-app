@@ -43,10 +43,18 @@ class DayExerciseViewController: UIPageViewController, UIPageViewControllerDeleg
         }
     }
     
+    /*
+     this is a helper method that will create each view controller even though they are not connected on the storyboard
+     @param the ID of the vc on the storyboard
+     @return the VC
+     */
     func create_day_vcs( id : String ) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: id) as! SingleDayViewController
     }
     
+    /*
+     this implements the pageview funvtionality of swiping back
+     */
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = day_views.firstIndex(of: viewController as! SingleDayViewController) else {
             return nil
@@ -64,6 +72,9 @@ class DayExerciseViewController: UIPageViewController, UIPageViewControllerDeleg
         
     }
     
+    /*
+     this implements the functionality of swiping forward
+     */
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let index = day_views.firstIndex(of: viewController as! SingleDayViewController) else {
             return nil
