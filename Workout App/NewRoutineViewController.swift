@@ -116,7 +116,7 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         cycles.append(first_cycle)
         //print("days: \(days[0].name)")
         //print("cycles: \(Calendar.current.component(.day, from: cycles[0].start_date))")
-        return Routine(routine_name_field?.text ?? "none", cycles)
+        return Routine(routine_name_field?.text ?? "", cycles)
     }
     
     /*

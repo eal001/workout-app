@@ -113,9 +113,9 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 will_add = previous.stored_cell?.name ?? ""
             }
             if(will_add == ""){
-                routine_delegate?.append_days( day_name_field?.text ?? "none", exercises )
+                routine_delegate?.append_days( day_name_field?.text ?? "", exercises )
             } else {
-                routine_delegate?.edit_day( day_name_field?.text ?? "none", exercises)
+                routine_delegate?.edit_day( day_name_field?.text ?? "", exercises)
             }
         }
     }

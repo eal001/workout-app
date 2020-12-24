@@ -13,8 +13,12 @@ aspects, and we can use them once made (setting weight/reps/names).
 >maximum stats are shown in the set view, but are not updaed when one of these max stats is deselected, and no other similar lifts are completed
 >editing the rep/weight field of the sets in the usage mode; we want to be able to set these to complete or incomplete based on what number is 
     put into this as well
+>each routine is set up for linear progresstion, (should also have a manual mode)
 
 ## Planned Functionality
 >add a graph of progress throughout routine, over cycles for ALL lifts in the routine
 >add ability to put in how many reps you did, save that specific set as the changed values, and mark as complete/incomplete
 >add a screen to see how your strength in each percentile ranks whith others (probably by pinging a server)
+>add a settings page, can change color
+>add a dark mode/light mode/other color modes
+>manual mode of progression for each routine

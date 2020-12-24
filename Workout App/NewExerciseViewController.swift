@@ -148,7 +148,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
      @return a new Exercise based on name, sets and type
      */
     func compute_exercise() -> Exercise{
-        let name = name_field?.text ?? "none"
+        let name = name_field?.text ?? ""
         let type : ExerciseType
         switch type_picker.selectedRow(inComponent: 0){
         case 0:
