@@ -93,6 +93,7 @@ class UDM {
  */
 struct Constants {
     public static let WEIGHT_INCREMENT = 2.5
+    public static let REP_INCREMENT = 4
     public static let ACCESSORY_MAX = 24
     public static let ACCESSORY_RESET = 12
     public static let WEEKDAY_1 = "Monday"
