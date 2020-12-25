@@ -104,7 +104,7 @@ class Day: NSObject, Codable {
         return week_str
     }
     
-    func compute_next(day_offset: Int ) -> Day {
+    func    compute_next(day_offset: Int ) -> Day {
         
         var new_exercises = [Exercise]()
         for exercise in exercises{
