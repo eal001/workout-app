@@ -134,6 +134,7 @@ struct Constants {
     public static let REP_UNIT = "Reps"
     public static let VOL_UNIT = "\(WEIGHT_UNIT) x \(REP_UNIT)"
     public static let SET_TITLE = "Set"
-    
-    
+    public static let WEIGHT_MSG = "Maximum Weight Set for"
+    public static let REPS_MSG = "Maximum Rep Set for"
+    public static let VOLUME_MSG = "Maximum Volume Set for"
 }
