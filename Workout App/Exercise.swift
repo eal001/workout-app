@@ -75,7 +75,7 @@ class Exercise: NSObject, Codable {
         self.prev_exercise = exercise
     }
     
-    init(exercise: inout Exercise){
+    init(exercise: Exercise){
         self.sets = [Single_Set]()
         self.name = exercise.name
         self.type = exercise.type
@@ -114,43 +114,43 @@ class Exercise: NSObject, Codable {
         max_volume = Single_Set(0,0)
         max_weight = Single_Set(0,0)
         
-        print("exercise \(self)")
-        
-        for set in sets{
-            print("    set: \(set.weight) \(set.reps)")
-        }
-        
-        for set in sets {
-            if set.is_complete {
-                if(set.weight >= max_weight.weight){
-                    max_weight = set
-                }
-                if(set.reps >= max_reps.reps){
-                    max_reps = set
-                }
-                if( (Double(set.reps) * set.weight) >= (Double(max_volume.reps) * max_volume.weight)){
-                    max_volume = set
-                }
-            }
-        }
-        
-        print("    max: \(max_weight.weight) \(max_reps.reps)")
         
         if prev_exercise == nil{
             //we do not have a previous one to compare to
+            print("exercise \(self)")
+            for set in self.sets {
+                print("checking sets? \(set.is_complete)")
+                print("    set: \(set.weight) \(set.reps)")
+                if set.is_complete {
+                    print("checked")
+                    if(set.weight >= max_weight.weight){
+                        max_weight = set
+                    }
+                    if(set.reps >= max_reps.reps){
+                        max_reps = set
+                    }
+                    if( (Double(set.reps) * set.weight) >= (Double(max_volume.reps) * max_volume.weight)){
+                        max_volume = set
+                    }
+                } else {
+                    print("unchecked")
+                }
+            }
+            print("    max: \(max_weight.weight) \(max_reps.reps)")
+            
+            return
         } else {
-            var prev : Exercise? = prev_exercise
+            var prev : Exercise? = self
             while(prev != nil){
                 
-                print("exercise \(prev!.name)")
+                print("exercise \(prev!)")
                 
-                for set in prev!.sets{
-                    print("    set: \(set.weight) \(set.reps)")
-                }
                 
                 for set in prev!.sets {
+                    print("checking sets? \(set.is_complete)")
+                    print("    set: \(set.weight) \(set.reps)")
                     if set.is_complete {
-                        print("run?")
+                        print("checked")
                         if(set.weight >= max_weight.weight){
                             max_weight = set
                         }
@@ -160,6 +160,8 @@ class Exercise: NSObject, Codable {
                         if( (Double(set.reps) * set.weight) >= (Double(max_volume.reps) * max_volume.weight)){
                             max_volume = set
                         }
+                    } else {
+                        print("unchecked")
                     }
                 }
                 print("    max: \(max_weight.weight) \(max_reps.reps)")
@@ -178,7 +180,7 @@ class Exercise: NSObject, Codable {
      @return the new Exercise
      */
     func compute_next() -> Exercise{
-        let new_exercise = Exercise(exercise: self, max_reps: &max_reps, max_weight: &max_weight, max_volume: &max_volume)
+        let new_exercise = Exercise(exercise: self)
         
         var increment_flag = true
         for set in sets {
