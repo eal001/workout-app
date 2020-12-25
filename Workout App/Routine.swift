@@ -137,4 +137,5 @@ struct Constants {
     public static let WEIGHT_MSG = "Maximum Weight Set for"
     public static let REPS_MSG = "Maximum Rep Set for"
     public static let VOLUME_MSG = "Maximum Volume Set for"
+    public static let FINISHED_TXT = "OK"
 }

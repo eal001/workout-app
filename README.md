@@ -10,7 +10,7 @@ contain multiple exercises and within those exercises sets that we want to set a
 aspects, and we can use them once made (setting weight/reps/names). 
 
 ## Known Bugs
->maximum stats are shown in the set view, but are not updaed when one of these max stats is deselected, and no other similar lifts are completed
+>maximum stats are shown in the set view, but are not updaed correctly
 >editing the rep/weight field of the sets in the usage mode; we want to be able to set these to complete or incomplete based on what number is 
     put into this as well
 >each routine is set up for linear progresstion, (should also have a manual mode)
