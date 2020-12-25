@@ -14,6 +14,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var day_delegate : SingleDayViewControllerDelegate?
     var routine_delegate : RoutinesTableViewControllerDelegate?
     
+    @IBOutlet weak var info_button: UIButton!
     @IBOutlet weak var max_label: UILabel!
     @IBOutlet weak var set_table: UITableView!
     @IBOutlet weak var exercise_name_label: UILabel!
@@ -36,7 +37,9 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.exercise = exercise
         self.sets = sets
         self.exercise_name_label.text = name
-        max_label.text = "\(self.exercise!.max_weight.weight) \(Constants.WEIGHT_UNIT)"
+        
+        exercise.compute_next()
+        update_maxes_label()
         set_table.reloadData()
     }
     
@@ -87,13 +90,14 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
         exercise?.compute_maxes()
+        update_maxes_label()
         routine_delegate?.save_routines()
     }
     
     /*
-     for the segmented view, when it is switched we will update the label
+     a helper method to update the segmented control's label display
      */
-    @IBAction func changed_val(_ sender: Any) {
+    func update_maxes_label(){
         if info_segment.selectedSegmentIndex == 0{
             max_label.text = "\(exercise!.max_weight.weight) \(Constants.WEIGHT_UNIT)"
         } else if info_segment.selectedSegmentIndex == 1 {
@@ -104,6 +108,32 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
+    /*
+     for the segmented view, when it is switched we will update the label
+     */
+    @IBAction func changed_val(_ sender: Any) {
+        update_maxes_label()
+    }
+    
+    @IBAction func max_info(_ sender: Any) {
+        let msg : String
+        let title : String
+        if info_segment.selectedSegmentIndex == 0{
+            msg = "\(exercise!.max_weight.weight) \(Constants.WEIGHT_UNIT) : \(exercise!.max_weight.reps) \(Constants.REP_UNIT)"
+            title = "\(Constants.WEIGHT_MSG) \(exercise!.name)"
+        } else if info_segment.selectedSegmentIndex == 1 {
+            msg = "\(exercise!.max_reps.weight) \(Constants.WEIGHT_UNIT) : \(exercise!.max_reps.reps) \(Constants.REP_UNIT)"
+            title = "\(Constants.REPS_MSG) \(exercise!.name)"
+        }else {
+            msg = "\(exercise!.max_volume.weight) \(Constants.WEIGHT_UNIT) : \(exercise!.max_volume.reps) \(Constants.REP_UNIT)"
+            title = "\(Constants.VOLUME_MSG) \(exercise!.name)"
+        }
+        let alert = UIAlertController(title: title,
+                                      message: msg,
+                                      preferredStyle: UIAlertController.Style.alert )
+        alert.addAction( UIAlertAction(title: "OK", style: .default, handler: nil) )
+        self.present(alert, animated: true, completion: nil)
+    }
     
     // MARK: - Navigation
     
