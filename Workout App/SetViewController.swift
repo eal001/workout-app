@@ -38,7 +38,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.sets = sets
         self.exercise_name_label.text = name
         
-        exercise.compute_next()
+        exercise.compute_maxes()
         update_maxes_label()
         set_table.reloadData()
     }
@@ -131,7 +131,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let alert = UIAlertController(title: title,
                                       message: msg,
                                       preferredStyle: UIAlertController.Style.alert )
-        alert.addAction( UIAlertAction(title: "OK", style: .default, handler: nil) )
+        alert.addAction( UIAlertAction(title: Constants.FINISHED_TXT, style: .default, handler: nil) )
         self.present(alert, animated: true, completion: nil)
     }
     

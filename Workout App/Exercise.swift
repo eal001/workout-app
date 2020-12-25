@@ -47,9 +47,6 @@ class Exercise: NSObject, Codable {
         max_weight = Single_Set(0,0)
         max_volume = Single_Set(0,0)
         
-        //becasuse they are created from scratch in this init method, there is technically no previous maxes
-        super.init()
-        print("created new exercise \(name) as \(self)")
     }
     
     init(exercise :  Exercise, max_reps : inout Single_Set, max_weight : inout Single_Set, max_volume : inout Single_Set){
@@ -58,7 +55,8 @@ class Exercise: NSObject, Codable {
         self.type = exercise.type
         
         for set in exercise.sets{
-            sets.append(set)
+            print("\(exercise.name) \(set.is_complete)")
+            sets.append(Single_Set(set))
         }
         
         //volume is sets*weight*reps
@@ -75,7 +73,31 @@ class Exercise: NSObject, Codable {
         
         //init previous maxes from what is goven as well
         self.prev_exercise = exercise
-        print("created new exercise \(name) with previous property as \(prev_exercise)")
+    }
+    
+    init(exercise: inout Exercise){
+        self.sets = [Single_Set]()
+        self.name = exercise.name
+        self.type = exercise.type
+        
+        for set in exercise.sets{
+            sets.append(Single_Set(set))
+        }
+        
+        //volume is sets*weight*reps
+        volume = 0.0
+        for set in sets {
+            set.is_complete = false //set all the sets to incomplete
+            volume += Double(set.reps) * set.weight
+        }
+        
+        //init maxes from what is given
+        self.max_reps = exercise.max_reps
+        self.max_weight = exercise.max_weight
+        self.max_volume = exercise.max_volume
+        
+        //init previous maxes from what is goven as well
+        self.prev_exercise = exercise
     }
     
     //MARK: CALCULATIONS
@@ -86,62 +108,66 @@ class Exercise: NSObject, Codable {
      @param the previous exercise
      @return
      */
-    func compute_maxes() -> (Single_Set, Single_Set, Single_Set){
+    func compute_maxes(){
         //TODO: figure out based on completed sets what the maximum stats for this exercise is
         max_reps = Single_Set(0,0)
         max_volume = Single_Set(0,0)
         max_weight = Single_Set(0,0)
         
-        //base case: compare all completed sets and determine the the max set for this exercise
-        guard prev_exercise != nil else {
-            //we do not have a previous one to compare to
-            for set in sets {
-                if set.is_complete {
-                    if(set.weight > max_weight.weight){
-                        max_weight = set
-                    }
-                    if(set.reps > max_reps.reps){
-                        max_reps = set
-                    }
-                    if( (Double(set.reps) * set.weight) > (Double(max_volume.reps) * max_volume.weight)){
-                        max_volume = set
-                    }
-                }
-            }
-            //print("executed base max")
-            return (max_weight, max_reps, max_volume)
+        print("exercise \(self)")
+        
+        for set in sets{
+            print("    set: \(set.weight) \(set.reps)")
         }
         
-        //print("executed max")
-        //recursive case: compare the max completed sets for this exercise to the maxes for the previous exercises
-        
-        //get the max exercises for this one
         for set in sets {
             if set.is_complete {
-                if(set.weight > max_weight.weight){
+                if(set.weight >= max_weight.weight){
                     max_weight = set
                 }
-                if(set.reps > max_reps.reps){
+                if(set.reps >= max_reps.reps){
                     max_reps = set
                 }
-                if( (Double(set.reps) * set.weight) > (Double(max_volume.reps) * max_volume.weight)){
+                if( (Double(set.reps) * set.weight) >= (Double(max_volume.reps) * max_volume.weight)){
                     max_volume = set
                 }
             }
         }
         
-        let temp = prev_exercise!.compute_maxes()
+        print("    max: \(max_weight.weight) \(max_reps.reps)")
         
-        if(max_weight.weight < temp.0.weight){
-            max_weight = temp.0
+        if prev_exercise == nil{
+            //we do not have a previous one to compare to
+        } else {
+            var prev : Exercise? = prev_exercise
+            while(prev != nil){
+                
+                print("exercise \(prev!.name)")
+                
+                for set in prev!.sets{
+                    print("    set: \(set.weight) \(set.reps)")
+                }
+                
+                for set in prev!.sets {
+                    if set.is_complete {
+                        print("run?")
+                        if(set.weight >= max_weight.weight){
+                            max_weight = set
+                        }
+                        if(set.reps >= max_reps.reps){
+                            max_reps = set
+                        }
+                        if( (Double(set.reps) * set.weight) >= (Double(max_volume.reps) * max_volume.weight)){
+                            max_volume = set
+                        }
+                    }
+                }
+                print("    max: \(max_weight.weight) \(max_reps.reps)")
+                prev = prev!.prev_exercise
+            }
+            //because we compared and set these sets with the current exercises maxes, we have accurate info them
         }
-        if(max_reps.reps < temp.1.reps){
-            max_reps = temp.1
-        }
-        if((Double(max_reps.reps) * max_weight.weight) < (Double(temp.2.reps) * temp.2.weight) ){
-            max_volume = temp.2
-        }
-        return (max_weight, max_reps, max_volume)
+        
     }
     
     /*
@@ -152,7 +178,7 @@ class Exercise: NSObject, Codable {
      @return the new Exercise
      */
     func compute_next() -> Exercise{
-        let new_exercise = Exercise(exercise: self, max_reps: &max_reps,max_weight: &max_weight, max_volume: &max_volume)
+        let new_exercise = Exercise(exercise: self, max_reps: &max_reps, max_weight: &max_weight, max_volume: &max_volume)
         
         var increment_flag = true
         for set in sets {
@@ -166,6 +192,7 @@ class Exercise: NSObject, Codable {
         }
         
         for set in new_exercise.sets {
+            //print("creating")
             switch new_exercise.type {
             case .Primary:
                 set.weight += Constants.WEIGHT_INCREMENT
