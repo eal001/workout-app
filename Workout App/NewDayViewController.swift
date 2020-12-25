@@ -49,7 +49,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
      the name of the section(s)
      */
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Exercises"
+        return Constants.EXERCISES
     }
     
     /*
@@ -63,7 +63,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
      the cell anmes should be that of the exercise names
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "proto_cell", for: indexPath)
+        let cell =  tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
         cell.textLabel?.text = exercises[indexPath.row].name
         return cell
     }
@@ -108,7 +108,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if(self.isMovingFromParent){
             //add only if we didnt come from a cell
             //a clickale cell will never have an emty string as a name
-            var will_add = "0"
+            var will_add = Constants.ZERO_STR
             if let previous = routine_delegate as? NewRoutineViewController {
                 will_add = previous.stored_cell?.name ?? ""
             }

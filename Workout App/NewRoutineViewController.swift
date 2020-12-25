@@ -48,7 +48,7 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
      the name of the section(s)
      */
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
-        return "Days"
+        return Constants.DAYS
     }
     
     /*
@@ -62,7 +62,7 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
      the day cells should have light gray for rest days, and dark gray for exercise days
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "proto_cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
         cell.textLabel?.text = days[indexPath.row].name
         if(days[indexPath.row].is_rest){
             cell.backgroundColor = UIColor.systemGray6
@@ -150,7 +150,7 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
      */
     func adjust_rest_days(){
         
-        let num = Int(rest_day_field?.text ?? "0") ?? 0
+        let num = Int(rest_day_field?.text ?? Constants.ZERO_STR) ?? 0
         
         if(change_flag != num){
             //MARK: LEFT OFF HERE
@@ -169,7 +169,7 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
             i = 1
             if(to_remove > 0){
                 for i in 1...to_remove {//we must have a positivve difference meaning we want to add
-                    day = Day("Rest Day \(change_flag + i)", compute_next_date(based_on_index: days.count - 1), true, [Exercise]())
+                    day = Day("\(Constants.REST_DAY) \(change_flag + i)", compute_next_date(based_on_index: days.count - 1), true, [Exercise]())
                     days.append(day)
                 }
             }
@@ -190,14 +190,14 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         if(num == 1){ // special case, we only have 1 rest day, so change the name
             for day in days {
                 if(day.is_rest){
-                    day.name = "Rest Day"
+                    day.name = Constants.REST_DAY
                 }
             }
         } else { //change the name, to numbered
             var i = 1
             for day in days {
                 if day.is_rest {
-                    day.name = "Rest Day \(i)"
+                    day.name = "\(Constants.REST_DAY) \(i)"
                     i+=1
                 }
             }
@@ -210,7 +210,7 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
      be a rest day anymore
      */
     private func rest_day_removed(){
-        var rds = Int(rest_day_field?.text ?? "0") ?? 0
+        var rds = Int(rest_day_field?.text ?? Constants.ZERO_STR) ?? 0
         if(rds>0){
             rds-=1
         }

@@ -36,7 +36,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.exercise = exercise
         self.sets = sets
         self.exercise_name_label.text = name
-        max_label.text = "\(self.exercise!.max_weight.weight) Kgs"
+        max_label.text = "\(self.exercise!.max_weight.weight) \(Constants.WEIGHT_UNIT)"
         set_table.reloadData()
     }
     
@@ -51,7 +51,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      the title of the section(s)
      */
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Sets"
+        return Constants.SETS
     }
     
     /*
@@ -65,8 +65,8 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      what does each element look like
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "set_cell", for: indexPath) as! SingleSetCell
-        cell.set_label?.text = "Set \(indexPath.row + 1)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_1, for: indexPath) as! SingleSetCell
+        cell.set_label?.text = "\(Constants.SET_TITLE) \(indexPath.row + 1)"
         cell.rep_field?.text = String(sets[indexPath.row].reps)
         cell.weight_field?.text = String(sets[indexPath.row].weight)
         if(sets[indexPath.row].is_complete){
@@ -95,12 +95,12 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      */
     @IBAction func changed_val(_ sender: Any) {
         if info_segment.selectedSegmentIndex == 0{
-            max_label.text = "\(exercise!.max_weight.weight) Kgs"
+            max_label.text = "\(exercise!.max_weight.weight) \(Constants.WEIGHT_UNIT)"
         } else if info_segment.selectedSegmentIndex == 1 {
-            max_label.text = "\(exercise!.max_reps.reps) Reps"
+            max_label.text = "\(exercise!.max_reps.reps) \(Constants.REP_UNIT)"
         } else {
             let vol = exercise!.max_volume.weight * Double(exercise!.max_volume.reps)
-            max_label.text = "\(vol) Kgs x Reps"
+            max_label.text = "\(vol) \(Constants.VOL_UNIT)"
         }
     }
     

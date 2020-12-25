@@ -27,7 +27,7 @@ class DayExerciseViewController: UIPageViewController, UIPageViewControllerDeleg
         
         for day in days {
             //can edit the values for day here
-            if let day_vc = create_day_vcs(id: "certain_day") as? SingleDayViewController {
+            if let day_vc = create_day_vcs(id: Constants.VC_ID_0) as? SingleDayViewController {
                 //can initialize the values for the day vc here
                 day_vc.day = day
                 day_vc.exercises = day.exercises
@@ -49,7 +49,7 @@ class DayExerciseViewController: UIPageViewController, UIPageViewControllerDeleg
      @return the VC
      */
     func create_day_vcs( id : String ) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: id) as! SingleDayViewController
+        return UIStoryboard(name: Constants.STORYBOARD_ID, bundle: nil).instantiateViewController(identifier: id) as! SingleDayViewController
     }
     
     /*
