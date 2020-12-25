@@ -13,7 +13,6 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
      the master key will be used to access the array of key strings that are used to access the data for
      the routines
      */
-    let MASTER_KEY : String = "MASTER KEY"
     var routines : [Routine] = [Routine]()
     var stored_cell : Routine?
     
@@ -39,9 +38,9 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(routine_keys) {
-            UDM.shared.defaults?.setValue( data, forKey: MASTER_KEY )
+            UDM.shared.defaults?.setValue( data, forKey: Constants.MASTER_KEY )
         }else {
-            print("RoutineViewComtroller: unable to encode the routine keys to the master key")
+            print(Constants.SAVE_ERR_MSG_1)
         }
     }
     
@@ -53,15 +52,15 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
     func load_routines(){
         var routine_keys = [String]()
         
-        if let key_data = UDM.shared.defaults?.data(forKey:  MASTER_KEY){
+        if let key_data = UDM.shared.defaults?.data(forKey:  Constants.MASTER_KEY){
             let decoder = JSONDecoder()
             if let keys = try? decoder.decode([String].self, from: key_data){
                 routine_keys = keys
             } else {
-                print("RoutineViewController: some data existed at the master key but was not decoded")
+                print(Constants.LOAD_ERR_MSG_2)
             }
         } else {
-            print("RoutineViewVontroller: unable to get data for the routine keys")
+            print(Constants.LAOD_ERR_MSG_3)
         }
         
         routines.removeAll()
@@ -94,7 +93,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
      the cells should ahve the names of the routines, to differentiate 
      */
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "proto_cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
         cell.textLabel?.text = routines[indexPath.row].name
         return cell
     }
@@ -123,7 +122,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
      the title of the section(s)
      */
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Routines"
+        return Constants.ROUTINES
     }
     
     /*

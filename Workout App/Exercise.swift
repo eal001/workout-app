@@ -17,11 +17,14 @@ class Exercise: NSObject, Codable {
     
     var name : String
     var sets : [Single_Set] = [Single_Set]()
+    var volume : Double
+    var type : ExerciseType
+    
+    //these values refer to the max sets as determined by PREVIOUS exercises of the same one
+    //they will not update when this exercises sets are completed
     var max_weight : Single_Set
     var max_reps : Single_Set
     var max_volume : Single_Set
-    var volume : Double
-    var type : ExerciseType
     
     //MARK: INITIALIZATION
     
@@ -94,6 +97,9 @@ class Exercise: NSObject, Codable {
      */
     func compute_maxes(){
         //TODO: figure out based on completed sets what the maximum stats for this exercise is
+        
+        
+        
         for set in sets {
             if set.is_complete {
                 if set.reps > max_reps.reps{
