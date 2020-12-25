@@ -33,13 +33,17 @@ class Day: NSObject, Codable {
         self.dow = Calendar.current.component(.weekday, from: date)
     }
     
+    /*
+     this is a special initialization method that creates a new day with exercises
+     that have a linked list like reference to their previous exercise
+     */
     init(_ day : Day, _ date : Date){
         self.name =  day.name
         self.is_rest = day.is_rest
         self.exercises = [Exercise]()
         
         for exercise in day.exercises{
-            exercises.append(Exercise(exercise: exercise))
+            exercises.append(Exercise(exercise: exercise, max_reps: &exercise.max_reps, max_weight: &exercise.max_weight, max_volume: &exercise.max_volume))
         }
         
         self.date = date
@@ -53,7 +57,7 @@ class Day: NSObject, Codable {
         self.exercises = [Exercise]()
         
         for exercise in day.exercises{
-            exercises.append(Exercise(exercise: exercise))
+            exercises.append(exercise)
         }
         
         self.date = day.date

@@ -28,7 +28,7 @@ class Cycle: NSObject, Codable {
         self.end_date = Date()
         
         for day in days{
-            self.days.append(Day(day))
+            self.days.append(day)
         }
         
         if days.count != 0 {
