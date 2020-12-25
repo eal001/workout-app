@@ -164,6 +164,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
             routines.append(new_routine)
             save_routines()
             load_routines()
+            //self.tableView.reloadData()
         }
         
     }

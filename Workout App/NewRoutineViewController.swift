@@ -111,7 +111,7 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
     func create_routine() -> Routine {
         //print("called")
         let first_cycle = Cycle(days)   // we are assuming days is initialized as something useful here;
-                                        //if not things would just be blank
+                                          //if not things would just be blank
         var cycles = [Cycle]()
         cycles.append(first_cycle)
         //print("days: \(days[0].name)")
