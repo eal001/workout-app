@@ -22,6 +22,11 @@ class Exercise: NSObject, Codable {
     
     //these values refer to the max sets as determined by PREVIOUS exercises of the same one
     //they will not update when this exercises sets are completed
+    var prev_max_weight : Single_Set?
+    var prev_max_reps : Single_Set?
+    var prev_max_volume : Single_Set?
+    
+    //these values are the current max as updated
     var max_weight : Single_Set
     var max_reps : Single_Set
     var max_volume : Single_Set
@@ -43,6 +48,9 @@ class Exercise: NSObject, Codable {
         max_reps = Single_Set(0,0)
         max_weight = Single_Set(0,0)
         max_volume = Single_Set(0,0)
+        
+        //becasuse they are created from scratch in this init method, there is technically no previous maxes
+        
     }
     
     init(exercise : Exercise, max_reps : Single_Set, max_weight :  Single_Set, max_volume : Single_Set){
@@ -61,10 +69,15 @@ class Exercise: NSObject, Codable {
             volume += Double(set.reps) * set.weight
         }
         
-        //maxes are not initialied because theyre not complete yet
+        //init maxes from what is given
         self.max_reps = max_reps
         self.max_weight = max_weight
         self.max_volume = max_volume
+        
+        //init previous maxes from what is goven as well
+        self.prev_max_volume = max_volume
+        self.prev_max_weight = max_weight
+        self.prev_max_reps = max_reps
     }
     
     init(exercise : Exercise){
@@ -83,10 +96,15 @@ class Exercise: NSObject, Codable {
             volume += Double(set.reps) * set.weight
         }
         
-        //maxes are not initialied because theyre not complete yet
+        //init maxes from the given exercise
         self.max_reps = exercise.max_reps
         self.max_weight = exercise.max_weight
         self.max_volume = exercise.max_volume
+        
+        //the previous maxes are also given from the previous exercise
+        self.prev_max_reps = exercise.max_reps
+        self.prev_max_weight = exercise.max_weight
+        self.prev_max_volume = exercise.max_volume
     }
     
     //MARK: CALCULATIONS
@@ -98,20 +116,35 @@ class Exercise: NSObject, Codable {
     func compute_maxes(){
         //TODO: figure out based on completed sets what the maximum stats for this exercise is
         
-        
+        var rep_flag = false
+        var weight_flag = false
+        var volume_flag = false
         
         for set in sets {
             if set.is_complete {
                 if set.reps > max_reps.reps{
                     max_reps = set
+                    rep_flag = true
                 }
                 if set.weight > max_weight.weight{
                     max_weight = set
+                    weight_flag = true
                 }
                 if (Double(set.reps) * set.weight) > (Double(max_volume.reps) * max_volume.weight){
                     max_volume = set
+                    volume_flag = true
                 }
             }
+        }
+        
+        if(volume_flag){
+            max_volume = prev_max_volume ?? Single_Set(0,0)
+        }
+        if(weight_flag){
+            max_weight = prev_max_weight ?? Single_Set(0,0)
+        }
+        if(rep_flag){
+            max_reps = prev_max_reps ?? Single_Set(0,0)
         }
     }
     
