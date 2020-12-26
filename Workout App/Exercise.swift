@@ -20,10 +20,6 @@ class Exercise: NSObject, Codable {
     var volume : Double
     var type : ExerciseType
     
-    //these values refer to the max sets as determined by PREVIOUS exercises of the same one
-    //they will not update when this exercises sets are completed
-    var prev_exercise : Exercise?
-    
     //these values are the current max as updated
     var max_weight : Single_Set
     var max_reps : Single_Set
@@ -71,8 +67,6 @@ class Exercise: NSObject, Codable {
         self.max_weight = max_weight
         self.max_volume = max_volume
         
-        //init previous maxes from what is goven as well
-        self.prev_exercise = exercise
     }
     
     init(exercise: Exercise){
@@ -95,82 +89,9 @@ class Exercise: NSObject, Codable {
         self.max_reps = exercise.max_reps
         self.max_weight = exercise.max_weight
         self.max_volume = exercise.max_volume
-        
-        //init previous maxes from what is goven as well
-        self.prev_exercise = exercise
     }
     
     //MARK: CALCULATIONS
-    
-    /*
-     look at all the completed sets, the one with the most reps is max_reps, the one with max_weight
-     is max weight, and the (reps*weight) max volume is the max volume, just set the values do not return anything
-     @param the previous exercise
-     @return
-     */
-    func compute_maxes(){
-        //TODO: figure out based on completed sets what the maximum stats for this exercise is
-        max_reps = Single_Set(0,0)
-        max_volume = Single_Set(0,0)
-        max_weight = Single_Set(0,0)
-        
-        
-        if prev_exercise == nil{
-            //we do not have a previous one to compare to
-            print("exercise \(self)")
-            for set in self.sets {
-                print("checking sets? \(set.is_complete)")
-                print("    set: \(set.weight) \(set.reps)")
-                if set.is_complete {
-                    print("checked")
-                    if(set.weight >= max_weight.weight){
-                        max_weight = set
-                    }
-                    if(set.reps >= max_reps.reps){
-                        max_reps = set
-                    }
-                    if( (Double(set.reps) * set.weight) >= (Double(max_volume.reps) * max_volume.weight)){
-                        max_volume = set
-                    }
-                } else {
-                    print("unchecked")
-                }
-            }
-            print("    max: \(max_weight.weight) \(max_reps.reps)")
-            
-            return
-        } else {
-            var prev : Exercise? = self
-            while(prev != nil){
-                
-                print("exercise \(prev!)")
-                
-                
-                for set in prev!.sets {
-                    print("checking sets? \(set.is_complete)")
-                    print("    set: \(set.weight) \(set.reps)")
-                    if set.is_complete {
-                        print("checked")
-                        if(set.weight >= max_weight.weight){
-                            max_weight = set
-                        }
-                        if(set.reps >= max_reps.reps){
-                            max_reps = set
-                        }
-                        if( (Double(set.reps) * set.weight) >= (Double(max_volume.reps) * max_volume.weight)){
-                            max_volume = set
-                        }
-                    } else {
-                        print("unchecked")
-                    }
-                }
-                print("    max: \(max_weight.weight) \(max_reps.reps)")
-                prev = prev!.prev_exercise
-            }
-            //because we compared and set these sets with the current exercises maxes, we have accurate info them
-        }
-        
-    }
     
     /*
      figure out how heavy and how many reps each set will be for this Exercise NEXT TIME

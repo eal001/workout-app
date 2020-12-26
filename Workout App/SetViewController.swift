@@ -38,7 +38,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.sets = sets
         self.exercise_name_label.text = name
         
-        exercise.compute_maxes()
+        //exercise.compute_maxes()
         update_maxes_label()
         set_table.reloadData()
     }
@@ -89,7 +89,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             sets[indexPath.row].complete()
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
-        exercise?.compute_maxes()
+        routine_delegate?.compute_all_pr(name: exercise?.name ?? "" )
         update_maxes_label()
         routine_delegate?.save_routines()
     }
