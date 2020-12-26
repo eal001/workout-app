@@ -45,7 +45,7 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
      the title of the section(s)
      */
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Exercises"
+        return Constants.EXERCISES
     }
 
     /*
@@ -59,7 +59,7 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
      what does each cell look like
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "proto_cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
         cell.textLabel?.text = exercises[indexPath.row].name
         return cell
     }

@@ -17,11 +17,13 @@ class Exercise: NSObject, Codable {
     
     var name : String
     var sets : [Single_Set] = [Single_Set]()
+    var volume : Double
+    var type : ExerciseType
+    
+    //these values are the current max as updated
     var max_weight : Single_Set
     var max_reps : Single_Set
     var max_volume : Single_Set
-    var volume : Double
-    var type : ExerciseType
     
     //MARK: INITIALIZATION
     
@@ -40,14 +42,16 @@ class Exercise: NSObject, Codable {
         max_reps = Single_Set(0,0)
         max_weight = Single_Set(0,0)
         max_volume = Single_Set(0,0)
+        
     }
     
-    init(exercise : Exercise, max_reps : Single_Set, max_weight :  Single_Set, max_volume : Single_Set){
+    init(exercise :  Exercise, max_reps : inout Single_Set, max_weight : inout Single_Set, max_volume : inout Single_Set){
         self.sets = [Single_Set]()
         self.name = exercise.name
         self.type = exercise.type
         
         for set in exercise.sets{
+            print("\(exercise.name) \(set.is_complete)")
             sets.append(Single_Set(set))
         }
         
@@ -58,13 +62,14 @@ class Exercise: NSObject, Codable {
             volume += Double(set.reps) * set.weight
         }
         
-        //maxes are not initialied because theyre not complete yet
+        //init maxes from what is given
         self.max_reps = max_reps
         self.max_weight = max_weight
         self.max_volume = max_volume
+        
     }
     
-    init(exercise : Exercise){
+    init(exercise: Exercise){
         self.sets = [Single_Set]()
         self.name = exercise.name
         self.type = exercise.type
@@ -80,34 +85,13 @@ class Exercise: NSObject, Codable {
             volume += Double(set.reps) * set.weight
         }
         
-        //maxes are not initialied because theyre not complete yet
+        //init maxes from what is given
         self.max_reps = exercise.max_reps
         self.max_weight = exercise.max_weight
         self.max_volume = exercise.max_volume
     }
     
     //MARK: CALCULATIONS
-    
-    /*
-     look at all the completed sets, the one with the most reps is max_reps, the one with max_weight
-     is max weight, and the (reps*weight) max volume is the max volume, just set the values do not return anything
-     */
-    func compute_maxes(){
-        //TODO: figure out based on completed sets what the maximum stats for this exercise is
-        for set in sets {
-            if set.is_complete {
-                if set.reps > max_reps.reps{
-                    max_reps = set
-                }
-                if set.weight > max_weight.weight{
-                    max_weight = set
-                }
-                if (Double(set.reps) * set.weight) > (Double(max_volume.reps) * max_volume.weight){
-                    max_volume = set
-                }
-            }
-        }
-    }
     
     /*
      figure out how heavy and how many reps each set will be for this Exercise NEXT TIME
@@ -117,7 +101,7 @@ class Exercise: NSObject, Codable {
      @return the new Exercise
      */
     func compute_next() -> Exercise{
-        let new_exercise = Exercise(exercise: self, max_reps: max_reps, max_weight: max_weight, max_volume: max_volume)
+        let new_exercise = Exercise(exercise: self)
         
         var increment_flag = true
         for set in sets {
@@ -131,19 +115,20 @@ class Exercise: NSObject, Codable {
         }
         
         for set in new_exercise.sets {
+            //print("creating")
             switch new_exercise.type {
             case .Primary:
-                set.weight += 2.5
+                set.weight += Constants.WEIGHT_INCREMENT
             case .Secondary:
-                set.weight += 2.5
+                set.weight += Constants.WEIGHT_INCREMENT
             case .Compound:
-                set.weight += 2.5
+                set.weight += Constants.WEIGHT_INCREMENT
             case .Accessory:
-                if(set.reps > 24){
-                    set.reps += 4
+                if(set.reps > Constants.ACCESSORY_MAX){
+                    set.reps += Constants.REP_INCREMENT
                 } else {
-                    set.reps = 12
-                    set.weight += 2.5 // or 5 if in lbs
+                    set.reps = Constants.ACCESSORY_RESET
+                    set.weight += Constants.WEIGHT_INCREMENT // or 5 if in lbs
                 }
             case .Calisthenic:
                 set.reps += 1

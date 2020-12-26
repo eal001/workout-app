@@ -11,9 +11,8 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
 
     /*
      the master key will be used to access the array of key strings that are used to access the data for
-     the routines
+     the routines NOTE: master key is now stored in the constants class
      */
-    let MASTER_KEY : String = "MASTER KEY"
     var routines : [Routine] = [Routine]()
     var stored_cell : Routine?
     
@@ -39,9 +38,9 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(routine_keys) {
-            UDM.shared.defaults?.setValue( data, forKey: MASTER_KEY )
+            UDM.shared.defaults?.setValue( data, forKey: Constants.MASTER_KEY )
         }else {
-            print("RoutineViewComtroller: unable to encode the routine keys to the master key")
+            print(Constants.SAVE_ERR_MSG_1)
         }
     }
     
@@ -53,15 +52,15 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
     func load_routines(){
         var routine_keys = [String]()
         
-        if let key_data = UDM.shared.defaults?.data(forKey:  MASTER_KEY){
+        if let key_data = UDM.shared.defaults?.data(forKey:  Constants.MASTER_KEY){
             let decoder = JSONDecoder()
             if let keys = try? decoder.decode([String].self, from: key_data){
                 routine_keys = keys
             } else {
-                print("RoutineViewController: some data existed at the master key but was not decoded")
+                print(Constants.LOAD_ERR_MSG_2)
             }
         } else {
-            print("RoutineViewVontroller: unable to get data for the routine keys")
+            print(Constants.LAOD_ERR_MSG_3)
         }
         
         routines.removeAll()
@@ -94,7 +93,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
      the cells should ahve the names of the routines, to differentiate 
      */
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "proto_cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
         cell.textLabel?.text = routines[indexPath.row].name
         return cell
     }
@@ -123,7 +122,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
      the title of the section(s)
      */
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Routines"
+        return Constants.ROUTINES
     }
     
     /*
@@ -148,6 +147,66 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         return true
     }
     */
+    
+    //MARK: Calculations
+    
+    
+    /*
+     we will use the value of the stored cell in this vc and set all of its exercise values in this stored
+     routine to their max rep/weight/volume. WE will deterimine which ones are the same based on their string titles
+     ignore the capitalization when comparing the names. This function operates on the assumption that stored_cell exists
+     @param the string exercise that we are comparing to
+     */
+    func compute_all_pr(name : String) {
+        //the maximum weight/reps/volume values for the exercise with the given name
+        var max_w : Single_Set = Single_Set(0,0)
+        var max_r : Single_Set = Single_Set(0,0)
+        var max_v : Single_Set = Single_Set(0,0)
+        //print("##################")
+        for cycle in stored_cell!.cycles {
+            //print("checking cycle: \(cycle.to_string())")
+            for day in cycle.days{
+                //print("checking day : \(day.name)")
+                for exercise in day.exercises{
+                    //print("checking exercise : \(exercise.name)", terminator: " ")
+                    if(exercise.name.capitalized == name.capitalized){
+                        //print("matches")
+                        for set in exercise.sets{
+                            //print("set is complete?", terminator: " ")
+                            if set.is_complete {
+                                //print("yes")
+                                if set.weight > max_w.weight {
+                                    max_w = set
+                                }
+                                if set.reps > max_r.reps {
+                                    max_r = set
+                                }
+                                if (Double(set.reps) * set.weight ) > (Double(max_v.reps) * max_v.weight) {
+                                    max_v = set
+                                }
+                            } //else { print("no") }
+                        }
+                        
+                    } //else { print("doesnt match") }
+                }
+            }
+        }
+        
+        
+        for cycle in stored_cell!.cycles {
+            for day in cycle.days{
+                for exercise in day.exercises{
+                    if(exercise.name.capitalized == name.capitalized){
+                        exercise.max_weight = max_v
+                        exercise.max_reps = max_r
+                        exercise.max_volume = max_v
+                }
+                }
+            }
+        }
+        
+    }
+        
 
     //MARK: - Navigation
     /*
@@ -165,6 +224,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
             routines.append(new_routine)
             save_routines()
             load_routines()
+            //self.tableView.reloadData()
         }
         
     }
@@ -188,6 +248,11 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
 }
 
 protocol RoutinesTableViewControllerDelegate {
+    
+    //a function to save the routines that we have in User Defaults
     func save_routines();
+    
+    //a function to get all of the same exercises and find the maximum prs that you have done (previously or currently)
+    func compute_all_pr(name: String);
 }
 

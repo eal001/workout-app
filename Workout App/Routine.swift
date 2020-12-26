@@ -83,7 +83,7 @@ class Routine: NSObject, Codable {
  */
 class UDM {
     static let shared = UDM()
-    let defaults = UserDefaults(suiteName: "com.elliotlee.workout-app")
+    let defaults = UserDefaults(suiteName: Constants.SUITE_NAME )
 }
 
 /*
@@ -93,8 +93,10 @@ class UDM {
  */
 struct Constants {
     public static let WEIGHT_INCREMENT = 2.5
+    public static let REP_INCREMENT = 4
     public static let ACCESSORY_MAX = 24
     public static let ACCESSORY_RESET = 12
+    public static let EX_TYPE_COUNT = 6
     public static let WEEKDAY_1 = "Monday"
     public static let WEEKDAY_2 = "Tuesday"
     public static let WEEKDAY_3 = "Wednesday"
@@ -132,6 +134,8 @@ struct Constants {
     public static let REP_UNIT = "Reps"
     public static let VOL_UNIT = "\(WEIGHT_UNIT) x \(REP_UNIT)"
     public static let SET_TITLE = "Set"
-    
-    
+    public static let WEIGHT_MSG = "Maximum Weight Set for"
+    public static let REPS_MSG = "Maximum Rep Set for"
+    public static let VOLUME_MSG = "Maximum Volume Set for"
+    public static let FINISHED_TXT = "OK"
 }

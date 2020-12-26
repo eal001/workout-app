@@ -33,13 +33,17 @@ class Day: NSObject, Codable {
         self.dow = Calendar.current.component(.weekday, from: date)
     }
     
+    /*
+     this is a special initialization method that creates a new day with exercises
+     that have a linked list like reference to their previous exercise
+     */
     init(_ day : Day, _ date : Date){
         self.name =  day.name
         self.is_rest = day.is_rest
         self.exercises = [Exercise]()
         
         for exercise in day.exercises{
-            exercises.append(Exercise(exercise: exercise))
+            exercises.append(Exercise(exercise: exercise, max_reps: &exercise.max_reps, max_weight: &exercise.max_weight, max_volume: &exercise.max_volume))
         }
         
         self.date = date
@@ -53,7 +57,7 @@ class Day: NSObject, Codable {
         self.exercises = [Exercise]()
         
         for exercise in day.exercises{
-            exercises.append(Exercise(exercise: exercise))
+            exercises.append(exercise)
         }
         
         self.date = day.date
@@ -81,26 +85,26 @@ class Day: NSObject, Codable {
         let week_str : String
         switch(dow){
         case 1:
-            week_str = "Sunday"
+            week_str = Constants.WEEKDAY_7
         case 2:
-            week_str = "Monday"
+            week_str = Constants.WEEKDAY_1
         case 3:
-            week_str = "Tuesday"
+            week_str = Constants.WEEKDAY_2
         case 4:
-            week_str = "Wedneday"
+            week_str = Constants.WEEKDAY_3
         case 5:
-            week_str = "Thursday"
+            week_str = Constants.WEEKDAY_4
         case 6:
-            week_str = "Friday"
+            week_str = Constants.WEEKDAY_5
         case 7:
-            week_str = "Saturday"
+            week_str = Constants.WEEKDAY_6
         default:
-            week_str = "NULL"
+            week_str = Constants.NULL_STR
         }
         return week_str
     }
     
-    func compute_next(day_offset: Int ) -> Day {
+    func    compute_next(day_offset: Int ) -> Day {
         
         var new_exercises = [Exercise]()
         for exercise in exercises{

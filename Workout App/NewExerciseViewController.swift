@@ -52,7 +52,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
      the name of the section(s) for the tableview
      */
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Sets"
+        return Constants.SETS
     }
     
     /*
@@ -67,8 +67,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
      weight and rep amount should be shown in the fields, for the tableview
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "set_cell") as! SingleSetCell
-        cell.set_label.text = "Set \(indexPath.row + 1)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_1) as! SingleSetCell
+        cell.set_label.text = "\(Constants.SET_TITLE) \(indexPath.row + 1)"
         cell.weight_field.text = String(sets[indexPath.row].weight)
         cell.rep_field.text = String(sets[indexPath.row].reps)
         return cell
@@ -98,7 +98,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
      the number of elements in each component. This should be the number of exercise types
      */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 6
+        return Constants.EX_TYPE_COUNT
     }
     
     /*
@@ -107,19 +107,19 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch row {
         case 0:
-            return "Primary"
+            return Constants.EX_TYPE_0
         case 1:
-            return "Secondary"
+            return Constants.EX_TYPE_1
         case 2:
-            return "Compound"
+            return Constants.EX_TYPE_2
         case 3:
-            return "Accessory"
+            return Constants.EX_TYPE_3
         case 4:
-            return "Calisthenic"
+            return Constants.EX_TYPE_4
         case 5:
-            return "Other"
+            return Constants.EX_TYPE_5
         default:
-            return "Other"
+            return Constants.EX_TYPE_5
         }
     }
     
@@ -203,7 +203,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewWillDisappear(_ animated: Bool) {
         if self.isMovingFromParent {
-            var will_add = "0"
+            var will_add = Constants.ZERO_STR
             if let previous = delegate as? NewDayViewController{
                 will_add = previous.stored_cell?.name ?? ""
             }

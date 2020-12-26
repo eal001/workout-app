@@ -36,7 +36,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
      title for the section(s)
      */
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Cycles"
+        return Constants.CYCLES
     }
     
     /*
@@ -50,7 +50,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
      what does each cell in the table look like
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "proto_cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
         cell.textLabel?.text = cycles[indexPath.row].to_string()
         return cell
     }
