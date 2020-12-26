@@ -11,7 +11,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
 
     /*
      the master key will be used to access the array of key strings that are used to access the data for
-     the routines
+     the routines NOTE: master key is now stored in the constants class
      */
     var routines : [Routine] = [Routine]()
     var stored_cell : Routine?
@@ -147,6 +147,66 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         return true
     }
     */
+    
+    //MARK: Calculations
+    
+    
+    /*
+     we will use the value of the stored cell in this vc and set all of its exercise values in this stored
+     routine to their max rep/weight/volume. WE will deterimine which ones are the same based on their string titles
+     ignore the capitalization when comparing the names. This function operates on the assumption that stored_cell exists
+     @param the string exercise that we are comparing to
+     */
+    func compute_all_pr(name : String) {
+        //the maximum weight/reps/volume values for the exercise with the given name
+        var max_w : Single_Set = Single_Set(0,0)
+        var max_r : Single_Set = Single_Set(0,0)
+        var max_v : Single_Set = Single_Set(0,0)
+        //print("##################")
+        for cycle in stored_cell!.cycles {
+            //print("checking cycle: \(cycle.to_string())")
+            for day in cycle.days{
+                //print("checking day : \(day.name)")
+                for exercise in day.exercises{
+                    //print("checking exercise : \(exercise.name)", terminator: " ")
+                    if(exercise.name.capitalized == name.capitalized){
+                        //print("matches")
+                        for set in exercise.sets{
+                            //print("set is complete?", terminator: " ")
+                            if set.is_complete {
+                                //print("yes")
+                                if set.weight > max_w.weight {
+                                    max_w = set
+                                }
+                                if set.reps > max_r.reps {
+                                    max_r = set
+                                }
+                                if (Double(set.reps) * set.weight ) > (Double(max_v.reps) * max_v.weight) {
+                                    max_v = set
+                                }
+                            } //else { print("no") }
+                        }
+                        
+                    } //else { print("doesnt match") }
+                }
+            }
+        }
+        
+        
+        for cycle in stored_cell!.cycles {
+            for day in cycle.days{
+                for exercise in day.exercises{
+                    if(exercise.name.capitalized == name.capitalized){
+                        exercise.max_weight = max_v
+                        exercise.max_reps = max_r
+                        exercise.max_volume = max_v
+                }
+                }
+            }
+        }
+        
+    }
+        
 
     //MARK: - Navigation
     /*
@@ -188,6 +248,11 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
 }
 
 protocol RoutinesTableViewControllerDelegate {
+    
+    //a function to save the routines that we have in User Defaults
     func save_routines();
+    
+    //a function to get all of the same exercises and find the maximum prs that you have done (previously or currently)
+    func compute_all_pr(name: String);
 }
 
