@@ -9,6 +9,12 @@ import UIKit
 
 class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, NewDayViewControllerDelegate {
     
+    var BACKGROUND : UIColor = UIColor.white
+    var TEXT : UIColor = UIColor.white
+    var SECTION : UIColor = UIColor.white
+    var CELL_0 : UIColor = UIColor.white
+    var CELL_1 : UIColor = UIColor.white
+    
     var exercises : [Exercise] = [Exercise]()
     var routine_delegate : NewRoutineViewControllerDelegate?
     var stored_cell : Exercise?

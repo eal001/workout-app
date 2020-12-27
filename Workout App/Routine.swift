@@ -138,5 +138,18 @@ struct Constants {
     public static let REPS_MSG = "Maximum Rep Set for"
     public static let VOLUME_MSG = "Maximum Volume Set for"
     public static let FINISHED_TXT = "OK"
-    public static let CYCLES_EMPTY_ERR_MSG = "Error: any Cycles array that is created or edited should never be empty"
+    
+    //light mode colors
+    public static let LIGHT_BACKGROUND = UIColor.white
+    public static let LIGHT_SECTION = UIColor.white
+    public static let LIGHT_CELL_0 = UIColor.systemGray6
+    public static let LIGHT_CELL_1 = UIColor.systemGray5
+    public static let LIGHT_TEXT = UIColor.black
+    
+    //dark mode colors
+    public static let DARK_BACKGROUND = UIColor.black
+    public static let DARK_SECTION = UIColor.darkGray
+    public static let DARK_CELL_0 = UIColor.darkGray
+    public static let DARK_CELL_1 = UIColor.systemGray
+    public static let DARK_TEXT = UIColor.white
 }

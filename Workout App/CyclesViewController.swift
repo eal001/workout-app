@@ -9,6 +9,12 @@ import UIKit
 
 class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CyclesViewControllerDelegate {
 
+    var BACKGROUND : UIColor = UIColor.white
+    var TEXT : UIColor = UIColor.white
+    var SECTION : UIColor = UIColor.white
+    var CELL_0 : UIColor = UIColor.white
+    var CELL_1 : UIColor = UIColor.white
+    
     var cycles = [Cycle]()
     var stored_cell : Cycle?
     var hidden_base_cycle : Cycle?

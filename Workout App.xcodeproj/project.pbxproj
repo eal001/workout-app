@@ -22,6 +22,7 @@
 		8B704D992589B77E00AEA9E3 /* NewDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B704D982589B77E00AEA9E3 /* NewDayViewController.swift */; };
 		8B704D9E258A13D200AEA9E3 /* NewExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B704D9D258A13D200AEA9E3 /* NewExerciseViewController.swift */; };
 		8B704DAB258A188500AEA9E3 /* SingleSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B704DAA258A188500AEA9E3 /* SingleSetCell.swift */; };
+		8B7D3F0A259823D6006A182F /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3F09259823D6006A182F /* NavigationViewController.swift */; };
 		8BA8ED982588AE0E001110A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8ED972588AE0E001110A0 /* AppDelegate.swift */; };
 		8BA8ED9A2588AE0E001110A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8ED992588AE0E001110A0 /* SceneDelegate.swift */; };
 		8BA8ED9C2588AE0E001110A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8ED9B2588AE0E001110A0 /* ViewController.swift */; };
@@ -66,6 +67,7 @@
 		8B704D982589B77E00AEA9E3 /* NewDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDayViewController.swift; sourceTree = "<group>"; };
 		8B704D9D258A13D200AEA9E3 /* NewExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseViewController.swift; sourceTree = "<group>"; };
 		8B704DAA258A188500AEA9E3 /* SingleSetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSetCell.swift; sourceTree = "<group>"; };
+		8B7D3F09259823D6006A182F /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		8BA8ED942588AE0E001110A0 /* Workout App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workout App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA8ED972588AE0E001110A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BA8ED992588AE0E001110A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				8B704D982589B77E00AEA9E3 /* NewDayViewController.swift */,
 				8B704D6F25898AD500AEA9E3 /* NewRoutineViewController.swift */,
 				8B704D7425898AF300AEA9E3 /* RoutinesTableViewController.swift */,
+				8B7D3F09259823D6006A182F /* NavigationViewController.swift */,
 				8B704D8B25898D0900AEA9E3 /* Routine.swift */,
 				8B704D7C25898D0200AEA9E3 /* Cycle.swift */,
 				8B704D8125898D0400AEA9E3 /* Day.swift */,
@@ -316,6 +319,7 @@
 				8BA8ED9C2588AE0E001110A0 /* ViewController.swift in Sources */,
 				8B704DAB258A188500AEA9E3 /* SingleSetCell.swift in Sources */,
 				8B704D7D25898D0200AEA9E3 /* Cycle.swift in Sources */,
+				8B7D3F0A259823D6006A182F /* NavigationViewController.swift in Sources */,
 				8B704D8C25898D0900AEA9E3 /* Routine.swift in Sources */,
 				8B62BEA7259306A800A9DCA8 /* CyclesViewController.swift in Sources */,
 				8B704D9125898D0A00AEA9E3 /* Single_Set.swift in Sources */,

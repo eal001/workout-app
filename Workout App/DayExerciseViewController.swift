@@ -9,6 +9,12 @@ import UIKit
 
 class DayExerciseViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+    var BACKGROUND : UIColor = UIColor.white
+    var TEXT : UIColor = UIColor.white
+    var SECTION : UIColor = UIColor.white
+    var CELL_0 : UIColor = UIColor.white
+    var CELL_1 : UIColor = UIColor.white
+    
     var day_views = [SingleDayViewController]()
     var days = [Day]()
     var cycles_delegate : CyclesViewControllerDelegate?

@@ -9,6 +9,12 @@ import UIKit
 
 class SingleDayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SingleDayViewControllerDelegate {
     
+    var BACKGROUND : UIColor = UIColor.white
+    var TEXT : UIColor = UIColor.white
+    var SECTION : UIColor = UIColor.white
+    var CELL_0 : UIColor = UIColor.white
+    var CELL_1 : UIColor = UIColor.white
+    
     var day : Day?
     var exercises = [Exercise]()
     var set_delegate : SetViewControllerDelegate?

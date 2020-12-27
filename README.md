@@ -13,7 +13,6 @@ aspects, and we can use them once made (setting weight/reps/names).
 >editing the rep/weight field of the sets in the usage mode; we want to be able to set these to complete or incomplete based on what number is 
     put into this as well
 >each routine is set up for linear progresstion, (should also have a manual mode)
->Crash after deleting all cycles and trying to create a new one
 
 ## Planned Functionality
 >add a graph of progress throughout routine, over cycles for ALL lifts in the routine

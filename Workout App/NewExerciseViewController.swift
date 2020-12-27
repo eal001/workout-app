@@ -9,6 +9,12 @@ import UIKit
 
 class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    var BACKGROUND : UIColor = UIColor.white
+    var TEXT : UIColor = UIColor.white
+    var SECTION : UIColor = UIColor.white
+    var CELL_0 : UIColor = UIColor.white
+    var CELL_1 : UIColor = UIColor.white
+    
     var delegate : NewDayViewControllerDelegate?
     var sets : [Single_Set] = [Single_Set]()
     

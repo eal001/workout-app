@@ -9,6 +9,12 @@ import UIKit
 
 class TabViewController: UITabBarController, UITabBarControllerDelegate {
 
+    var BACKGROUND : UIColor = UIColor.white
+    var TEXT : UIColor = UIColor.white
+    var SECTION : UIColor = UIColor.white
+    var CELL_0 : UIColor = UIColor.white
+    var CELL_1 : UIColor = UIColor.white
+    
     var routine_delegate : RoutinesTableViewControllerDelegate?
     @IBOutlet weak var nav_bar: UINavigationItem!
     

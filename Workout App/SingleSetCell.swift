@@ -9,6 +9,11 @@ import UIKit
 
 class SingleSetCell: UITableViewCell, UITextViewDelegate {
 
+    var BACKGROUND : UIColor = UIColor.white
+    var TEXT : UIColor = UIColor.white
+    var SECTION : UIColor = UIColor.white
+    var CELL_0 : UIColor = UIColor.white
+    var CELL_1 : UIColor = UIColor.white
     
     @IBOutlet weak var rep_field: UITextField!
     @IBOutlet weak var weight_field: UITextField!

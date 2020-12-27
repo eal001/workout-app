@@ -1,25 +1,34 @@
 //
-//  ProgressViewController.swift
+//  NavigationViewController.swift
 //  Workout App
 //
-//  Created by Elliot Lee on 12/22/20.
+//  Created by Elliot Lee on 12/26/20.
 //
 
 import UIKit
 
-class ProgressViewController: UIViewController {
-    
+class NavigationViewController: UINavigationController {
+
     var BACKGROUND : UIColor = UIColor.white
     var TEXT : UIColor = UIColor.white
     var SECTION : UIColor = UIColor.white
     var CELL_0 : UIColor = UIColor.white
     var CELL_1 : UIColor = UIColor.white
     
-    var cycles : [Cycle]?
+    @IBOutlet weak var nav_bar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        BACKGROUND = Constants.DARK_BACKGROUND
+        TEXT = Constants.DARK_TEXT
+        SECTION = Constants.DARK_SECTION
+        CELL_0 = Constants.DARK_CELL_0
+        CELL_1 = Constants.DARK_CELL_1
+        
+        nav_bar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: TEXT]
+        nav_bar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: TEXT]
+        nav_bar.backgroundColor = BACKGROUND
         // Do any additional setup after loading the view.
     }
     

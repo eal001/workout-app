@@ -9,6 +9,12 @@ import UIKit
 
 class NewRoutineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, NewRoutineViewControllerDelegate {
     
+    var BACKGROUND : UIColor = UIColor.white
+    var TEXT : UIColor = UIColor.white
+    var SECTION : UIColor = UIColor.white
+    var CELL_0 : UIColor = UIColor.white
+    var CELL_1 : UIColor = UIColor.white
+    
     var days : [Day] = [Day]()
     var load_routine : Routine = Routine()
     var change_flag = 0
