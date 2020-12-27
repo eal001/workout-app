@@ -19,7 +19,7 @@ class SingleSetCell: UITableViewCell, UITextViewDelegate {
         super.awakeFromNib()
         // Initialization code
         // AWOKEN FROM NIB!!!!!
-        self.contentView.backgroundColor = Constants.CELL_0()
+        self.contentView.backgroundColor = Constants.SECTION()
         set_label.textColor = Constants.TEXT()
         weight_label.textColor = Constants.TEXT()
         rep_label.textColor = Constants.TEXT()

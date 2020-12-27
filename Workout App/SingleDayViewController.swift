@@ -78,7 +78,6 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         stored_index = indexPath.row
         set_delegate?.initialize(exercise: exercises[indexPath.row], sets: exercises[indexPath.row].sets, name: exercises[indexPath.row].name )
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     /*
