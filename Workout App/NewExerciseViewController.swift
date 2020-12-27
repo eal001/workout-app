@@ -194,8 +194,10 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         let cells = set_table.visibleCells as! [SingleSetCell]
         var i = 0
         for set in sets{
-            cells[i].weight_field?.text = String(set.weight)
-            cells[i].rep_field?.text = String(set.reps)
+            if set_table.visibleCells.count > i{
+                cells[i].weight_field?.text = String(set.weight)
+                cells[i].rep_field?.text = String(set.reps)
+            }
             i+=1
         }
     }
