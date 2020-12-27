@@ -138,4 +138,5 @@ struct Constants {
     public static let REPS_MSG = "Maximum Rep Set for"
     public static let VOLUME_MSG = "Maximum Volume Set for"
     public static let FINISHED_TXT = "OK"
+    public static let CYCLES_EMPTY_ERR_MSG = "Error: any Cycles array that is created or edited should never be empty"
 }

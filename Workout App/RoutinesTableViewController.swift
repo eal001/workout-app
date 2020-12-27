@@ -184,7 +184,9 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
                                 if (Double(set.reps) * set.weight ) > (Double(max_v.reps) * max_v.weight) {
                                     max_v = set
                                 }
+                                
                             } //else { print("no") }
+                            //print("maxes at this point: \(max_w.weight) \(max_r.reps)")
                         }
                         
                     } //else { print("doesnt match") }
@@ -197,10 +199,11 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
             for day in cycle.days{
                 for exercise in day.exercises{
                     if(exercise.name.capitalized == name.capitalized){
+                        //print("should have set stat")
                         exercise.max_weight = max_v
                         exercise.max_reps = max_r
                         exercise.max_volume = max_v
-                }
+                    }
                 }
             }
         }

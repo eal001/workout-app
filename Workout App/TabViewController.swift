@@ -45,13 +45,20 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
     @IBAction func create_new_cycle(_ sender: Any) {
         
         if let current = selectedViewController as? CyclesViewController{
-            current.cycles.insert(current.cycles[0].compute_next(), at: 0)
+            
+            if current.cycles.count <= 0 {
+                current.cycles.insert(current.hidden_base_cycle!.compute_next(), at: 0)
+                current.hidden_base_cycle = nil
+            } else {
+                current.cycles.insert(current.cycles[0].compute_next(), at: 0)
+            }
             current.cycles_table.reloadData()
             
             if let first_vc = routine_delegate as? RoutinesTableViewController {
                 let i = first_vc.routines.firstIndex(of: first_vc.stored_cell!)
                 first_vc.routines[i ?? 0].cycles = current.cycles
             }
+            
         }
         
         routine_delegate?.save_routines()

@@ -89,7 +89,11 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             sets[indexPath.row].complete()
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
+        
+        print("\(exercise!.max_weight.weight) \(exercise!.max_reps.reps)")
         routine_delegate?.compute_all_pr(name: exercise?.name ?? "" )
+        print("\(exercise!.max_weight.weight) \(exercise!.max_reps.reps)")
+
         update_maxes_label()
         routine_delegate?.save_routines()
     }
