@@ -8,12 +8,13 @@
 import UIKit
 import Charts
 
-class ProgressViewController: UIViewController, ChartViewDelegate{
+class ProgressViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
     
     var cycles = [Cycle]()
     var routine_delegate : RoutinesTableViewControllerDelegate?
-    var progress_charts =  [LineChartView]()
     
+    @IBOutlet weak var chart_table: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,21 @@ class ProgressViewController: UIViewController, ChartViewDelegate{
         
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        <#code#>
+    }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
 
     /*
     // MARK: - Navigation
