@@ -37,6 +37,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
             
             if let current = vc as? ProgressViewController{
                 current.cycles = cycles
+                current.routine_delegate = self.routine_delegate
             }
         }
     }
@@ -66,6 +67,10 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         
         routine_delegate?.save_routines()
         
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+       
     }
     
     

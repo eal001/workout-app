@@ -9,18 +9,14 @@ import UIKit
 
 class ProgressViewController: UIViewController {
     
-    var BACKGROUND : UIColor = UIColor.white
-    var TEXT : UIColor = UIColor.white
-    var SECTION : UIColor = UIColor.white
-    var CELL_0 : UIColor = UIColor.white
-    var CELL_1 : UIColor = UIColor.white
-    
     var cycles : [Cycle]?
+    var routine_delegate : RoutinesTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.view.backgroundColor = Constants.BACKGROUND()
+        
     }
     
 

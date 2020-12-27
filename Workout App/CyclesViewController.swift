@@ -90,6 +90,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         stored_cell = cycles[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     /*
