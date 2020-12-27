@@ -144,6 +144,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
             str = Constants.EX_TYPE_5
         default:
             str = Constants.EX_TYPE_5
+
         }
         
         return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor: Constants.TEXT()])

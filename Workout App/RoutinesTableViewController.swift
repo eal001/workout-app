@@ -199,16 +199,15 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
                                 if (Double(set.reps) * set.weight ) > (Double(max_v.reps) * max_v.weight) {
                                     max_v = set
                                 }
-                                
                             } //else { print("no") }
                             //print("maxes at this point: \(max_w.weight) \(max_r.reps)")
+                            //else { print("no") }
                         }
                         
                     } //else { print("doesnt match") }
                 }
             }
         }
-        
         
         for cycle in stored_cell!.cycles {
             for day in cycle.days{
