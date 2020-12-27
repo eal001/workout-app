@@ -73,6 +73,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         stored_cell = exercises[indexPath.row]
+        print("cell tapped")
     }
     
     /*
@@ -125,9 +126,11 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        print("prep")
         if let destination = segue.destination as? NewExerciseViewController {
             destination.delegate = self
         }
+        stored_cell = nil
     }
     
 
