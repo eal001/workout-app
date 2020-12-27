@@ -25,7 +25,6 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         type_picker.delegate = self        
         // Do any additional setup after loading the view.
         
-        print("view did load")
         if let previous = delegate as? NewDayViewController{
             self.name_field?.text = previous.stored_cell?.name
             self.sets = previous.stored_cell?.sets ?? [Single_Set]()
@@ -212,6 +211,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
             }
             if(will_add == ""){
                 delegate?.append_exercises(compute_exercise())
+            } else {
+                delegate?.edit_exercise(compute_exercise())
             }
         }
         

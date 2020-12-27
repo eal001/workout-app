@@ -248,6 +248,11 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         if returning_index == nil {
             return
         }
+        if name == "" {
+            days.remove(at: returning_index ?? 0)
+            day_table.reloadData()
+            return
+        }
         days[returning_index ?? 0].name = name
         days[returning_index ?? 0].exercises = exercises
         

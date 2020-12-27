@@ -12,6 +12,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var exercises : [Exercise] = [Exercise]()
     var routine_delegate : NewRoutineViewControllerDelegate?
     var stored_cell : Exercise?
+    var returning_index : Int?
 
     @IBOutlet weak var day_name_field: UITextField!
     @IBOutlet weak var new_exercise_button: UIButton!
@@ -73,7 +74,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         stored_cell = exercises[indexPath.row]
-        print("cell tapped")
+        returning_index = indexPath.row
     }
     
     /*
@@ -102,6 +103,20 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
         exercise_table.reloadData()
     }
     
+    func edit_exercise(_ exercise: Exercise) {
+        if returning_index == nil {
+            return
+        }
+        if exercise.name == ""{
+            exercises.remove(at: returning_index ?? 0)
+            exercise_table.reloadData()
+            return
+        }
+        exercises[returning_index ?? 0].name = exercise.name
+        exercises[returning_index ?? 0].sets = exercise.sets
+        exercise_table.reloadData()
+    }
+    
     /*
      call this function when this current view controller dissapears
      */
@@ -126,7 +141,6 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        print("prep")
         if let destination = segue.destination as? NewExerciseViewController {
             destination.delegate = self
         }
@@ -138,4 +152,5 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 protocol NewDayViewControllerDelegate {
     func append_exercises(_ exercises : Exercise )
+    func edit_exercise(_ exercise : Exercise)
 }
