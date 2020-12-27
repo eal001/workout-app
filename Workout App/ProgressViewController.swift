@@ -6,17 +6,21 @@
 //
 
 import UIKit
+import Charts
 
-class ProgressViewController: UIViewController {
+class ProgressViewController: UIViewController, ChartViewDelegate{
     
-    var cycles : [Cycle]?
+    var cycles = [Cycle]()
     var routine_delegate : RoutinesTableViewControllerDelegate?
+    var progress_charts =  [LineChartView]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Constants.BACKGROUND()
-        // Do any additional setup after loading the view.
+        
     }
+
     
 
     /*
