@@ -8,13 +8,7 @@
 import UIKit
 
 class NewRoutineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, NewRoutineViewControllerDelegate {
-    
-    var BACKGROUND : UIColor = UIColor.white
-    var TEXT : UIColor = UIColor.white
-    var SECTION : UIColor = UIColor.white
-    var CELL_0 : UIColor = UIColor.white
-    var CELL_1 : UIColor = UIColor.white
-    
+   
     var days : [Day] = [Day]()
     var load_routine : Routine = Routine()
     var change_flag = 0
@@ -26,12 +20,24 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var new_day_button: UIButton!
     @IBOutlet weak var create_button: UIBarButtonItem!
     @IBOutlet weak var rest_day_field: UITextField!
+    @IBOutlet weak var name_indicator_label: UILabel!
+    @IBOutlet weak var name_background: UILabel!
+    @IBOutlet weak var rest_days_indicator_label: UILabel!
+    @IBOutlet weak var rest_days_background: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         day_table.dataSource = self
         day_table.delegate = self
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = Constants.BACKGROUND()
+        routine_name_field.textColor = Constants.TEXT()
+        day_table.backgroundColor = Constants.BACKGROUND()
+        rest_day_field.textColor = Constants.TEXT()
+        name_indicator_label.textColor = Constants.TEXT()
+        name_background.backgroundColor = Constants.SECTION()
+        rest_days_indicator_label.textColor = Constants.TEXT()
+        rest_days_background.backgroundColor = Constants.SECTION()
         
     }
     
@@ -70,10 +76,11 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
         cell.textLabel?.text = days[indexPath.row].name
+        cell.textLabel?.textColor = Constants.TEXT()
         if(days[indexPath.row].is_rest){
-            cell.backgroundColor = UIColor.systemGray6
+            cell.backgroundColor = Constants.CELL_0()
         } else {
-            cell.backgroundColor = UIColor.systemGray5
+            cell.backgroundColor = Constants.CELL_1()
         }
         return cell
     }
@@ -103,6 +110,18 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
         day_table.reloadData()
+    }
+    
+    /*
+     the color and style of the tableview header
+     */
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Constants.SECTION()
+        
+        if let sect_header = view as? UITableViewHeaderFooterView {
+            sect_header.textLabel?.textColor = Constants.TEXT()
+        }
+        
     }
     
     //MARK: Calculations

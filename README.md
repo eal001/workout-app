@@ -13,6 +13,7 @@ aspects, and we can use them once made (setting weight/reps/names).
 >editing the rep/weight field of the sets in the usage mode; we want to be able to set these to complete or incomplete based on what number is 
     put into this as well
 >each routine is set up for linear progresstion, (should also have a manual mode)
+>in the cycles view and the days view the selected cell remains seleted until another one is touched
 
 ## Planned Functionality
 >add a graph of progress throughout routine, over cycles for ALL lifts in the routine

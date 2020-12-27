@@ -92,6 +92,8 @@ class UDM {
  implement different functionality
  */
 struct Constants {
+    
+    //MARK: - Constants
     public static let WEIGHT_INCREMENT = 2.5
     public static let REP_INCREMENT = 4
     public static let ACCESSORY_MAX = 24
@@ -141,15 +143,80 @@ struct Constants {
     
     //light mode colors
     public static let LIGHT_BACKGROUND = UIColor.white
-    public static let LIGHT_SECTION = UIColor.white
+    public static let LIGHT_SECTION = UIColor.systemGray5
     public static let LIGHT_CELL_0 = UIColor.systemGray6
     public static let LIGHT_CELL_1 = UIColor.systemGray5
     public static let LIGHT_TEXT = UIColor.black
     
     //dark mode colors
     public static let DARK_BACKGROUND = UIColor.black
-    public static let DARK_SECTION = UIColor.darkGray
-    public static let DARK_CELL_0 = UIColor.darkGray
-    public static let DARK_CELL_1 = UIColor.systemGray
+    public static let DARK_SECTION = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1)
+    public static let DARK_CELL_0 = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1)
+    public static let DARK_CELL_1 = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
     public static let DARK_TEXT = UIColor.white
+    
+    //MARK: - Global Variables
+    //color mode type:  may change on a settings change
+    public static var MODE = ColorMode.Dark
+    
+    public static var BACKGROUND = { () -> UIColor in
+        var bg = Constants.LIGHT_BACKGROUND
+        switch(MODE){
+        case .Dark:
+            bg = Constants.DARK_BACKGROUND
+        case .Light:
+            bg = Constants.LIGHT_BACKGROUND
+        }
+        return bg
+    }
+    
+    public static var TEXT = { () -> UIColor in
+        var bg = Constants.LIGHT_TEXT
+        switch(MODE){
+        case .Dark:
+            bg = Constants.DARK_TEXT
+        case .Light:
+            bg = Constants.LIGHT_TEXT
+        }
+        return bg
+    }
+    
+    public static var SECTION = { () -> UIColor in
+        var bg = Constants.LIGHT_SECTION
+        switch(MODE){
+        case .Dark:
+            bg = Constants.DARK_SECTION
+        case .Light:
+            bg = Constants.LIGHT_SECTION
+        }
+        return bg
+    }
+    
+    public static var CELL_0 = { () -> UIColor in
+        var bg = Constants.LIGHT_CELL_0
+        switch(MODE){
+        case .Dark:
+            bg = Constants.DARK_CELL_0
+        case .Light:
+            bg = Constants.LIGHT_CELL_0
+        }
+        return bg
+    }
+    
+    public static var CELL_1 = { () -> UIColor in
+        var bg = Constants.LIGHT_CELL_1
+        switch(MODE){
+        case .Dark:
+            bg = Constants.DARK_CELL_1
+        case .Light:
+            bg = Constants.LIGHT_CELL_1
+        }
+        return bg
+    }
+    
+}
+
+enum ColorMode: Int, Codable {
+    case Light = 0
+    case Dark = 1
 }

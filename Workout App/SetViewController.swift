@@ -9,12 +9,6 @@ import UIKit
 
 class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SetViewControllerDelegate {
     
-    var BACKGROUND : UIColor = UIColor.white
-    var TEXT : UIColor = UIColor.white
-    var SECTION : UIColor = UIColor.white
-    var CELL_0 : UIColor = UIColor.white
-    var CELL_1 : UIColor = UIColor.white
-    
     var exercise : Exercise?
     var sets = [Single_Set]()
     var day_delegate : SingleDayViewControllerDelegate?
@@ -25,11 +19,23 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var set_table: UITableView!
     @IBOutlet weak var exercise_name_label: UILabel!
     @IBOutlet weak var info_segment: UISegmentedControl!
+    @IBOutlet weak var max_background_label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         set_table.dataSource = self
         set_table.delegate = self
+        
+        self.view.backgroundColor = Constants.BACKGROUND()
+        info_segment.tintColor = Constants.BACKGROUND()
+        info_segment.selectedSegmentTintColor = Constants.SECTION()
+        info_segment.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Constants.TEXT()], for: .selected)
+        info_segment.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Constants.BACKGROUND()], for: .normal)
+        exercise_name_label.textColor = Constants.TEXT()
+        exercise_name_label.backgroundColor = Constants.SECTION()
+        max_background_label.backgroundColor = Constants.SECTION()
+        max_label.textColor = Constants.TEXT()
+        set_table.backgroundColor = Constants.BACKGROUND()
         
         info_segment.selectedSegmentIndex = 0
     }
@@ -78,6 +84,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.set_label?.text = "\(Constants.SET_TITLE) \(indexPath.row + 1)"
         cell.rep_field?.text = String(sets[indexPath.row].reps)
         cell.weight_field?.text = String(sets[indexPath.row].weight)
+        cell.backgroundColor = Constants.CELL_0()
         if(sets[indexPath.row].is_complete){
             cell.accessoryType = .checkmark
         }
@@ -88,6 +95,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      implement select and deselect fuctionality and visuals
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if(sets[indexPath.row].is_complete){
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
             sets[indexPath.row].not_complete()
@@ -95,13 +103,26 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             sets[indexPath.row].complete()
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
-        
-        print("\(exercise!.max_weight.weight) \(exercise!.max_reps.reps)")
+        tableView.cellForRow(at: indexPath)?.selectedBackgroundView?.backgroundColor = Constants.CELL_0()
+        //print("\(exercise!.max_weight.weight) \(exercise!.max_reps.reps)")
         routine_delegate?.compute_all_pr(name: exercise?.name ?? "" )
-        print("\(exercise!.max_weight.weight) \(exercise!.max_reps.reps)")
+        //print("\(exercise!.max_weight.weight) \(exercise!.max_reps.reps)")
 
         update_maxes_label()
         routine_delegate?.save_routines()
+    }
+    
+    
+    /*
+     the color and style of the tableview header
+     */
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Constants.SECTION()
+        
+        if let sect_header = view as? UITableViewHeaderFooterView {
+            sect_header.textLabel?.textColor = Constants.TEXT()
+        }
+        
     }
     
     /*

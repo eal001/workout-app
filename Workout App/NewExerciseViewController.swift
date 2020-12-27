@@ -9,12 +9,6 @@ import UIKit
 
 class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var BACKGROUND : UIColor = UIColor.white
-    var TEXT : UIColor = UIColor.white
-    var SECTION : UIColor = UIColor.white
-    var CELL_0 : UIColor = UIColor.white
-    var CELL_1 : UIColor = UIColor.white
-    
     var delegate : NewDayViewControllerDelegate?
     var sets : [Single_Set] = [Single_Set]()
     
@@ -22,6 +16,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var set_table: UITableView!
     @IBOutlet weak var add_button: UIButton!
     @IBOutlet weak var name_field: UITextField!
+    @IBOutlet weak var name_indicator_label: UILabel!
+    @IBOutlet weak var name_background: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +25,12 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         set_table.delegate = self
         type_picker.dataSource = self
         type_picker.delegate = self        
-        // Do any additional setup after loading the view.
+
+        self.view.backgroundColor = Constants.BACKGROUND()
+        name_background.backgroundColor = Constants.SECTION()
+        name_indicator_label.textColor = Constants.TEXT()
+        set_table.backgroundColor = Constants.BACKGROUND()
+        name_field.textColor = Constants.TEXT()
         
         if let previous = delegate as? NewDayViewController{
             self.name_field?.text = previous.stored_cell?.name
@@ -77,6 +78,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         cell.set_label.text = "\(Constants.SET_TITLE) \(indexPath.row + 1)"
         cell.weight_field.text = String(sets[indexPath.row].weight)
         cell.rep_field.text = String(sets[indexPath.row].reps)
+        //cell.backgroundColor = Constants.BACKGROUND()
         return cell
     }
     
@@ -94,6 +96,18 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     /*
+     the color and style of the tableview header
+     */
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Constants.SECTION()
+        
+        if let sect_header = view as? UITableViewHeaderFooterView {
+            sect_header.textLabel?.textColor = Constants.TEXT()
+        }
+        
+    }
+    
+    /*
      the number of components in the type pickerview
      */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -108,25 +122,31 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     /*
-     the names of each cell represents one of each of the given exercise types
+     the names of each cell represents one of each of the given exercise types, with
+     added styling (the text color)
+     @return the correctly styled and named string with attributes
      */
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let str : String
         switch row {
         case 0:
-            return Constants.EX_TYPE_0
+            str = Constants.EX_TYPE_0
         case 1:
-            return Constants.EX_TYPE_1
+            str = Constants.EX_TYPE_1
         case 2:
-            return Constants.EX_TYPE_2
+            str = Constants.EX_TYPE_2
         case 3:
-            return Constants.EX_TYPE_3
+            str = Constants.EX_TYPE_3
         case 4:
-            return Constants.EX_TYPE_4
+            str = Constants.EX_TYPE_4
         case 5:
-            return Constants.EX_TYPE_5
+            str = Constants.EX_TYPE_5
         default:
-            return Constants.EX_TYPE_5
+            str = Constants.EX_TYPE_5
         }
+        
+        return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor: Constants.TEXT()])
     }
     
     /*

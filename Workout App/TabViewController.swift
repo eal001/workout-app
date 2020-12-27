@@ -9,12 +9,6 @@ import UIKit
 
 class TabViewController: UITabBarController, UITabBarControllerDelegate {
 
-    var BACKGROUND : UIColor = UIColor.white
-    var TEXT : UIColor = UIColor.white
-    var SECTION : UIColor = UIColor.white
-    var CELL_0 : UIColor = UIColor.white
-    var CELL_1 : UIColor = UIColor.white
-    
     var routine_delegate : RoutinesTableViewControllerDelegate?
     @IBOutlet weak var nav_bar: UINavigationItem!
     
@@ -23,6 +17,9 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         // Do any additional setup after loading the view.
         self.delegate = self
         routine_delegate?.save_routines()
+        
+        self.tabBar.isTranslucent = false
+        self.tabBar.barTintColor = Constants.BACKGROUND()
         
         var cycles = [Cycle]()
         if let previous = routine_delegate as? RoutinesTableViewController{

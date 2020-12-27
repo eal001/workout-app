@@ -16,27 +16,12 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
     var routines : [Routine] = [Routine]()
     var stored_cell : Routine?
     
-    var BACKGROUND : UIColor = UIColor.white
-    var TEXT : UIColor = UIColor.white
-    var SECTION : UIColor = UIColor.white
-    var CELL_0 : UIColor = UIColor.white
-    var CELL_1 : UIColor = UIColor.white
-    
     @IBOutlet weak var nav_bar: UINavigationItem!
     @IBOutlet weak var create_button: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        BACKGROUND = Constants.DARK_BACKGROUND
-        TEXT = Constants.DARK_TEXT
-        SECTION = Constants.DARK_SECTION
-        CELL_0 = Constants.DARK_CELL_0
-        CELL_1 = Constants.DARK_CELL_1
-        
-        self.tableView.backgroundColor = BACKGROUND
-        self.tableView.sectionIndexColor = TEXT
-        self.tableView.sectionIndexBackgroundColor = SECTION
-        
+        self.tableView.backgroundColor = Constants.BACKGROUND()
         load_routines()
     }
 
@@ -111,8 +96,8 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
      */
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
-        cell.backgroundColor = CELL_0
-        cell.textLabel?.textColor = TEXT
+        cell.backgroundColor = Constants.CELL_0()
+        cell.textLabel?.textColor = Constants.TEXT()
         cell.textLabel?.text = routines[indexPath.row].name
         return cell
     }
@@ -148,10 +133,10 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
      the color and style of the tableview header
      */
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = SECTION
+        view.tintColor = Constants.SECTION()
         
         if let sect_header = view as? UITableViewHeaderFooterView {
-            sect_header.textLabel?.textColor = TEXT
+            sect_header.textLabel?.textColor = Constants.TEXT()
         }
         
     }

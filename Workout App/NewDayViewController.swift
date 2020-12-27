@@ -9,12 +9,6 @@ import UIKit
 
 class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, NewDayViewControllerDelegate {
     
-    var BACKGROUND : UIColor = UIColor.white
-    var TEXT : UIColor = UIColor.white
-    var SECTION : UIColor = UIColor.white
-    var CELL_0 : UIColor = UIColor.white
-    var CELL_1 : UIColor = UIColor.white
-    
     var exercises : [Exercise] = [Exercise]()
     var routine_delegate : NewRoutineViewControllerDelegate?
     var stored_cell : Exercise?
@@ -23,12 +17,21 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var day_name_field: UITextField!
     @IBOutlet weak var new_exercise_button: UIButton!
     @IBOutlet weak var exercise_table: UITableView!
+    @IBOutlet weak var name_indicator_field: UILabel!
+    @IBOutlet weak var name_background: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         exercise_table.dataSource = self
         exercise_table.delegate = self
-        // Do any additional setup after loading the view.
+        
+        self.view.backgroundColor = Constants.BACKGROUND()
+        name_background.backgroundColor = Constants.SECTION()
+        name_indicator_field.textColor = Constants.TEXT()
+        day_name_field.backgroundColor = Constants.SECTION()
+        exercise_table.backgroundColor = Constants.BACKGROUND()
+        day_name_field.textColor = Constants.TEXT()
         
         if let previous = routine_delegate as? NewRoutineViewController {
             self.day_name_field?.text = previous.stored_cell?.name
@@ -72,6 +75,8 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
         cell.textLabel?.text = exercises[indexPath.row].name
+        cell.backgroundColor = Constants.CELL_0()
+        cell.textLabel?.textColor = Constants.TEXT()
         return cell
     }
     
@@ -94,6 +99,18 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
         exercise_table.reloadData()
+    }
+    
+    /*
+     the color and style of the tableview header
+     */
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Constants.SECTION()
+        
+        if let sect_header = view as? UITableViewHeaderFooterView {
+            sect_header.textLabel?.textColor = Constants.TEXT()
+        }
+        
     }
     
     // MARK: - Navigation

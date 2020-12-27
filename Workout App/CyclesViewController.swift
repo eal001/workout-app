@@ -9,12 +9,6 @@ import UIKit
 
 class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CyclesViewControllerDelegate {
 
-    var BACKGROUND : UIColor = UIColor.white
-    var TEXT : UIColor = UIColor.white
-    var SECTION : UIColor = UIColor.white
-    var CELL_0 : UIColor = UIColor.white
-    var CELL_1 : UIColor = UIColor.white
-    
     var cycles = [Cycle]()
     var stored_cell : Cycle?
     var hidden_base_cycle : Cycle?
@@ -28,7 +22,9 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cycles_table.dataSource = self
         cycles_table.delegate = self
         stored_cell = nil
-        //cycles =
+        
+        cycles_table.backgroundColor = Constants.BACKGROUND()
+        self.view.backgroundColor = Constants.BACKGROUND()
         // Do any additional setup after loading the view.
     }
     
@@ -59,6 +55,8 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
         cell.textLabel?.text = cycles[indexPath.row].to_string()
+        cell.backgroundColor = Constants.CELL_0()
+        cell.textLabel?.textColor = Constants.TEXT()
         return cell
     }
     
@@ -94,6 +92,18 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         stored_cell = cycles[indexPath.row]
     }
     
+    /*
+     the color and style of the tableview header
+     */
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Constants.SECTION()
+        
+        if let sect_header = view as? UITableViewHeaderFooterView {
+            sect_header.textLabel?.textColor = Constants.TEXT()
+        }
+        
+    }
+    
     
     // MARK: - Navigation
 
@@ -101,6 +111,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        self.view.endEditing(true)
         if let destination = segue.destination as? DayExerciseViewController{
             destination.routine_delegate = routine_delegate
             destination.cycles_delegate = self

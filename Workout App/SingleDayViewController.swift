@@ -9,12 +9,6 @@ import UIKit
 
 class SingleDayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SingleDayViewControllerDelegate {
     
-    var BACKGROUND : UIColor = UIColor.white
-    var TEXT : UIColor = UIColor.white
-    var SECTION : UIColor = UIColor.white
-    var CELL_0 : UIColor = UIColor.white
-    var CELL_1 : UIColor = UIColor.white
-    
     var day : Day?
     var exercises = [Exercise]()
     var set_delegate : SetViewControllerDelegate?
@@ -26,7 +20,12 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("loaded")
+        
+        exercise_table.backgroundColor = Constants.BACKGROUND()
+        self.view.backgroundColor = Constants.BACKGROUND()
+        day_name_label.textColor = Constants.TEXT()
+        day_name_label.backgroundColor = Constants.SECTION()
+        
         exercise_table.delegate = self
         exercise_table.dataSource = self
         day_name_label.text = day?.get_day_str()
@@ -67,6 +66,8 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
         cell.textLabel?.text = exercises[indexPath.row].name
+        cell.textLabel?.textColor = Constants.TEXT()
+        cell.backgroundColor = Constants.CELL_0()
         return cell
     }
     
@@ -77,6 +78,17 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         stored_index = indexPath.row
         set_delegate?.initialize(exercise: exercises[indexPath.row], sets: exercises[indexPath.row].sets, name: exercises[indexPath.row].name )
+    }
+    
+    /*
+     the color and style of the tableview header
+     */
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Constants.SECTION()
+        
+        if let sect_header = view as? UITableViewHeaderFooterView {
+            sect_header.textLabel?.textColor = Constants.TEXT()
+        }
         
     }
     
@@ -87,6 +99,7 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        self.view.endEditing(true)
         if let destination = segue.destination as? SetViewControllerDelegate{
             set_delegate = destination
         }
