@@ -66,6 +66,8 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         cell.textLabel?.text = days[indexPath.row].name
         if(days[indexPath.row].is_rest){
             cell.backgroundColor = UIColor.systemGray6
+        } else {
+            cell.backgroundColor = UIColor.systemGray5
         }
         return cell
     }
