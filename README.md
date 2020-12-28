@@ -14,6 +14,7 @@ aspects, and we can use them once made (setting weight/reps/names).
     put into this as well
 >each routine is set up for linear progresstion, (should also have a manual mode)
 >calisthenic workouts (with no weight increment) are not shown in the graph as only rep volume values
+>even amount of cycles causes a crash when there is an exercise in multiple days of a cycle
 
 ## Planned Functionality
 >add a graph of progress throughout routine, over cycles for ALL lifts in the routine
