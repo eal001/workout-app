@@ -13,7 +13,6 @@ class NavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nav_bar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Constants.TEXT()]
         nav_bar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Constants.TEXT()]
         nav_bar.barTintColor = Constants.BACKGROUND()

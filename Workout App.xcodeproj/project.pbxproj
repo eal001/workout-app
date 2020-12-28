@@ -33,6 +33,8 @@
 		8BA8EDA42588AE0F001110A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA8EDA22588AE0F001110A0 /* LaunchScreen.storyboard */; };
 		8BA8EDAF2588AE0F001110A0 /* Workout_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8EDAE2588AE0F001110A0 /* Workout_AppTests.swift */; };
 		8BA8EDBA2588AE0F001110A0 /* Workout_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8EDB92588AE0F001110A0 /* Workout_AppUITests.swift */; };
+		8BB643B42599A509008267BA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB643B32599A509008267BA /* SettingsViewController.swift */; };
+		8BB643C22599A914008267BA /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB643C12599A914008267BA /* ColorCell.swift */; };
 		8BF44DFE2594624B00C9DC0D /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF44DFD2594624B00C9DC0D /* SetViewController.swift */; };
 		9B5C361774965D62AD2C56C8 /* Pods_Workout_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5B86BFADF5C6CEDF31997B /* Pods_Workout_App.framework */; };
 		A857FD45EC6C0514BC981084 /* Pods_Workout_App_Workout_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B09DAF6353AF8C923E1CD7B /* Pods_Workout_App_Workout_AppUITests.framework */; };
@@ -91,6 +93,8 @@
 		8BA8EDB52588AE0F001110A0 /* Workout AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Workout AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA8EDB92588AE0F001110A0 /* Workout_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout_AppUITests.swift; sourceTree = "<group>"; };
 		8BA8EDBB2588AE0F001110A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BB643B32599A509008267BA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8BB643C12599A914008267BA /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		8BF44DFD2594624B00C9DC0D /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		8BF44E0F2594A23A00C9DC0D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A9F70E07FCDC5A799E17AC5A /* Pods-Workout AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout AppTests.release.xcconfig"; path = "Target Support Files/Pods-Workout AppTests/Pods-Workout AppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				8BA8ED9D2588AE0E001110A0 /* Main.storyboard */,
 				8BA8EDA22588AE0F001110A0 /* LaunchScreen.storyboard */,
 				8BA8EDA02588AE0F001110A0 /* Assets.xcassets */,
+				8BB643C12599A914008267BA /* ColorCell.swift */,
+				8BB643B32599A509008267BA /* SettingsViewController.swift */,
 				8B658A5625992F2E008B8932 /* ChartCell.swift */,
 				8B62BEB125931E1C00A9DCA8 /* ProgressViewController.swift */,
 				8BF44DFD2594624B00C9DC0D /* SetViewController.swift */,
@@ -471,10 +477,12 @@
 				8B704DAB258A188500AEA9E3 /* SingleSetCell.swift in Sources */,
 				8B704D7D25898D0200AEA9E3 /* Cycle.swift in Sources */,
 				8B7D3F0A259823D6006A182F /* NavigationViewController.swift in Sources */,
+				8BB643C22599A914008267BA /* ColorCell.swift in Sources */,
 				8B704D8C25898D0900AEA9E3 /* Routine.swift in Sources */,
 				8B62BEA7259306A800A9DCA8 /* CyclesViewController.swift in Sources */,
 				8B704D9125898D0A00AEA9E3 /* Single_Set.swift in Sources */,
 				8B704D992589B77E00AEA9E3 /* NewDayViewController.swift in Sources */,
+				8BB643B42599A509008267BA /* SettingsViewController.swift in Sources */,
 				8BA8ED982588AE0E001110A0 /* AppDelegate.swift in Sources */,
 				8B62BEB225931E1C00A9DCA8 /* ProgressViewController.swift in Sources */,
 				8B658A5725992F2E008B8932 /* ChartCell.swift in Sources */,

@@ -99,6 +99,7 @@ struct Constants {
     public static let ACCESSORY_MAX = 24
     public static let ACCESSORY_RESET = 12
     public static let EX_TYPE_COUNT = 6
+    public static let COLOR_SCHEME_AMT = 8
     public static let WEEKDAY_1 = "Monday"
     public static let WEEKDAY_2 = "Tuesday"
     public static let WEEKDAY_3 = "Wednesday"
@@ -112,6 +113,9 @@ struct Constants {
     public static let LOAD_ERR_MSG_1 = "Routine: unable to get data for the key"
     public static let SAVE_ERR_MSG_0 = "Routine: unable to encode routine"
     public static let MASTER_KEY = "MASTER KEY"
+    public static let SCHEME_KEY = "COLOR SCHEME KEY"
+    public static let SAVE_COLOR_ERR_MSG = "Error saving the desired colorscheme"
+    public static let LOAD_COLOR_ERR_MSG = "Error loading the desired colorscheme"
     public static let SAVE_ERR_MSG_1 = "RoutineViewComtroller: unable to encode the routine keys to the master key"
     public static let LOAD_ERR_MSG_2 = "RoutineViewController: some data existed at the master key but was not decoded"
     public static let LAOD_ERR_MSG_3 = "RoutineViewVontroller: unable to get data for the routine keys"
@@ -141,10 +145,28 @@ struct Constants {
     public static let VOLUME_MSG = "Maximum Volume Set for"
     public static let FINISHED_TXT = "OK"
     
+    public static let LIGHT_DEFAULT : UIImage = UIImage(named: "Light_default") ?? UIImage()
+    public static let DARK_DEFAULT : UIImage = UIImage(named: "Dark_default") ?? UIImage()
+    public static let LIGHT_RED : UIImage = UIImage(named: "Light_red") ?? UIImage()
+    public static let DARK_RED : UIImage = UIImage(named: "Dark_red") ?? UIImage()
+    public static let BEE : UIImage = UIImage(named: "Bee") ?? UIImage()
+    public static let SHAN : UIImage = UIImage(named: "shan") ?? UIImage()
+    public static let GONZO : UIImage = UIImage(named: "Gonzo") ?? UIImage()
+    public static let AQUA : UIImage = UIImage(named: "Aqua") ?? UIImage()
+    
+    public static let LD_NAME = "Light Blue"
+    public static let DD_NAME = "Dark Blue"
+    public static let LR_NAME = "Light Red"
+    public static let DR_NAME = "Dark Red"
+    public static let B_NAME = "Bee"
+    public static let S_NAME = "Shantelle"
+    public static let G_NAME = "Gonzo"
+    public static let A_NAME = "Aqua"
+    
     //light mode colors
     public static let LIGHT_BACKGROUND = UIColor.white
-    public static let LIGHT_SECTION = UIColor.systemGray6
-    public static let LIGHT_CELL_0 = UIColor.systemGray6
+    public static let LIGHT_SECTION = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+    public static let LIGHT_CELL_0 = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
     public static let LIGHT_CELL_1 = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1)
     public static let LIGHT_TEXT = UIColor.black
     public static let LIGHT_TINT = UIColor.systemBlue
@@ -159,8 +181,8 @@ struct Constants {
     
     //light mode colors
     public static let RLIGHT_BACKGROUND = UIColor.white
-    public static let RLIGHT_SECTION = UIColor.systemGray6
-    public static let RLIGHT_CELL_0 = UIColor.systemGray6
+    public static let RLIGHT_SECTION = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+    public static let RLIGHT_CELL_0 = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
     public static let RLIGHT_CELL_1 = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1)
     public static let RLIGHT_TEXT = UIColor.black
     public static let RLIGHT_TINT = UIColor.systemRed
@@ -195,7 +217,7 @@ struct Constants {
     public static let GONZO_CELL_0 = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1)
     public static let GONZO_CELL_1 = UIColor.black
     public static let GONZO_TEXT = UIColor.systemRed
-    public static let GONZO_TINT = UIColor.systemGray6
+    public static let GONZO_TINT = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
     
     //aqua mode
     public static let AQUA_BACKGROUND = UIColor(red: 0.90, green: 0.90, blue: 0.99, alpha: 1)
@@ -207,7 +229,7 @@ struct Constants {
     
     //MARK: - Global Variables
     //color mode type:  may change on a settings change
-    public static var MODE = ColorMode.Gonzo
+    public static var MODE = ColorMode.Light
     
     public static var BACKGROUND = { () -> UIColor in
         var bg = Constants.LIGHT_BACKGROUND

@@ -22,3 +22,4 @@ aspects, and we can use them once made (setting weight/reps/names).
 >add a settings page, can change color
 >add a dark mode/light mode/other color modes
 >manual mode of progression for each routine
+>make the input text fields a bit bigger and the cells

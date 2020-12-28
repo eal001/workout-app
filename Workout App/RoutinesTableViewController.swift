@@ -22,10 +22,12 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        load_routines()
+        load_color_scheme()
         self.tableView.backgroundColor = Constants.BACKGROUND()
         create_button.tintColor = Constants.TINT()
         nav_bar.backBarButtonItem?.tintColor = Constants.TINT()
-        load_routines()
+        
     }
 
     // MARK: save and load
@@ -74,6 +76,48 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         }
         
         self.tableView.reloadData()
+    }
+    
+    /*
+     this function will save the enum deciding the color scheme to user defaults in order to load it back
+     when we re open the app. Thus the color scheme stays consistent
+     */
+    func save_color_scheme(){
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(Constants.MODE) {
+            UDM.shared.defaults?.setValue( data , forKey: Constants.SCHEME_KEY)
+        } else {
+            print(Constants.SAVE_COLOR_ERR_MSG)
+        }
+    }
+    
+    /*
+     this function will be called at the beginning of every load in order to ensure that
+     */
+    func load_color_scheme(){
+        let decoder = JSONDecoder()
+        if let data = UDM.shared.defaults?.data(forKey: Constants.SCHEME_KEY){
+            if let mode = try? decoder.decode(ColorMode.self, from: data){
+                Constants.MODE = mode
+            } else {
+                print(Constants.LOAD_COLOR_ERR_MSG)
+            }
+        } else {
+            print(Constants.LOAD_COLOR_ERR_MSG)
+        }
+        self.navigationController?.viewDidLoad()//calling this because the nav vc should reset when
+                                                //this is called too, as it is already loaded when this would be called
+    }
+    
+    /*
+     this function will save the routines, call view did load and also reset the navigation controller
+     that is embedded here, this way the colors can be reset if the color schemeis changed
+     */
+    func reload(){
+        save_routines()
+        save_color_scheme()
+        self.viewDidLoad()
+        self.navigationController?.viewDidLoad()
     }
     
     // MARK: Table view data source
@@ -261,6 +305,10 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         if let destination = segue.destination as? TabViewController {
             destination.routine_delegate = self
         }
+        
+        if let destination = segue.destination as? SettingsViewController {
+            destination.routine_delegate = self
+        }
         stored_cell = nil
     }
     
@@ -275,5 +323,8 @@ protocol RoutinesTableViewControllerDelegate {
     
     //a function to get all of the same exercises and find the maximum prs that you have done (previously or currently)
     func compute_all_pr(name: String);
+    
+    //function to reload this vc and the navigation controller so that the new color palette updates
+    func reload()
 }
 
