@@ -36,6 +36,8 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         max_background_label.backgroundColor = Constants.SECTION()
         max_label.textColor = Constants.TEXT()
         set_table.backgroundColor = Constants.BACKGROUND()
+        info_button.tintColor = Constants.TINT()
+        set_table.tintColor = Constants.TINT()
         
         info_segment.selectedSegmentIndex = 0
     }
@@ -54,7 +56,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         update_maxes_label()
         set_table.reloadData()
         
-        print("\(self.exercise?.type)")
+        //print("\(self.exercise?.type)")
     }
     
     /*

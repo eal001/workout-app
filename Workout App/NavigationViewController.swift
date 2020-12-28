@@ -17,6 +17,7 @@ class NavigationViewController: UINavigationController {
         nav_bar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Constants.TEXT()]
         nav_bar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Constants.TEXT()]
         nav_bar.barTintColor = Constants.BACKGROUND()
+        nav_bar.tintColor = Constants.TINT()
         // Do any additional setup after loading the view.
     }
     

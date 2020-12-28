@@ -32,6 +32,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
         day_name_field.backgroundColor = Constants.SECTION()
         exercise_table.backgroundColor = Constants.BACKGROUND()
         day_name_field.textColor = Constants.TEXT()
+        new_exercise_button.tintColor = Constants.TINT()
         
         if let previous = routine_delegate as? NewRoutineViewController {
             self.day_name_field?.text = previous.stored_cell?.name

@@ -52,9 +52,7 @@ class ChartCell: UITableViewCell, ChartViewDelegate {
         
         progress_chart.pinchZoomEnabled = true
         progress_chart.doubleTapToZoomEnabled = false
-        
-        progress_chart.tintColor = Constants.BACKGROUND()
-        
+                
         contentView.addSubview(progress_chart)
         
         //set up data
@@ -79,7 +77,11 @@ class ChartCell: UITableViewCell, ChartViewDelegate {
         let set = LineChartDataSet(entries: coordinates)
         //set.mode = .cubicBezier
         set.colors = [Constants.TEXT()]
+        set.circleHoleColor = Constants.TEXT()
         set.circleColors = [Constants.SECTION()]
+        set.highlightColor = Constants.TINT()
+        set.highlightLineWidth = 2.5
+        
         progress_chart.data = LineChartData(dataSet: set)
         progress_chart.data?.setDrawValues(false)
         

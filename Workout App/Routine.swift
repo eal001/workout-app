@@ -143,21 +143,71 @@ struct Constants {
     
     //light mode colors
     public static let LIGHT_BACKGROUND = UIColor.white
-    public static let LIGHT_SECTION = UIColor.systemGray5
-    public static let LIGHT_CELL_0 = UIColor.systemGray5
-    public static let LIGHT_CELL_1 = UIColor.systemGray6
+    public static let LIGHT_SECTION = UIColor.systemGray6
+    public static let LIGHT_CELL_0 = UIColor.systemGray6
+    public static let LIGHT_CELL_1 = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1)
     public static let LIGHT_TEXT = UIColor.black
+    public static let LIGHT_TINT = UIColor.systemBlue
     
     //dark mode colors
     public static let DARK_BACKGROUND = UIColor.black
     public static let DARK_SECTION = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1)
     public static let DARK_CELL_0 = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1)
-    public static let DARK_CELL_1 = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
+    public static let DARK_CELL_1 = UIColor(red: 0.075, green: 0.075, blue: 0.075, alpha: 1)
     public static let DARK_TEXT = UIColor.white
+    public static let DARK_TINT = UIColor.systemBlue
+    
+    //light mode colors
+    public static let RLIGHT_BACKGROUND = UIColor.white
+    public static let RLIGHT_SECTION = UIColor.systemGray6
+    public static let RLIGHT_CELL_0 = UIColor.systemGray6
+    public static let RLIGHT_CELL_1 = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1)
+    public static let RLIGHT_TEXT = UIColor.black
+    public static let RLIGHT_TINT = UIColor.systemRed
+    
+    //dark mode w/ red
+    public static let RDARK_BACKGROUND = UIColor.black
+    public static let RDARK_SECTION = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1)
+    public static let RDARK_CELL_0 = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1)
+    public static let RDARK_CELL_1 = UIColor(red: 0.075, green: 0.075, blue: 0.075, alpha: 1)
+    public static let RDARK_TEXT = UIColor.white
+    public static let RDARK_TINT = UIColor.systemRed
+    
+    //bee mode
+    public static let BEE_BACKGROUND = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
+    public static let BEE_SECTION = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
+    public static let BEE_CELL_0 = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
+    public static let BEE_CELL_1 = UIColor(red: 0.175, green: 0.175, blue: 0.175, alpha: 1)
+    public static let BEE_TEXT = UIColor.yellow
+    public static let BEE_TINT = UIColor.yellow
+    
+    //dark and green mode
+    public static let SHAN_BACKGROUND = UIColor.black
+    public static let SHAN_SECTION = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1)
+    public static let SHAN_CELL_0 = UIColor(red: 0.05, green: 0.075, blue: 0.05, alpha: 1)
+    public static let SHAN_CELL_1 = UIColor(red: 0.075, green: 0.1, blue: 0.075, alpha: 1)
+    public static let SHAN_TEXT = UIColor.white
+    public static let SHAN_TINT = UIColor.systemGreen
+    
+    //GONZO mode
+    public static let GONZO_BACKGROUND = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
+    public static let GONZO_SECTION = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1)
+    public static let GONZO_CELL_0 = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1)
+    public static let GONZO_CELL_1 = UIColor.black
+    public static let GONZO_TEXT = UIColor.systemRed
+    public static let GONZO_TINT = UIColor.systemGray6
+    
+    //aqua mode
+    public static let AQUA_BACKGROUND = UIColor(red: 0.90, green: 0.90, blue: 0.99, alpha: 1)
+    public static let AQUA_SECTION = UIColor(red: 0.85, green: 0.85, blue: 0.90, alpha: 1)
+    public static let AQUA_CELL_0 = UIColor(red: 0.85, green: 0.85, blue: 0.90, alpha: 1)
+    public static let AQUA_CELL_1 = UIColor(red: 0.80, green: 0.85, blue: 0.85, alpha: 1)
+    public static let AQUA_TEXT = UIColor(red: 0.05, green: 0.15, blue: 0.15, alpha: 1)
+    public static let AQUA_TINT = UIColor.systemGreen
     
     //MARK: - Global Variables
     //color mode type:  may change on a settings change
-    public static var MODE = ColorMode.Light
+    public static var MODE = ColorMode.Gonzo
     
     public static var BACKGROUND = { () -> UIColor in
         var bg = Constants.LIGHT_BACKGROUND
@@ -166,52 +216,136 @@ struct Constants {
             bg = Constants.DARK_BACKGROUND
         case .Light:
             bg = Constants.LIGHT_BACKGROUND
+        case .RLight:
+            bg = Constants.RLIGHT_BACKGROUND
+        case .RDark:
+            bg = Constants.RDARK_BACKGROUND
+        case .Bee:
+            bg = Constants.BEE_BACKGROUND
+        case .Shan:
+            bg = Constants.SHAN_BACKGROUND
+        case .Gonzo:
+            bg = Constants.GONZO_BACKGROUND
+        case .Aqua:
+            bg = Constants.AQUA_BACKGROUND
         }
         return bg
     }
     
     public static var TEXT = { () -> UIColor in
-        var bg = Constants.LIGHT_TEXT
+        var t = Constants.LIGHT_TEXT
         switch(MODE){
         case .Dark:
-            bg = Constants.DARK_TEXT
+            t = Constants.DARK_TEXT
         case .Light:
-            bg = Constants.LIGHT_TEXT
+            t = Constants.LIGHT_TEXT
+        case .RLight:
+            t = Constants.RLIGHT_TEXT
+        case .RDark:
+            t = Constants.RDARK_TEXT
+        case .Bee:
+            t = Constants.BEE_TEXT
+        case .Shan:
+            t = Constants.SHAN_TEXT
+        case .Gonzo:
+            t = Constants.GONZO_TEXT
+        case .Aqua:
+        t = Constants.AQUA_TEXT
         }
-        return bg
+        return t
     }
     
     public static var SECTION = { () -> UIColor in
-        var bg = Constants.LIGHT_SECTION
+        var s = Constants.LIGHT_SECTION
         switch(MODE){
         case .Dark:
-            bg = Constants.DARK_SECTION
+            s = Constants.DARK_SECTION
         case .Light:
-            bg = Constants.LIGHT_SECTION
+            s = Constants.LIGHT_SECTION
+        case .RLight:
+            s = Constants.RLIGHT_SECTION
+        case .RDark:
+            s = Constants.RDARK_SECTION
+        case .Bee:
+            s = Constants.BEE_SECTION
+        case .Shan:
+            s = Constants.SHAN_SECTION
+        case .Gonzo:
+            s = Constants.GONZO_SECTION
+        case .Aqua:
+            s = Constants.AQUA_SECTION
         }
-        return bg
+        return s
     }
     
     public static var CELL_0 = { () -> UIColor in
-        var bg = Constants.LIGHT_CELL_0
+        var c0 = Constants.LIGHT_CELL_0
         switch(MODE){
         case .Dark:
-            bg = Constants.DARK_CELL_0
+            c0 = Constants.DARK_CELL_0
         case .Light:
-            bg = Constants.LIGHT_CELL_0
+            c0 = Constants.LIGHT_CELL_0
+        case .RLight:
+            c0 = Constants.RLIGHT_CELL_0
+        case .RDark:
+            c0 = Constants.RDARK_CELL_0
+        case .Bee:
+            c0 = Constants.BEE_CELL_0
+        case .Shan:
+            c0 = Constants.SHAN_CELL_0
+        case .Gonzo:
+            c0 = Constants.GONZO_CELL_0
+        case .Aqua:
+            c0 = Constants.AQUA_CELL_0
         }
-        return bg
+        return c0
     }
     
     public static var CELL_1 = { () -> UIColor in
-        var bg = Constants.LIGHT_CELL_1
+        var c1 = Constants.LIGHT_CELL_1
         switch(MODE){
         case .Dark:
-            bg = Constants.DARK_CELL_1
+            c1 = Constants.DARK_CELL_1
         case .Light:
-            bg = Constants.LIGHT_CELL_1
+            c1 = Constants.LIGHT_CELL_1
+        case .RLight:
+            c1 = Constants.RLIGHT_CELL_1
+        case .RDark:
+            c1 = Constants.RDARK_CELL_1
+        case .Bee:
+            c1 = Constants.BEE_CELL_1
+        case .Shan:
+            c1 = Constants.SHAN_CELL_1
+        case .Gonzo:
+            c1 = Constants.GONZO_CELL_1
+        case .Aqua:
+            c1 = Constants.AQUA_CELL_1
         }
-        return bg
+        return c1
+    }
+    
+    public static var TINT = { ()-> UIColor in
+        var t = Constants.LIGHT_TINT
+        switch MODE {
+        case .Dark:
+            t = Constants.DARK_TINT
+        case .Light:
+            t = Constants.LIGHT_TINT
+        case .RLight:
+            t = Constants.RLIGHT_TINT
+        case .RDark:
+            t = Constants.RDARK_TINT
+        case .Bee:
+            t = Constants.BEE_TINT
+        case .Shan:
+            t = Constants.SHAN_TINT
+        case .Gonzo:
+            t = Constants.GONZO_TINT
+        case .Aqua:
+            t = Constants.AQUA_TINT
+        }
+        return t
+        
     }
     
 }
@@ -219,4 +353,10 @@ struct Constants {
 enum ColorMode: Int, Codable {
     case Light = 0
     case Dark = 1
+    case RLight = 2
+    case RDark = 3
+    case Bee = 4
+    case Shan = 5
+    case Gonzo = 6
+    case Aqua = 7
 }

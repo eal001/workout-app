@@ -24,6 +24,7 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var name_background: UILabel!
     @IBOutlet weak var rest_days_indicator_label: UILabel!
     @IBOutlet weak var rest_days_background: UILabel!
+    @IBOutlet weak var nav_bar: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,8 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         name_background.backgroundColor = Constants.SECTION()
         rest_days_indicator_label.textColor = Constants.TEXT()
         rest_days_background.backgroundColor = Constants.SECTION()
+        create_button.tintColor = Constants.TINT()
+        new_day_button.tintColor = Constants.TINT()
         
     }
     

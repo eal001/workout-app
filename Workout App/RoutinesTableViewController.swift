@@ -18,10 +18,13 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
     
     @IBOutlet weak var nav_bar: UINavigationItem!
     @IBOutlet weak var create_button: UIBarButtonItem!
+    @IBOutlet weak var settings_button: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = Constants.BACKGROUND()
+        create_button.tintColor = Constants.TINT()
+        nav_bar.backBarButtonItem?.tintColor = Constants.TINT()
         load_routines()
     }
 

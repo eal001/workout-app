@@ -262,6 +262,22 @@
             </objects>
             <point key="canvasLocation" x="2359" y="-881"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="5BH-5D-LqP">
+            <objects>
+                <viewController id="hT1-SH-o4A" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ihs-uj-SDu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="DRY-XC-ZZd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xX8-nF-DlC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mwf-co-D47" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32" y="-881"/>
+        </scene>
         <!--New Routine-->
         <scene sceneID="VvG-cq-Ecr">
             <objects>
@@ -390,6 +406,7 @@
                         <outlet property="day_table" destination="aAO-EO-Wop" id="skl-wG-TqQ"/>
                         <outlet property="name_background" destination="yeS-y6-obl" id="r3p-aK-Swh"/>
                         <outlet property="name_indicator_label" destination="WFz-Vd-qt8" id="0jm-Sq-dhI"/>
+                        <outlet property="nav_bar" destination="HY7-0g-c2r" id="ELw-KJ-KVZ"/>
                         <outlet property="new_day_button" destination="e3k-ue-K91" id="2Tm-Oi-oUB"/>
                         <outlet property="rest_day_field" destination="wmD-iv-2ZW" id="mg9-Dl-G6P"/>
                         <outlet property="rest_days_background" destination="v7g-cu-L2J" id="6Az-fK-UWC"/>
@@ -430,15 +447,23 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Routines" id="9gh-oQ-0wh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Hp-Ug-bKM">
-                            <connections>
-                                <segue destination="YsJ-7U-dcx" kind="show" id="2kz-uL-6jD"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="gearshape" catalog="system" id="I2u-iR-LBU">
+                                <connections>
+                                    <segue destination="hT1-SH-o4A" kind="showDetail" id="ysi-aC-5DF"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="0Hp-Ug-bKM">
+                                <connections>
+                                    <segue destination="YsJ-7U-dcx" kind="show" id="2kz-uL-6jD"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="create_button" destination="0Hp-Ug-bKM" id="1df-Ib-Jbs"/>
                         <outlet property="nav_bar" destination="9gh-oQ-0wh" id="iCA-Wo-Yfc"/>
+                        <outlet property="settings_button" destination="I2u-iR-LBU" id="whz-uk-s7D"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vxn-zU-M4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -453,9 +478,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mFu-0m-pSI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mFu-0m-pSI">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chart_cell" rowHeight="235" id="pot-97-Za3" customClass="ChartCell" customModule="Workout_App" customModuleProvider="target">
@@ -465,14 +489,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="235"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exercise Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o58-Lc-eat">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o58-Lc-eat">
                                                     <rect key="frame" x="20" y="11" width="380" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="PLX-di-7Vs"/>
+                                                        <constraint firstAttribute="width" constant="380" id="dhB-Sl-e0X"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="o58-Lc-eat" firstAttribute="leading" secondItem="beR-4U-rbp" secondAttribute="leadingMargin" id="WXd-lh-fLT"/>
+                                                <constraint firstItem="o58-Lc-eat" firstAttribute="top" secondItem="beR-4U-rbp" secondAttribute="topMargin" id="jWJ-r3-i3C"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="exercise_name_label" destination="o58-Lc-eat" id="4b6-9l-Xor"/>
@@ -483,6 +514,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XDq-8H-cFF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mFu-0m-pSI" firstAttribute="top" secondItem="XDq-8H-cFF" secondAttribute="top" id="5Uv-b3-HbU"/>
+                            <constraint firstItem="mFu-0m-pSI" firstAttribute="bottom" secondItem="XDq-8H-cFF" secondAttribute="bottom" id="7Vj-v0-Gqh"/>
+                            <constraint firstItem="mFu-0m-pSI" firstAttribute="leading" secondItem="XDq-8H-cFF" secondAttribute="leading" id="MMh-Lo-GDo"/>
+                            <constraint firstItem="mFu-0m-pSI" firstAttribute="centerX" secondItem="uE5-VN-0V8" secondAttribute="centerX" id="TmU-DE-CgQ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Progression" image="icons8-line-chart-50" selectedImage="icons8-line-chart-50" id="o9m-GC-YO6"/>
                     <connections>
@@ -834,6 +871,7 @@
         <segue reference="KRi-XB-Ebd"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="icons8-deadlift-50" width="25" height="25"/>
         <image name="icons8-line-chart-50" width="25" height="25"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>

@@ -23,6 +23,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         
         self.tabBar.isTranslucent = false
         self.tabBar.barTintColor = Constants.BACKGROUND()
+        self.tabBar.tintColor = Constants.TINT()
         
         var cycles = [Cycle]()
         if let previous = routine_delegate as? RoutinesTableViewController{

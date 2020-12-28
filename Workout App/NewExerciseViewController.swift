@@ -31,6 +31,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         name_indicator_label.textColor = Constants.TEXT()
         set_table.backgroundColor = Constants.BACKGROUND()
         name_field.textColor = Constants.TEXT()
+        add_button.tintColor = Constants.TINT()
         
         if let previous = delegate as? NewDayViewController{
             self.name_field?.text = previous.stored_cell?.name
