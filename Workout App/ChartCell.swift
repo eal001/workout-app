@@ -57,10 +57,7 @@ class ChartCell: UITableViewCell, ChartViewDelegate {
         
         //set up data
         var coordinates = [ChartDataEntry]()
-        //for i in 0..<10{
-        //let i = 4
-            //coordinates.append(ChartDataEntry(x: 1.0+Double(i),y: 1.0+Double(i) ))
-        //}
+       
         for coordinate in data{
             let time_interval = coordinate.0.timeIntervalSince1970
             let date_num = Double(time_interval)
@@ -73,6 +70,8 @@ class ChartCell: UITableViewCell, ChartViewDelegate {
             }
             coordinates.insert(ChartDataEntry(x: date_num ,y: volume), at: 0)
         }
+        coordinates = coordinates.sorted(by: {$0.x < $1.x} )
+        
         
         let set = LineChartDataSet(entries: coordinates)
         //set.mode = .cubicBezier

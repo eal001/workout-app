@@ -48,7 +48,7 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "chart_cell", for: indexPath) as! ChartCell
         
         cell.exercise_name_label.text = chart_coords[indexPath.row][0].1.name
-        
+        cell.data = [(Date, Exercise)]()
         cell.data = chart_coords[indexPath.row]
         cell.backgroundColor = Constants.CELL_0()
         //cell.textLabel?.text = "loading?"
