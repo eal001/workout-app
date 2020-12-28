@@ -35,6 +35,25 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         if let previous = delegate as? NewDayViewController{
             self.name_field?.text = previous.stored_cell?.name
             self.sets = previous.stored_cell?.sets ?? [Single_Set]()
+            var row = 0
+            switch previous.stored_cell?.type {
+            case .Primary:
+                row = 0
+            case .Secondary:
+                row = 1
+            case .Compound:
+                row = 2
+            case .Accessory:
+                row = 3
+            case .Calisthenic:
+                row = 4
+            case .Other:
+                row = 5
+            default:
+                row = 5
+            }
+            
+            self.type_picker.selectRow(row, inComponent: 0, animated: true)
             set_table.reloadData()
             load_cells()
         }

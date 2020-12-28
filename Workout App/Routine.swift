@@ -144,8 +144,8 @@ struct Constants {
     //light mode colors
     public static let LIGHT_BACKGROUND = UIColor.white
     public static let LIGHT_SECTION = UIColor.systemGray5
-    public static let LIGHT_CELL_0 = UIColor.systemGray6
-    public static let LIGHT_CELL_1 = UIColor.systemGray5
+    public static let LIGHT_CELL_0 = UIColor.systemGray5
+    public static let LIGHT_CELL_1 = UIColor.systemGray6
     public static let LIGHT_TEXT = UIColor.black
     
     //dark mode colors
@@ -157,7 +157,7 @@ struct Constants {
     
     //MARK: - Global Variables
     //color mode type:  may change on a settings change
-    public static var MODE = ColorMode.Dark
+    public static var MODE = ColorMode.Light
     
     public static var BACKGROUND = { () -> UIColor in
         var bg = Constants.LIGHT_BACKGROUND

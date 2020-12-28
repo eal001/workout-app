@@ -30,11 +30,12 @@ class ChartCell: UITableViewCell, ChartViewDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        progress_chart.frame = CGRect(x: 0, y: 0 , width: self.contentView.frame.size.width - 10, height: self.contentView.frame.size.height - 60)
+        progress_chart.frame = CGRect(x: 0, y: 0 , width: self.contentView.frame.size.width , height: self.contentView.frame.size.height - 60)
         
         progress_chart.center = CGPoint(x: contentView.center.x, y: contentView.center.y + 20 )
         
         progress_chart.rightAxis.enabled = false
+        progress_chart.rightAxis.xOffset = 15
         progress_chart.legend.enabled = false
         
         progress_chart.xAxis.valueFormatter = ChartDateFormatter()
@@ -76,7 +77,7 @@ class ChartCell: UITableViewCell, ChartViewDelegate {
         }
         
         let set = LineChartDataSet(entries: coordinates)
-        set.mode = .cubicBezier
+        //set.mode = .cubicBezier
         set.colors = [Constants.TEXT()]
         set.circleColors = [Constants.SECTION()]
         progress_chart.data = LineChartData(dataSet: set)
@@ -110,10 +111,11 @@ class ChartDateFormatter : IAxisValueFormatter {
             } else {
                 index_1 = (entry_count / 4)
                 index_2 = (entry_count / 4) * 2
-                index_3 = (entry_count / 4) * 3
+                index_3 = (entry_count / 4) * 3 - 1
             }
             
-            if current_index == 0 || current_index == index_1 || current_index == index_2 || current_index == index_3 {
+            if current_index == 0 || current_index == index_1 || current_index == index_2 || current_index == index_3
+            {
                 let time_interval = TimeInterval(value)
                 let date = Date(timeIntervalSince1970: time_interval)
                 let month = Calendar.current.component(.month, from: date)

@@ -30,6 +30,11 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
         //print("cycles that exist? \(cycles.count)")
         //chart_table.reloadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //create_coordinates()
+        //chart_table.reloadData()
+    }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -55,6 +60,7 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func create_coordinates(){
+        chart_coords = [[(Date, Exercise)]]()
         var current_date = Date()
         for cycle in cycles{
             //print("cycle checked")

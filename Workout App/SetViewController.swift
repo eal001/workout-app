@@ -53,6 +53,8 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         //exercise.compute_maxes()
         update_maxes_label()
         set_table.reloadData()
+        
+        print("\(self.exercise?.type)")
     }
     
     /*
