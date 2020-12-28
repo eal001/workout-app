@@ -57,7 +57,8 @@ class ChartCell: UITableViewCell, ChartViewDelegate {
         
         //set up data
         var coordinates = [ChartDataEntry]()
-       
+        
+        
         for coordinate in data{
             let time_interval = coordinate.0.timeIntervalSince1970
             let date_num = Double(time_interval)
@@ -65,11 +66,17 @@ class ChartCell: UITableViewCell, ChartViewDelegate {
             var volume = 0.0
             for set in coordinate.1.sets{
                 if set.is_complete{
-                    volume += set.weight * Double(set.reps)
+                    if coordinate.1.type == ExerciseType.Calisthenic{
+                        volume += Double(set.reps)
+                    }else {
+                        volume += set.weight * Double(set.reps)
+                    }
                 }
             }
             coordinates.insert(ChartDataEntry(x: date_num ,y: volume), at: 0)
         }
+        
+        
         coordinates = coordinates.sorted(by: {$0.x < $1.x} )
         
         
