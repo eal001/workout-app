@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		8B62BEB225931E1C00A9DCA8 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BEB125931E1C00A9DCA8 /* ProgressViewController.swift */; };
 		8B62BEB72593317300A9DCA8 /* DayExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BEB62593317300A9DCA8 /* DayExerciseViewController.swift */; };
 		8B62BEBC2593336C00A9DCA8 /* SingleDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BEBB2593336C00A9DCA8 /* SingleDayViewController.swift */; };
+		8B658A5725992F2E008B8932 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B658A5625992F2E008B8932 /* ChartCell.swift */; };
 		8B704D7025898AD500AEA9E3 /* NewRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B704D6F25898AD500AEA9E3 /* NewRoutineViewController.swift */; };
 		8B704D7525898AF300AEA9E3 /* RoutinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B704D7425898AF300AEA9E3 /* RoutinesTableViewController.swift */; };
 		8B704D7D25898D0200AEA9E3 /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B704D7C25898D0200AEA9E3 /* Cycle.swift */; };
@@ -64,6 +65,7 @@
 		8B62BEB125931E1C00A9DCA8 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		8B62BEB62593317300A9DCA8 /* DayExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExerciseViewController.swift; sourceTree = "<group>"; };
 		8B62BEBB2593336C00A9DCA8 /* SingleDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDayViewController.swift; sourceTree = "<group>"; };
+		8B658A5625992F2E008B8932 /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		8B704D6F25898AD500AEA9E3 /* NewRoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoutineViewController.swift; sourceTree = "<group>"; };
 		8B704D7425898AF300AEA9E3 /* RoutinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesTableViewController.swift; sourceTree = "<group>"; };
 		8B704D7C25898D0200AEA9E3 /* Cycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
@@ -146,7 +148,6 @@
 				FEBFEAB5F8D3E4EB3AA55742 /* Pods-Workout AppTests.debug.xcconfig */,
 				A9F70E07FCDC5A799E17AC5A /* Pods-Workout AppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -183,6 +184,7 @@
 				8BA8ED9D2588AE0E001110A0 /* Main.storyboard */,
 				8BA8EDA22588AE0F001110A0 /* LaunchScreen.storyboard */,
 				8BA8EDA02588AE0F001110A0 /* Assets.xcassets */,
+				8B658A5625992F2E008B8932 /* ChartCell.swift */,
 				8B62BEB125931E1C00A9DCA8 /* ProgressViewController.swift */,
 				8BF44DFD2594624B00C9DC0D /* SetViewController.swift */,
 				8B62BEBB2593336C00A9DCA8 /* SingleDayViewController.swift */,
@@ -475,6 +477,7 @@
 				8B704D992589B77E00AEA9E3 /* NewDayViewController.swift in Sources */,
 				8BA8ED982588AE0E001110A0 /* AppDelegate.swift in Sources */,
 				8B62BEB225931E1C00A9DCA8 /* ProgressViewController.swift in Sources */,
+				8B658A5725992F2E008B8932 /* ChartCell.swift in Sources */,
 				8B704D7525898AF300AEA9E3 /* RoutinesTableViewController.swift in Sources */,
 				8BA8ED9A2588AE0E001110A0 /* SceneDelegate.swift in Sources */,
 				8B62BEB72593317300A9DCA8 /* DayExerciseViewController.swift in Sources */,
