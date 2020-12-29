@@ -10,12 +10,12 @@ contain multiple exercises and within those exercises sets that we want to set a
 aspects, and we can use them once made (setting weight/reps/names). 
 
 ## Known Bugs
->editing the rep/weight field of the sets in the usage mode; we want to be able to set these to complete or incomplete based on what number is 
-    put into this as well
+
 >each routine is set up for linear progresstion, (should also have a manual mode)
+>max label does not update until the set is marked/RE-marked as complete
 
 ## Planned Functionality
->add ability to put in how many reps you did, save that specific set as the changed values, and mark as complete/incomplete
+
 >add a screen to see how your strength in each percentile ranks whith others (probably by pinging a server)
 >manual mode of progression for each routine
 >make the input text fields a bit bigger and the cells

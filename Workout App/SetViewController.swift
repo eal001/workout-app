@@ -60,6 +60,14 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         //print("\(self.exercise?.type)")
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+        //routine_delegate?.compute_all_pr(name: exercise?.name ?? "" )
+        //update_maxes_label()
+        //routine_delegate?.save_routines()
+    }
     /*
      the number of sections in the tableview
      */
@@ -89,6 +97,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.set_label?.text = "\(Constants.SET_TITLE) \(indexPath.row + 1)"
         cell.rep_field?.text = String(sets[indexPath.row].reps)
         cell.weight_field?.text = String((sets[indexPath.row].weight * (Constants.KILOS ? 1 : Constants.K_TO_LB)).truncate(places: 2))
+        cell.set = sets[indexPath.row]
         cell.backgroundColor = Constants.CELL_0()
         if(sets[indexPath.row].is_complete){
             cell.accessoryType = .checkmark
