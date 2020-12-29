@@ -155,7 +155,13 @@ struct Constants {
     }
     
     public static var REP_UNIT = "Reps"
-    public static let VOL_UNIT = "\(WEIGHT_UNIT()) \(REP_UNIT)"
+    public static let VOL_UNIT = { () -> String in
+        if(KILOS){
+            return "Kgs \(REP_UNIT)"
+        } else {
+            return "Lbs \(REP_UNIT)"
+        }
+    }
     public static let SET_TITLE = "Set"
     public static let WEIGHT_MSG = "Maximum Weight Set for"
     public static let REPS_MSG = "Maximum Rep Set for"

@@ -149,7 +149,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             max_label.text = "\(exercise!.max_reps.reps) \(Constants.REP_UNIT)"
         } else {
             let vol = (exercise!.max_volume.weight * Double(exercise!.max_volume.reps) * (Constants.KILOS ? 1 : Constants.K_TO_LB)).round(places: 2)
-            max_label.text = "\(vol) \(Constants.VOL_UNIT)"
+            max_label.text = "\(vol) \(Constants.VOL_UNIT())"
         }
     }
     

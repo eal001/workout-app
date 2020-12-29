@@ -13,6 +13,7 @@ aspects, and we can use them once made (setting weight/reps/names).
 
 >each routine is set up for linear progresstion, (should also have a manual mode)
 >max label does not update until the set is marked/RE-marked as complete
+>the labels have some weird numbers sometimes
 
 ## Planned Functionality
 
