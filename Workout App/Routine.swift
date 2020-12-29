@@ -94,12 +94,19 @@ class UDM {
 struct Constants {
     
     //MARK: - Constants
-    public static let WEIGHT_INCREMENT = 2.5
+    public static let WEIGHT_INCREMENT = { () -> Double in
+        if KILOS{
+            return 2.5
+        } else {
+            return 5.0 * (1/K_TO_LB)
+        }
+    }
     public static let REP_INCREMENT = 4
     public static let ACCESSORY_MAX = 24
     public static let ACCESSORY_RESET = 12
     public static let EX_TYPE_COUNT = 6
     public static let COLOR_SCHEME_AMT = 8
+    public static let K_TO_LB = 2.20462
     public static let WEEKDAY_1 = "Monday"
     public static let WEEKDAY_2 = "Tuesday"
     public static let WEEKDAY_3 = "Wednesday"
@@ -114,8 +121,11 @@ struct Constants {
     public static let SAVE_ERR_MSG_0 = "Routine: unable to encode routine"
     public static let MASTER_KEY = "MASTER KEY"
     public static let SCHEME_KEY = "COLOR SCHEME KEY"
+    public static let UNITS_KEY = "WEIGHT UNIT KEY"
     public static let SAVE_COLOR_ERR_MSG = "Error saving the desired colorscheme"
     public static let LOAD_COLOR_ERR_MSG = "Error loading the desired colorscheme"
+    public static let SAVE_UNIT_ERR_MSG = "Error saving the desired units settings"
+    public static let LOAD_UNIT_ERR_MSG = "Error loading the desired units settings"
     public static let SAVE_ERR_MSG_1 = "RoutineViewComtroller: unable to encode the routine keys to the master key"
     public static let LOAD_ERR_MSG_2 = "RoutineViewController: some data existed at the master key but was not decoded"
     public static let LAOD_ERR_MSG_3 = "RoutineViewVontroller: unable to get data for the routine keys"
@@ -136,9 +146,16 @@ struct Constants {
     public static let EX_TYPE_5 = "Other"
     public static let VC_ID_0 = "certain_day"
     public static let STORYBOARD_ID = "Main"
-    public static let WEIGHT_UNIT = "Kgs"
-    public static let REP_UNIT = "Reps"
-    public static let VOL_UNIT = "\(WEIGHT_UNIT) x \(REP_UNIT)"
+    public static let WEIGHT_UNIT = { () -> String in
+        if(KILOS){
+            return "Kgs"
+        } else {
+            return "Lbs"
+        }
+    }
+    
+    public static var REP_UNIT = "Reps"
+    public static let VOL_UNIT = "\(WEIGHT_UNIT()) \(REP_UNIT)"
     public static let SET_TITLE = "Set"
     public static let WEIGHT_MSG = "Maximum Weight Set for"
     public static let REPS_MSG = "Maximum Rep Set for"
@@ -228,10 +245,14 @@ struct Constants {
     public static let AQUA_TINT = UIColor.systemGreen
     
     //MARK: - Global Variables
+    
+    //unit mode type: may change on a settings change
+    public static var KILOS = true
+    
     //color mode type:  may change on a settings change
     public static var MODE = ColorMode.Light
     
-    public static var BACKGROUND = { () -> UIColor in
+    public static let BACKGROUND = { () -> UIColor in
         var bg = Constants.LIGHT_BACKGROUND
         switch(MODE){
         case .Dark:
@@ -254,7 +275,7 @@ struct Constants {
         return bg
     }
     
-    public static var TEXT = { () -> UIColor in
+    public static let TEXT = { () -> UIColor in
         var t = Constants.LIGHT_TEXT
         switch(MODE){
         case .Dark:
@@ -277,7 +298,7 @@ struct Constants {
         return t
     }
     
-    public static var SECTION = { () -> UIColor in
+    public static let SECTION = { () -> UIColor in
         var s = Constants.LIGHT_SECTION
         switch(MODE){
         case .Dark:
@@ -300,7 +321,7 @@ struct Constants {
         return s
     }
     
-    public static var CELL_0 = { () -> UIColor in
+    public static let CELL_0 = { () -> UIColor in
         var c0 = Constants.LIGHT_CELL_0
         switch(MODE){
         case .Dark:
@@ -323,7 +344,7 @@ struct Constants {
         return c0
     }
     
-    public static var CELL_1 = { () -> UIColor in
+    public static let CELL_1 = { () -> UIColor in
         var c1 = Constants.LIGHT_CELL_1
         switch(MODE){
         case .Dark:
@@ -346,7 +367,7 @@ struct Constants {
         return c1
     }
     
-    public static var TINT = { ()-> UIColor in
+    public static let TINT = { ()-> UIColor in
         var t = Constants.LIGHT_TINT
         switch MODE {
         case .Dark:

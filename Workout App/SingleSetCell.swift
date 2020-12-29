@@ -22,6 +22,7 @@ class SingleSetCell: UITableViewCell, UITextViewDelegate {
         self.contentView.backgroundColor = Constants.CELL_0()
         set_label.textColor = Constants.TEXT()
         weight_label.textColor = Constants.TEXT()
+        weight_label.text = Constants.WEIGHT_UNIT()
         rep_label.textColor = Constants.TEXT()
         rep_field.textColor = Constants.TEXT()
         rep_field.backgroundColor = Constants.BACKGROUND()

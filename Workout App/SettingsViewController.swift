@@ -13,6 +13,9 @@ class SettingsViewController: UIViewController , UITableViewDelegate, UITableVie
     
     @IBOutlet weak var color_scheme_table: UITableView!
     @IBOutlet weak var settings_label: UILabel!
+    @IBOutlet weak var pounds_label: UILabel!
+    @IBOutlet weak var kilos_label: UILabel!
+    @IBOutlet weak var unit_switch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,16 @@ class SettingsViewController: UIViewController , UITableViewDelegate, UITableVie
         settings_label.textColor = Constants.TEXT()
         self.view.backgroundColor = Constants.BACKGROUND()
         color_scheme_table.backgroundColor = Constants.BACKGROUND()
+        pounds_label.textColor = Constants.TEXT()
+        kilos_label.textColor = Constants.TEXT()
+        unit_switch.onTintColor = Constants.TINT()
+        unit_switch.thumbTintColor = Constants.TEXT()
+        
+        if(Constants.KILOS){
+            unit_switch.isOn = true
+        } else {
+            unit_switch.isOn = false
+        }
     }
     
     
@@ -121,6 +134,18 @@ class SettingsViewController: UIViewController , UITableViewDelegate, UITableVie
         tableView.cellForRow(at: indexPath)?.selectedBackgroundView?.backgroundColor = Constants.CELL_0()
     }
     
+    @IBAction func unit_changed(_ sender: Any) {
+        routine_delegate?.save_weight_units()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if(unit_switch.isOn){
+            Constants.KILOS = true
+        }else {
+            Constants.KILOS = false
+        }
+        routine_delegate?.reload()
+    }
 
     /*
     // MARK: - Navigation

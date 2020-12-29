@@ -96,7 +96,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_1) as! SingleSetCell
         cell.set_label.text = "\(Constants.SET_TITLE) \(indexPath.row + 1)"
-        cell.weight_field.text = String(sets[indexPath.row].weight)
+        cell.weight_field.text = String( (sets[indexPath.row].weight * (Constants.KILOS ? 1 : Constants.K_TO_LB) ).truncate(places: 2))
         cell.rep_field.text = String(sets[indexPath.row].reps)
         //cell.backgroundColor = Constants.BACKGROUND()
         return cell
@@ -224,7 +224,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func update_sets(){
         var i = 0
         for cell in set_table.visibleCells as! [SingleSetCell] {
-            sets[i].weight = Double(cell.weight_field.text! ) ?? 0.0
+            sets[i].weight = (Double(cell.weight_field.text! ) ?? 0.0) * (Constants.KILOS ? 1 : 1/Constants.K_TO_LB)
+            print("\(i) :  \(sets[i].weight)")
             sets[i].reps = Int(cell.rep_field.text! ) ?? 0
             i+=1
         }
@@ -236,11 +237,12 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
      sets and the table values are equivalent.
      */
     func load_cells(){
+        print("loading cells")
         let cells = set_table.visibleCells as! [SingleSetCell]
         var i = 0
         for set in sets{
             if set_table.visibleCells.count > i{
-                cells[i].weight_field?.text = String(set.weight)
+                cells[i].weight_field?.text = String((set.weight * (Constants.KILOS ? 1 : Constants.K_TO_LB) ).truncate(places: 2))
                 cells[i].rep_field?.text = String(set.reps)
             }
             i+=1
@@ -271,4 +273,12 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     }
     */
 
+}
+
+extension Double {
+    
+    func truncate(places : Int) -> Double {
+        return Double(String(format: "%.1f", (self * pow(10.0, Double(places)) )).dropLast(2))! / pow(10.0,Double(places))
+    }
+    
 }

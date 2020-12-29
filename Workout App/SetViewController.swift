@@ -39,6 +39,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         info_button.tintColor = Constants.TINT()
         set_table.tintColor = Constants.TINT()
         
+        
         info_segment.selectedSegmentIndex = 0
     }
     
@@ -87,7 +88,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_1, for: indexPath) as! SingleSetCell
         cell.set_label?.text = "\(Constants.SET_TITLE) \(indexPath.row + 1)"
         cell.rep_field?.text = String(sets[indexPath.row].reps)
-        cell.weight_field?.text = String(sets[indexPath.row].weight)
+        cell.weight_field?.text = String((sets[indexPath.row].weight * (Constants.KILOS ? 1 : Constants.K_TO_LB)).truncate(places: 2))
         cell.backgroundColor = Constants.CELL_0()
         if(sets[indexPath.row].is_complete){
             cell.accessoryType = .checkmark
@@ -134,11 +135,11 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      */
     func update_maxes_label(){
         if info_segment.selectedSegmentIndex == 0{
-            max_label.text = "\(exercise!.max_weight.weight) \(Constants.WEIGHT_UNIT)"
+            max_label.text = "\((exercise!.max_weight.weight * (Constants.KILOS ? 1 : Constants.K_TO_LB)).truncate(places: 2)) \(Constants.WEIGHT_UNIT())"
         } else if info_segment.selectedSegmentIndex == 1 {
             max_label.text = "\(exercise!.max_reps.reps) \(Constants.REP_UNIT)"
         } else {
-            let vol = exercise!.max_volume.weight * Double(exercise!.max_volume.reps)
+            let vol = (exercise!.max_volume.weight * Double(exercise!.max_volume.reps) * (Constants.KILOS ? 1 : Constants.K_TO_LB)).truncate(places: 2)
             max_label.text = "\(vol) \(Constants.VOL_UNIT)"
         }
     }
@@ -154,13 +155,13 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let msg : String
         let title : String
         if info_segment.selectedSegmentIndex == 0{
-            msg = "\(exercise!.max_weight.weight) \(Constants.WEIGHT_UNIT) : \(exercise!.max_weight.reps) \(Constants.REP_UNIT)"
+            msg = "\((exercise!.max_weight.weight * (Constants.KILOS ? 1 : Constants.K_TO_LB)).truncate(places: 2)) \(Constants.WEIGHT_UNIT()) : \(exercise!.max_weight.reps) \(Constants.REP_UNIT)"
             title = "\(Constants.WEIGHT_MSG) \(exercise!.name)"
         } else if info_segment.selectedSegmentIndex == 1 {
-            msg = "\(exercise!.max_reps.weight) \(Constants.WEIGHT_UNIT) : \(exercise!.max_reps.reps) \(Constants.REP_UNIT)"
+            msg = "\(exercise!.max_reps.weight) \(Constants.WEIGHT_UNIT()) : \(exercise!.max_reps.reps) \(Constants.REP_UNIT)"
             title = "\(Constants.REPS_MSG) \(exercise!.name)"
         }else {
-            msg = "\(exercise!.max_volume.weight) \(Constants.WEIGHT_UNIT) : \(exercise!.max_volume.reps) \(Constants.REP_UNIT)"
+            msg = "\((exercise!.max_volume.weight * (Constants.KILOS ? 1 : Constants.K_TO_LB)).truncate(places: 2)) \(Constants.WEIGHT_UNIT()) : \(exercise!.max_volume.reps) \(Constants.REP_UNIT)"
             title = "\(Constants.VOLUME_MSG) \(exercise!.name)"
         }
         let alert = UIAlertController(title: title,

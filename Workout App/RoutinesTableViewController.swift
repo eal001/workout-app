@@ -24,6 +24,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         super.viewDidLoad()
         load_routines()
         load_color_scheme()
+        load_weight_units()
         self.tableView.backgroundColor = Constants.BACKGROUND()
         create_button.tintColor = Constants.TINT()
         nav_bar.backBarButtonItem?.tintColor = Constants.TINT()
@@ -110,12 +111,43 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
     }
     
     /*
+     this function will be called at reload and on the swapping on/off the switch in order to ensure tha the desired
+     weight units would be used on any usage of the app
+     */
+    func save_weight_units(){
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(Constants.KILOS) {
+            UDM.shared.defaults?.setValue( data , forKey: Constants.UNITS_KEY)
+        } else {
+            print(Constants.SAVE_UNIT_ERR_MSG)
+        }
+    }
+    
+    /*
+     this function will be called on the initial load of this vc as well as inside the reload method
+     */
+    func load_weight_units(){
+        let decoder = JSONDecoder()
+        if let data = UDM.shared.defaults?.data(forKey: Constants.UNITS_KEY){
+            if let units = try? decoder.decode(Bool.self, from: data){
+                Constants.KILOS = units
+            } else {
+                print(Constants.LOAD_UNIT_ERR_MSG)
+            }
+        } else {
+            print(Constants.LOAD_UNIT_ERR_MSG)
+        }
+        //self.navigationController?.viewDidLoad()
+    }
+    
+    /*
      this function will save the routines, call view did load and also reset the navigation controller
      that is embedded here, this way the colors can be reset if the color schemeis changed
      */
     func reload(){
         save_routines()
         save_color_scheme()
+        save_weight_units()
         self.viewDidLoad()
         self.navigationController?.viewDidLoad()
     }
@@ -326,5 +358,8 @@ protocol RoutinesTableViewControllerDelegate {
     
     //function to reload this vc and the navigation controller so that the new color palette updates
     func reload()
+    
+    //function to save the desired weight unit to User Defaults
+    func save_weight_units()
 }
 

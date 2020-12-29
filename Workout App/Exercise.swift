@@ -118,17 +118,17 @@ class Exercise: NSObject, Codable {
             //print("creating")
             switch new_exercise.type {
             case .Primary:
-                set.weight += Constants.WEIGHT_INCREMENT
+                set.weight += Constants.WEIGHT_INCREMENT()
             case .Secondary:
-                set.weight += Constants.WEIGHT_INCREMENT
+                set.weight += Constants.WEIGHT_INCREMENT()
             case .Compound:
-                set.weight += Constants.WEIGHT_INCREMENT
+                set.weight += Constants.WEIGHT_INCREMENT()
             case .Accessory:
                 if(set.reps > Constants.ACCESSORY_MAX){
                     set.reps += Constants.REP_INCREMENT
                 } else {
                     set.reps = Constants.ACCESSORY_RESET
-                    set.weight += Constants.WEIGHT_INCREMENT // or 5 if in lbs
+                    set.weight += Constants.WEIGHT_INCREMENT() // or 5 if in lbs
                 }
             case .Calisthenic:
                 set.reps += 1
