@@ -37,7 +37,7 @@ class SingleSetCell: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        set.weight = ((Double(weight_field.text ?? "0") ?? 0 ) * (Constants.KILOS ? 1 : 1/Constants.K_TO_LB) ).truncate(places: 2)
+        set.weight = ((Double(weight_field.text ?? "0") ?? 0 ) * (Constants.KILOS ? 1 : 1/Constants.K_TO_LB) ).round(places: 2)
         set.reps = Int(rep_field.text ?? "0") ?? 0
         self.contentView.endEditing(true)
     }

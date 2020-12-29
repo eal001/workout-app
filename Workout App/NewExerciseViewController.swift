@@ -96,7 +96,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_1) as! SingleSetCell
         cell.set_label.text = "\(Constants.SET_TITLE) \(indexPath.row + 1)"
-        cell.weight_field.text = String( (sets[indexPath.row].weight * (Constants.KILOS ? 1 : Constants.K_TO_LB) ).truncate(places: 2))
+        cell.weight_field.text = String( (sets[indexPath.row].weight * (Constants.KILOS ? 1 : Constants.K_TO_LB) ).round(places: 2))
         cell.rep_field.text = String(sets[indexPath.row].reps)
         //cell.backgroundColor = Constants.BACKGROUND()
         return cell
@@ -242,7 +242,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         var i = 0
         for set in sets{
             if set_table.visibleCells.count > i{
-                cells[i].weight_field?.text = String((set.weight * (Constants.KILOS ? 1 : Constants.K_TO_LB) ).truncate(places: 2))
+                cells[i].weight_field?.text = String((set.weight * (Constants.KILOS ? 1 : Constants.K_TO_LB) ).round(places: 2))
                 cells[i].rep_field?.text = String(set.reps)
             }
             i+=1
@@ -277,8 +277,9 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
 
 extension Double {
     
-    func truncate(places : Int) -> Double {
-        return Double(String(format: "%.1f", (self * pow(10.0, Double(places)) )).dropLast(2))! / pow(10.0,Double(places))
+    func round(places : Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
     
 }
