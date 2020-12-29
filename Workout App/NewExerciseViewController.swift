@@ -252,6 +252,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - Navigation
     
     override func viewWillDisappear(_ animated: Bool) {
+        self.view.endEditing(true)
         if self.isMovingFromParent {
             var will_add = Constants.ZERO_STR
             if let previous = delegate as? NewDayViewController{

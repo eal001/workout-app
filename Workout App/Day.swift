@@ -43,7 +43,7 @@ class Day: NSObject, Codable {
         self.exercises = [Exercise]()
         
         for exercise in day.exercises{
-            exercises.append(Exercise(exercise: exercise, max_reps: &exercise.max_reps, max_weight: &exercise.max_weight, max_volume: &exercise.max_volume))
+            exercises.append(Exercise(exercise: exercise))
         }
         
         self.date = date
@@ -104,7 +104,7 @@ class Day: NSObject, Codable {
         return week_str
     }
     
-    func    compute_next(day_offset: Int ) -> Day {
+    func compute_next(day_offset: Int ) -> Day {
         
         var new_exercises = [Exercise]()
         for exercise in exercises{

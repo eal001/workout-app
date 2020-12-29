@@ -45,7 +45,7 @@ class Exercise: NSObject, Codable {
         
     }
     
-    init(exercise :  Exercise, max_reps : inout Single_Set, max_weight : inout Single_Set, max_volume : inout Single_Set){
+    init(exercise :  Exercise, max_reps : Single_Set, max_weight :  Single_Set, max_volume : Single_Set){
         self.sets = [Single_Set]()
         self.name = exercise.name
         self.type = exercise.type

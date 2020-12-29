@@ -56,10 +56,11 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
             
         var new_cycle : Cycle
         if cycles_vc.cycles.count <= 0 {
-            new_cycle = cycles_vc.hidden_base_cycle!.compute_next()
+            new_cycle = cycles_vc.hidden_base_cycle!
+            
             cycles_vc.cycles.insert(new_cycle, at: 0)
             progress_vc.cycles = cycles_vc.cycles
-            cycles_vc.hidden_base_cycle = nil
+            //cycles_vc.hidden_base_cycle = nil
         } else {
             new_cycle = cycles_vc.cycles[0].compute_next()
             cycles_vc.cycles.insert(new_cycle, at: 0)

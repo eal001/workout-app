@@ -8,12 +8,16 @@ like the functionality to not just include weightlifting exercises but also othe
 the app can log multiple routines, each of which contain cycles(weeklike structures that contain daily exercise plans). Each set of exercise plans 
 contain multiple exercises and within those exercises sets that we want to set as complete or incomplete. We can create and fully customize these 
 aspects, and we can use them once made (setting weight/reps/names). 
+can keep track of the maximum reps/weight and volume sets done for each exercise
+can display the volume per date per exercise in graphs 
+can change color and weight units
 
 ## Known Bugs
 
 >each routine is set up for linear progresstion, (should also have a manual mode)
 >max label does not update until the set is marked/RE-marked as complete
 >the labels have some weird numbers sometimes
+>the graphs only display the y values in kilos
 
 ## Planned Functionality
 

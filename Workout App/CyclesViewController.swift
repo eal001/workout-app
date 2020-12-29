@@ -68,6 +68,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             if cycles.count - 1  == 0 {
                 hidden_base_cycle = cycles[0]
+                hidden_base_cycle!.adjust_hidden_cycle()
             }
             
             cycles.remove(at: indexPath.row)
