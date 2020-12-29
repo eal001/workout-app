@@ -105,7 +105,7 @@ struct Constants {
     public static let ACCESSORY_MAX = 24
     public static let ACCESSORY_RESET = 12
     public static let EX_TYPE_COUNT = 6
-    public static let COLOR_SCHEME_AMT = 8
+    public static let COLOR_SCHEME_AMT = 9
     public static let K_TO_LB = 2.20462
     public static let WEEKDAY_1 = "Monday"
     public static let WEEKDAY_2 = "Tuesday"
@@ -176,6 +176,7 @@ struct Constants {
     public static let SHAN : UIImage = UIImage(named: "shan") ?? UIImage()
     public static let GONZO : UIImage = UIImage(named: "Gonzo") ?? UIImage()
     public static let AQUA : UIImage = UIImage(named: "Aqua") ?? UIImage()
+    public static let FINN : UIImage = UIImage(named: "Finn") ?? UIImage()
     
     public static let LD_NAME = "Light Blue"
     public static let DD_NAME = "Dark Blue"
@@ -185,6 +186,7 @@ struct Constants {
     public static let S_NAME = "Shantelle"
     public static let G_NAME = "Gonzo"
     public static let A_NAME = "Aqua"
+    public static let F_NAME = "St. John"
     
     //light mode colors
     public static let LIGHT_BACKGROUND = UIColor.white
@@ -250,13 +252,21 @@ struct Constants {
     public static let AQUA_TEXT = UIColor(red: 0.05, green: 0.15, blue: 0.15, alpha: 1)
     public static let AQUA_TINT = UIColor.systemGreen
     
+    //Finn mode
+    public static let FINN_BACKGROUND = UIColor(red: 0.169, green: 0.176, blue: 0.259, alpha: 1) //dark blue
+    public static let FINN_SECTION = UIColor(red: 0.553, green: 0.6, blue: 0.682, alpha: 1)
+    public static let FINN_CELL_0 = UIColor(red: 0.553, green: 0.6, blue: 0.682, alpha: 1)
+    public static let FINN_CELL_1 = UIColor(red: 0.553, green: 0.6, blue: 0.682, alpha: 0.5)
+    public static let FINN_TEXT = UIColor(red: 0.929, green: 0.949, blue: 0.957, alpha: 1)
+    public static let FINN_TINT = UIColor(red: 0.851, green: 0.016, blue: 0.161, alpha: 1)
+
     //MARK: - Global Variables
     
     //unit mode type: may change on a settings change
     public static var KILOS = true
     
     //color mode type:  may change on a settings change
-    public static var MODE = ColorMode.Light
+    public static var MODE = ColorMode.Finn
     
     public static let BACKGROUND = { () -> UIColor in
         var bg = Constants.LIGHT_BACKGROUND
@@ -277,7 +287,10 @@ struct Constants {
             bg = Constants.GONZO_BACKGROUND
         case .Aqua:
             bg = Constants.AQUA_BACKGROUND
+        case .Finn:
+            bg = Constants.FINN_BACKGROUND
         }
+        //print(bg)
         return bg
     }
     
@@ -299,7 +312,9 @@ struct Constants {
         case .Gonzo:
             t = Constants.GONZO_TEXT
         case .Aqua:
-        t = Constants.AQUA_TEXT
+            t = Constants.AQUA_TEXT
+        case .Finn:
+            t = Constants.FINN_TEXT
         }
         return t
     }
@@ -323,6 +338,8 @@ struct Constants {
             s = Constants.GONZO_SECTION
         case .Aqua:
             s = Constants.AQUA_SECTION
+        case .Finn:
+            s = Constants.FINN_SECTION
         }
         return s
     }
@@ -346,6 +363,8 @@ struct Constants {
             c0 = Constants.GONZO_CELL_0
         case .Aqua:
             c0 = Constants.AQUA_CELL_0
+        case .Finn:
+            c0 = Constants.FINN_CELL_0
         }
         return c0
     }
@@ -369,6 +388,8 @@ struct Constants {
             c1 = Constants.GONZO_CELL_1
         case .Aqua:
             c1 = Constants.AQUA_CELL_1
+        case .Finn:
+            c1 = Constants.FINN_CELL_1
         }
         return c1
     }
@@ -392,6 +413,8 @@ struct Constants {
             t = Constants.GONZO_TINT
         case .Aqua:
             t = Constants.AQUA_TINT
+        case .Finn:
+            t = Constants.FINN_TINT
         }
         return t
         
@@ -408,4 +431,5 @@ enum ColorMode: Int, Codable {
     case Shan = 5
     case Gonzo = 6
     case Aqua = 7
+    case Finn = 8
 }

@@ -83,6 +83,9 @@ class SettingsViewController: UIViewController , UITableViewDelegate, UITableVie
         case 7:
             name = Constants.A_NAME
             image = Constants.AQUA
+        case 8:
+            name = Constants.F_NAME
+            image = Constants.FINN
         default:
             name = Constants.LD_NAME
             image = Constants.LIGHT_DEFAULT
@@ -124,6 +127,8 @@ class SettingsViewController: UIViewController , UITableViewDelegate, UITableVie
             Constants.MODE = ColorMode.Gonzo
         case 7:
             Constants.MODE = ColorMode.Aqua
+        case 8:
+            Constants.MODE = ColorMode.Finn
         default:
             Constants.MODE = ColorMode.Light
         }
