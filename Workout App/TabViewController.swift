@@ -56,16 +56,18 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
             
         var new_cycle : Cycle
         if cycles_vc.cycles.count <= 0 {
-            new_cycle = cycles_vc.hidden_base_cycle!
             
-            cycles_vc.cycles.insert(new_cycle, at: 0)
-            progress_vc.cycles = cycles_vc.cycles
-            //cycles_vc.hidden_base_cycle = nil
+            if let rd = routine_delegate as? RoutinesTableViewController {
+                new_cycle = rd.stored_cell?.base_cycle.adjust_to_current() ?? Cycle([Day]()) //should never find nil
+            } else {
+                new_cycle = Cycle([Day]()) //should not execute
+            }
+            
         } else {
             new_cycle = cycles_vc.cycles[0].compute_next()
-            cycles_vc.cycles.insert(new_cycle, at: 0)
-            progress_vc.cycles = cycles_vc.cycles
         }
+        cycles_vc.cycles.insert(new_cycle, at: 0)
+        progress_vc.cycles = cycles_vc.cycles
         
         if let _ = selectedViewController as? CyclesViewController{
             cycles_vc.cycles_table.reloadData()

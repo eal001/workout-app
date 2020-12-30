@@ -11,7 +11,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     var cycles = [Cycle]()
     var stored_cell : Cycle?
-    var hidden_base_cycle : Cycle?
+    //var hidden_base_cycle : Cycle?
     var nav_title = String()
     var routine_delegate : RoutinesTableViewControllerDelegate?
     
@@ -65,12 +65,6 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
      */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
-            if cycles.count - 1  == 0 {
-                hidden_base_cycle = cycles[0]
-                hidden_base_cycle!.adjust_hidden_cycle()
-            }
-            
             cycles.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {

@@ -137,6 +137,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return
         }
         exercises[returning_index ?? 0].name = exercise.name
+        exercises[returning_index ?? 0].type = exercise.type
         exercises[returning_index ?? 0].sets = exercise.sets
         exercise_table.reloadData()
     }
@@ -165,6 +166,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        self.view.endEditing(true)
         if let destination = segue.destination as? NewExerciseViewController {
             destination.delegate = self
         }

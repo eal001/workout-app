@@ -19,18 +19,20 @@ class Routine: NSObject, Codable {
     
     var name : String
     var cycles : [Cycle] = [Cycle]()
+    var base_cycle : Cycle
     
     //MARK: INITIALIZATION
     
     init(_ name : String, _ cycles : [Cycle]) {
         self.cycles = cycles
         self.name = name
+        self.base_cycle = cycles[0]
     }
     
-    override init(){
+    /*override init(){
         self.name = ""
         self.cycles = [Cycle]()
-    }
+    }*/
     
     //MARK: HANDLE SAVE AND LOAD
     

@@ -70,9 +70,10 @@ class Cycle: NSObject, Codable {
     
     /*
      this function will be used to adjust the cycle when it is a hidden cycle stored when everything else is deleted
-     it should only be called when a hidden cycle is created, it edits the cycle itself and does not have a return type
+     it should only be called when a new cycle is created from nothing, it edits itself to represent today and the
+     following days and then returns itself to also become the new first cycle
      */
-    func adjust_hidden_cycle(){
+    func adjust_to_current() -> Cycle {
         var date = Date()
         var components = DateComponents()
         var i = 0
@@ -97,6 +98,8 @@ class Cycle: NSObject, Codable {
         
         start_date = days[0].date
         end_date = days[days.count - 1].date
+        
+        return self
     }
     
 }

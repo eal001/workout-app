@@ -10,7 +10,7 @@ import UIKit
 class NewRoutineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, NewRoutineViewControllerDelegate {
    
     var days : [Day] = [Day]()
-    var load_routine : Routine = Routine()
+    var load_routine : Routine?
     var change_flag = 0
     var stored_cell : Day?
     var returning_index : Int?
@@ -246,7 +246,7 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         }
         rest_day_field?.text = String(rds)
         change_flag -= 1
-        //adjust_rest_names(newRestNum: rds)
+        adjust_rest_names(newRestNum: rds)
     }
     
 

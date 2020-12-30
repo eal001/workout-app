@@ -66,6 +66,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
      */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        //update_sets()
     }
     
     /*
@@ -106,6 +107,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
      implement delete funvtionality for the tableview
      */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        update_sets()
         if editingStyle == .delete {
             sets.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -225,7 +227,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         var i = 0
         for cell in set_table.visibleCells as! [SingleSetCell] {
             sets[i].weight = (Double(cell.weight_field.text! ) ?? 0.0) * (Constants.KILOS ? 1 : 1/Constants.K_TO_LB)
-            print("\(i) :  \(sets[i].weight)")
+            //print("\(i) :  \(sets[i].weight)")
             sets[i].reps = Int(cell.rep_field.text! ) ?? 0
             i+=1
         }
@@ -237,7 +239,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
      sets and the table values are equivalent.
      */
     func load_cells(){
-        print("loading cells")
+        //print("loading cells")
         let cells = set_table.visibleCells as! [SingleSetCell]
         var i = 0
         for set in sets{
