@@ -19,7 +19,7 @@ class Routine: NSObject, Codable {
     
     var name : String
     var cycles : [Cycle] = [Cycle]()
-    var base_cycle : Cycle
+    var base_cycle : Cycle?
     
     //MARK: INITIALIZATION
     
@@ -107,7 +107,7 @@ struct Constants {
     public static let ACCESSORY_MAX = 24
     public static let ACCESSORY_RESET = 12
     public static let EX_TYPE_COUNT = 6
-    public static let COLOR_SCHEME_AMT = 9
+    public static let COLOR_SCHEME_AMT = 11
     public static let K_TO_LB = 2.20462
     public static let WEEKDAY_1 = "Monday"
     public static let WEEKDAY_2 = "Tuesday"
@@ -179,16 +179,20 @@ struct Constants {
     public static let GONZO : UIImage = UIImage(named: "Gonzo") ?? UIImage()
     public static let AQUA : UIImage = UIImage(named: "Aqua") ?? UIImage()
     public static let FINN : UIImage = UIImage(named: "Finn") ?? UIImage()
+    public static let CELT : UIImage = UIImage(named: "Celtic") ?? UIImage()
+    public static let CALI : UIImage = UIImage(named: "Cali") ?? UIImage()
     
-    public static let LD_NAME = "Light Blue"
-    public static let DD_NAME = "Dark Blue"
-    public static let LR_NAME = "Light Red"
-    public static let DR_NAME = "Dark Red"
+    public static let LD_NAME = "Light"
+    public static let DD_NAME = "Dark"
+    public static let LR_NAME = "Light & Red"
+    public static let DR_NAME = "Dark & Red"
     public static let B_NAME = "Bee"
     public static let S_NAME = "Shantelle"
     public static let G_NAME = "Gonzo"
     public static let A_NAME = "Aqua"
     public static let F_NAME = "St. John"
+    public static let C_NAME = "Celtic"
+    public static let SC_NAME = "Cali"
     
     //light mode colors
     public static let LIGHT_BACKGROUND = UIColor.white
@@ -261,7 +265,21 @@ struct Constants {
     public static let FINN_CELL_1 = UIColor(red: 0.553, green: 0.6, blue: 0.682, alpha: 0.5)
     public static let FINN_TEXT = UIColor(red: 0.929, green: 0.949, blue: 0.957, alpha: 1)
     public static let FINN_TINT = UIColor(red: 0.851, green: 0.016, blue: 0.161, alpha: 1)
-
+    
+    //Celtic mode
+    public static let CELT_BACKGROUND = UIColor.white
+    public static let CELT_SECTION = UIColor(red: 0.705, green: 0.95, blue: 0.789, alpha: 1)
+    public static let CELT_CELL_0 =  UIColor(red: 0.705, green: 0.95, blue: 0.789, alpha: 1)
+    public static let CELT_CELL_1 = UIColor(red: 0.665, green: 0.87, blue: 0.7, alpha: 1)
+    public static let CELT_TEXT = UIColor(red: 0, green: 0.702, blue: 0.235, alpha: 1)
+    public static let CELT_TINT = UIColor.systemYellow
+    //Cali mode
+    public static let CALI_BACKGROUND = UIColor(red: 0.9, green: 0.75, blue: 0.6, alpha: 1)
+    public static let CALI_SECTION = UIColor(red: 0.9, green: 0.7, blue: 0.85, alpha: 1)
+    public static let CALI_CELL_0 = UIColor(red: 0.9, green: 0.7, blue: 0.85, alpha: 1)
+    public static let CALI_CELL_1 = UIColor(red: 0.9, green: 0.8, blue: 0.9, alpha: 1)
+    public static let CALI_TEXT = UIColor(red: 0.396, green: 0, blue: 0.024, alpha: 1)
+    public static let CALI_TINT = UIColor(red: 0.396, green: 0, blue: 0.024, alpha: 1)
     //MARK: - Global Variables
     
     //unit mode type: may change on a settings change
@@ -291,6 +309,10 @@ struct Constants {
             bg = Constants.AQUA_BACKGROUND
         case .Finn:
             bg = Constants.FINN_BACKGROUND
+        case .Celtic:
+            bg = CELT_BACKGROUND
+        case .Cali:
+            bg = CALI_BACKGROUND
         }
         //print(bg)
         return bg
@@ -317,6 +339,10 @@ struct Constants {
             t = Constants.AQUA_TEXT
         case .Finn:
             t = Constants.FINN_TEXT
+        case .Celtic:
+            t = CELT_TEXT
+        case .Cali:
+            t = CALI_TEXT
         }
         return t
     }
@@ -342,6 +368,10 @@ struct Constants {
             s = Constants.AQUA_SECTION
         case .Finn:
             s = Constants.FINN_SECTION
+        case .Celtic:
+            s = CELT_SECTION
+        case .Cali:
+            s = CALI_SECTION
         }
         return s
     }
@@ -367,6 +397,10 @@ struct Constants {
             c0 = Constants.AQUA_CELL_0
         case .Finn:
             c0 = Constants.FINN_CELL_0
+        case .Celtic:
+            c0 = CELT_CELL_0
+        case .Cali:
+            c0 = CALI_CELL_0
         }
         return c0
     }
@@ -392,6 +426,10 @@ struct Constants {
             c1 = Constants.AQUA_CELL_1
         case .Finn:
             c1 = Constants.FINN_CELL_1
+        case .Celtic:
+            c1 = CELT_CELL_1
+        case .Cali:
+            c1 = CALI_CELL_1
         }
         return c1
     }
@@ -417,6 +455,10 @@ struct Constants {
             t = Constants.AQUA_TINT
         case .Finn:
             t = Constants.FINN_TINT
+        case .Celtic:
+            t = CELT_TINT
+        case .Cali:
+            t = CALI_TINT
         }
         return t
         
@@ -434,4 +476,6 @@ enum ColorMode: Int, Codable {
     case Gonzo = 6
     case Aqua = 7
     case Finn = 8
+    case Celtic = 9
+    case Cali = 10
 }

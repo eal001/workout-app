@@ -58,7 +58,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         if cycles_vc.cycles.count <= 0 {
             
             if let rd = routine_delegate as? RoutinesTableViewController {
-                new_cycle = rd.stored_cell?.base_cycle.adjust_to_current() ?? Cycle([Day]()) //should never find nil
+                new_cycle = rd.stored_cell?.base_cycle?.adjust_to_current() ?? Cycle([Day]()) //should never find nil
             } else {
                 new_cycle = Cycle([Day]()) //should not execute
             }
