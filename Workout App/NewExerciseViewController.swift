@@ -26,6 +26,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         type_picker.dataSource = self
         type_picker.delegate = self        
 
+        set_table.rowHeight = Constants.STD_ROW_HEIGHT
         self.view.backgroundColor = Constants.BACKGROUND()
         name_background.backgroundColor = Constants.SECTION()
         name_indicator_label.textColor = Constants.TEXT()

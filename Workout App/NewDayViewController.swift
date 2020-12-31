@@ -26,6 +26,7 @@ class NewDayViewController: UIViewController, UITableViewDelegate, UITableViewDa
         exercise_table.dataSource = self
         exercise_table.delegate = self
         
+        exercise_table.rowHeight = Constants.STD_ROW_HEIGHT
         self.view.backgroundColor = Constants.BACKGROUND()
         name_background.backgroundColor = Constants.SECTION()
         name_indicator_field.textColor = Constants.TEXT()

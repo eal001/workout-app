@@ -30,7 +30,8 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         day_table.dataSource = self
         day_table.delegate = self
-        // Do any additional setup after loading the view.
+        
+        day_table.rowHeight = Constants.STD_ROW_HEIGHT
         self.view.backgroundColor = Constants.BACKGROUND()
         routine_name_field.textColor = Constants.TEXT()
         day_table.backgroundColor = Constants.BACKGROUND()

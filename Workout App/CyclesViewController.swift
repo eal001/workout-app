@@ -23,6 +23,7 @@ class CyclesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cycles_table.delegate = self
         stored_cell = nil
         
+        cycles_table.rowHeight = Constants.STD_ROW_HEIGHT
         cycles_table.backgroundColor = Constants.BACKGROUND()
         self.view.backgroundColor = Constants.BACKGROUND()
         // Do any additional setup after loading the view.

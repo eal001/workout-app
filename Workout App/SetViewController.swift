@@ -39,7 +39,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         info_button.tintColor = Constants.TINT()
         set_table.tintColor = Constants.TINT()
         
-        
+        set_table.rowHeight = Constants.STD_ROW_HEIGHT
         info_segment.selectedSegmentIndex = 0
     }
     

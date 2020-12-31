@@ -109,6 +109,9 @@ struct Constants {
     public static let EX_TYPE_COUNT = 6
     public static let COLOR_SCHEME_AMT = 11
     public static let K_TO_LB = 2.20462
+    public static let STD_ROW_HEIGHT : CGFloat = 75
+    public static let CHART_ROW_HEIGHT : CGFloat = 300
+    public static let SETTINGS_ROW_HEIGHT : CGFloat = 100
     public static let WEEKDAY_1 = "Monday"
     public static let WEEKDAY_2 = "Tuesday"
     public static let WEEKDAY_3 = "Wednesday"
@@ -271,15 +274,17 @@ struct Constants {
     public static let CELT_SECTION = UIColor(red: 0.705, green: 0.95, blue: 0.789, alpha: 1)
     public static let CELT_CELL_0 =  UIColor(red: 0.705, green: 0.95, blue: 0.789, alpha: 1)
     public static let CELT_CELL_1 = UIColor(red: 0.665, green: 0.87, blue: 0.7, alpha: 1)
-    public static let CELT_TEXT = UIColor(red: 0, green: 0.4, blue: 0.1, alpha: 1)
-    public static let CELT_TINT = UIColor(red: 0.75, green: 0.75, blue: 0, alpha: 1)
+    public static let CELT_TEXT = UIColor(red: 0.259, green: 0.263, blue: 0.259, alpha: 1)
+    public static let CELT_TINT = UIColor(red: 0.078, green: 0.6, blue: 0.67, alpha: 1)
+    
     //Cali mode
-    public static let CALI_BACKGROUND = UIColor(red: 0.9, green: 0.75, blue: 0.6, alpha: 1)
-    public static let CALI_SECTION = UIColor(red: 0.98, green: 0.67, blue: 0.48, alpha: 1)
-    public static let CALI_CELL_0 = UIColor(red: 0.98, green: 0.67, blue: 0.48, alpha: 1)
-    public static let CALI_CELL_1 = UIColor(red: 0.91, green: 0.61, blue: 0.43, alpha: 1)
-    public static let CALI_TEXT = UIColor(red: 0.396, green: 0, blue: 0.024, alpha: 1)
-    public static let CALI_TINT = UIColor(red: 0.396, green: 0, blue: 0.024, alpha: 1)
+    public static let CALI_BACKGROUND = UIColor(red: 0.957, green: 0.635, blue: 0.38, alpha: 1)// darker orange
+    public static let CALI_SECTION =  UIColor(red: 0.906, green: 0.435, blue: 0.318, alpha: 1) // light red
+    public static let CALI_CELL_0 = UIColor(red: 0.914, green: 0.769, blue: 0.416, alpha: 1) // lighter orange
+    public static let CALI_CELL_1 = UIColor(red: 0.944, green: 0.8, blue: 0.466, alpha: 1) //lighter still orange
+    public static let CALI_TEXT = UIColor(red: 0, green: 0.188, blue: 0.286, alpha: 1) // navy blue
+    public static let CALI_TINT = UIColor(red: 0, green: 0.188, blue: 0.286, alpha: 1) // navy blue
+
     //MARK: - Global Variables
     
     //unit mode type: may change on a settings change

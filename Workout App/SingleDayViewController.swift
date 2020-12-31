@@ -21,6 +21,7 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        exercise_table.rowHeight = Constants.STD_ROW_HEIGHT
         exercise_table.backgroundColor = Constants.BACKGROUND()
         self.view.backgroundColor = Constants.BACKGROUND()
         day_name_label.textColor = Constants.TEXT()

@@ -25,6 +25,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         load_routines()
         load_color_scheme()
         load_weight_units()
+        self.tableView.rowHeight = Constants.STD_ROW_HEIGHT
         self.tableView.backgroundColor = Constants.BACKGROUND()
         create_button.tintColor = Constants.TINT()
         nav_bar.backBarButtonItem?.tintColor = Constants.TINT()

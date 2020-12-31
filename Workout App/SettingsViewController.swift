@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController , UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        color_scheme_table.rowHeight = 100
+        color_scheme_table.rowHeight = Constants.SETTINGS_ROW_HEIGHT
         
         color_scheme_table.delegate = self
         color_scheme_table.dataSource = self

@@ -25,7 +25,7 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.backgroundColor = Constants.BACKGROUND()
         chart_table.backgroundColor = Constants.BACKGROUND()
         
-        chart_table.rowHeight = 300
+        chart_table.rowHeight = Constants.CHART_ROW_HEIGHT
         create_coordinates()
         //print("cycles that exist? \(cycles.count)")
         //chart_table.reloadData()
