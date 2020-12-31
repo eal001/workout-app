@@ -256,19 +256,19 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         var max_w : Single_Set = Single_Set(0,0)
         var max_r : Single_Set = Single_Set(0,0)
         var max_v : Single_Set = Single_Set(0,0)
-        print("##################")
+        //print("##################")
         for cycle in stored_cell!.cycles {
-            print("checking cycle: \(cycle.to_string())")
+            //print("checking cycle: \(cycle.to_string())")
             for day in cycle.days{
-                print("checking day : \(day.name)")
+                //print("checking day : \(day.name)")
                 for exercise in day.exercises{
-                    print("checking exercise : \(exercise.name)", terminator: " ")
+                    //print("checking exercise : \(exercise.name)", terminator: " ")
                     if(exercise.name.capitalized == name.capitalized){
-                        print("matches")
+                        //print("matches")
                         for set in exercise.sets{
-                            print("set is complete?", terminator: " ")
+                            //print("set is complete?", terminator: " ")
                             if set.is_complete {
-                                print("yes")
+                                //print("yes")
                                 if set.weight > max_w.weight {
                                     max_w = set
                                 }
@@ -279,11 +279,11 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
                                     max_v = set
                                 }
                                 
-                            } else { print("no") }
-                            print("maxes at this point: \(max_w.weight) \(max_r.reps)")
+                            } //else { print("no") }
+                            //print("maxes at this point: \(max_w.weight) \(max_r.reps)")
                         }
                         
-                    } else { print("doesnt match") }
+                    } //else { print("doesnt match") }
                 }
             }
         }
@@ -293,7 +293,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
             for day in cycle.days{
                 for exercise in day.exercises{
                     if(exercise.name.capitalized == name.capitalized){
-                        print("should have set stat")
+                        //print("should have set stat")
                         exercise.max_weight = max_w
                         exercise.max_reps = max_r
                         exercise.max_volume = max_v
