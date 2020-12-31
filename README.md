@@ -15,9 +15,9 @@ can change color and weight units
 ## Known Bugs
 
 >each routine is set up for linear progresstion, (should also have a manual mode)
->max label does not update until the set is marked/RE-marked as complete
+>max label does not update after a text change until the set is marked/RE-marked as complete
 >the labels have some weird numbers sometimes
->the graphs only display the y values in kilos
+>clicking the info button results in a miscolor of the background checkmark
 
 ## Planned Functionality
 

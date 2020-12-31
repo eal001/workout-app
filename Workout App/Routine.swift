@@ -267,17 +267,17 @@ struct Constants {
     public static let FINN_TINT = UIColor(red: 0.851, green: 0.016, blue: 0.161, alpha: 1)
     
     //Celtic mode
-    public static let CELT_BACKGROUND = UIColor.white
+    public static let CELT_BACKGROUND = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
     public static let CELT_SECTION = UIColor(red: 0.705, green: 0.95, blue: 0.789, alpha: 1)
     public static let CELT_CELL_0 =  UIColor(red: 0.705, green: 0.95, blue: 0.789, alpha: 1)
     public static let CELT_CELL_1 = UIColor(red: 0.665, green: 0.87, blue: 0.7, alpha: 1)
-    public static let CELT_TEXT = UIColor(red: 0, green: 0.702, blue: 0.235, alpha: 1)
-    public static let CELT_TINT = UIColor.systemYellow
+    public static let CELT_TEXT = UIColor(red: 0, green: 0.4, blue: 0.1, alpha: 1)
+    public static let CELT_TINT = UIColor(red: 0.75, green: 0.75, blue: 0, alpha: 1)
     //Cali mode
     public static let CALI_BACKGROUND = UIColor(red: 0.9, green: 0.75, blue: 0.6, alpha: 1)
-    public static let CALI_SECTION = UIColor(red: 0.9, green: 0.7, blue: 0.85, alpha: 1)
-    public static let CALI_CELL_0 = UIColor(red: 0.9, green: 0.7, blue: 0.85, alpha: 1)
-    public static let CALI_CELL_1 = UIColor(red: 0.9, green: 0.8, blue: 0.9, alpha: 1)
+    public static let CALI_SECTION = UIColor(red: 0.98, green: 0.67, blue: 0.48, alpha: 1)
+    public static let CALI_CELL_0 = UIColor(red: 0.98, green: 0.67, blue: 0.48, alpha: 1)
+    public static let CALI_CELL_1 = UIColor(red: 0.91, green: 0.61, blue: 0.43, alpha: 1)
     public static let CALI_TEXT = UIColor(red: 0.396, green: 0, blue: 0.024, alpha: 1)
     public static let CALI_TINT = UIColor(red: 0.396, green: 0, blue: 0.024, alpha: 1)
     //MARK: - Global Variables
