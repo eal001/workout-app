@@ -33,6 +33,7 @@
 		8BA8EDA42588AE0F001110A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA8EDA22588AE0F001110A0 /* LaunchScreen.storyboard */; };
 		8BA8EDAF2588AE0F001110A0 /* Workout_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8EDAE2588AE0F001110A0 /* Workout_AppTests.swift */; };
 		8BA8EDBA2588AE0F001110A0 /* Workout_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8EDB92588AE0F001110A0 /* Workout_AppUITests.swift */; };
+		8BAE5908259D79E300E3EFBF /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE5907259D79E300E3EFBF /* ExerciseCell.swift */; };
 		8BB643B42599A509008267BA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB643B32599A509008267BA /* SettingsViewController.swift */; };
 		8BB643C22599A914008267BA /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB643C12599A914008267BA /* ColorCell.swift */; };
 		8BF44DFE2594624B00C9DC0D /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF44DFD2594624B00C9DC0D /* SetViewController.swift */; };
@@ -93,6 +94,7 @@
 		8BA8EDB52588AE0F001110A0 /* Workout AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Workout AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA8EDB92588AE0F001110A0 /* Workout_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout_AppUITests.swift; sourceTree = "<group>"; };
 		8BA8EDBB2588AE0F001110A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BAE5907259D79E300E3EFBF /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		8BB643B32599A509008267BA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8BB643C12599A914008267BA /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		8BF44DFD2594624B00C9DC0D /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				8B62BEBB2593336C00A9DCA8 /* SingleDayViewController.swift */,
 				8B62BEB62593317300A9DCA8 /* DayExerciseViewController.swift */,
 				8B62BEA6259306A800A9DCA8 /* CyclesViewController.swift */,
+				8BAE5907259D79E300E3EFBF /* ExerciseCell.swift */,
 				8B62BE9D2592FFD100A9DCA8 /* TabViewController.swift */,
 				8B704DAA258A188500AEA9E3 /* SingleSetCell.swift */,
 				8B704D9D258A13D200AEA9E3 /* NewExerciseViewController.swift */,
@@ -473,6 +476,7 @@
 				8BF44DFE2594624B00C9DC0D /* SetViewController.swift in Sources */,
 				8B704D8725898D0700AEA9E3 /* Exercise.swift in Sources */,
 				8B704D7025898AD500AEA9E3 /* NewRoutineViewController.swift in Sources */,
+				8BAE5908259D79E300E3EFBF /* ExerciseCell.swift in Sources */,
 				8BA8ED9C2588AE0E001110A0 /* ViewController.swift in Sources */,
 				8B704DAB258A188500AEA9E3 /* SingleSetCell.swift in Sources */,
 				8B704D7D25898D0200AEA9E3 /* Cycle.swift in Sources */,

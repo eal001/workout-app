@@ -38,6 +38,11 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
      */
     func update_sets(sets : [Single_Set]){
         self.exercises[stored_index].sets = sets
+        exercise_table.reloadData()
+    }
+    
+    func reload_table() {
+        exercise_table.reloadData()
     }
     
     /*
@@ -65,9 +70,10 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
      what does each cell look like
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_0, for: indexPath)
-        cell.textLabel?.text = exercises[indexPath.row].name
-        cell.textLabel?.textColor = Constants.TEXT()
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_2, for: indexPath) as! ExerciseCell
+        cell.exercise = exercises[indexPath.row]
+        cell.name_label.text = exercises[indexPath.row].name
+        //cell.reload_progress()
         cell.backgroundColor = Constants.CELL_0()
         return cell
     }
@@ -107,7 +113,7 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
             set_delegate = destination
         }
         
-        if let destination = segue.destination as? SetViewController{
+        if let destination = segue.destination as? SetViewController {
             destination.day_delegate = self
             destination.routine_delegate = routine_delegate
         }
@@ -119,6 +125,7 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
 
 protocol SingleDayViewControllerDelegate {
     func update_sets(sets : [Single_Set])
+    func reload_table()
 }
 
 

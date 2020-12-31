@@ -23,6 +23,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //print("loading")
         set_table.dataSource = self
         set_table.delegate = self
         
@@ -56,14 +57,15 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         //exercise.compute_maxes()
         update_maxes_label()
         set_table.reloadData()
-        
+        //day_delegate?.reload_table()
         //print("\(self.exercise?.type)")
     }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        
+        //print("touched")
+        day_delegate?.reload_table()
         //routine_delegate?.compute_all_pr(name: exercise?.name ?? "" )
         //update_maxes_label()
         //routine_delegate?.save_routines()
@@ -183,15 +185,6 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     // MARK: - Navigation
-    
-    /*
-     we want to send some information back to the previous view once this one is dismissed
-     */
-    override func viewWillDisappear(_ animated: Bool) {
-        if self.isMovingFromParent{
-            day_delegate?.update_sets(sets: sets)
-        }
-    }
     
     /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation

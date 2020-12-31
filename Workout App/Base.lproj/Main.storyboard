@@ -698,14 +698,35 @@
                                 <rect key="frame" x="0.0" y="114" width="414" height="748"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="proto_cell" rowHeight="102" id="RQN-cR-q6C">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exercise_cell" rowHeight="102" id="RQN-cR-q6C" customClass="ExerciseCell" customModule="Workout_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RQN-cR-q6C" id="gCY-2F-vDx">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rX-d1-Y6K">
+                                                    <rect key="frame" x="0.0" y="39" width="414" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="69I-RX-t73">
+                                                    <rect key="frame" x="0.0" y="78" width="414" height="4"/>
+                                                </progressView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="69I-RX-t73" firstAttribute="top" secondItem="8rX-d1-Y6K" secondAttribute="bottom" constant="15" id="5pN-S0-t20"/>
+                                                <constraint firstItem="8rX-d1-Y6K" firstAttribute="centerX" secondItem="gCY-2F-vDx" secondAttribute="centerX" id="Rzk-As-qA6"/>
+                                                <constraint firstItem="8rX-d1-Y6K" firstAttribute="centerY" secondItem="gCY-2F-vDx" secondAttribute="centerY" id="iLL-dy-7fE"/>
+                                                <constraint firstItem="8rX-d1-Y6K" firstAttribute="trailing" secondItem="69I-RX-t73" secondAttribute="trailing" id="ipJ-bc-5h5"/>
+                                                <constraint firstItem="8rX-d1-Y6K" firstAttribute="leading" secondItem="69I-RX-t73" secondAttribute="leading" id="qRO-hb-Gse"/>
+                                                <constraint firstItem="8rX-d1-Y6K" firstAttribute="leading" secondItem="gCY-2F-vDx" secondAttribute="leadingMargin" constant="-20" id="uve-M3-4r1"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="name_label" destination="8rX-d1-Y6K" id="VTB-jV-h1q"/>
+                                            <outlet property="progress_bar" destination="69I-RX-t73" id="6Mo-u6-4tc"/>
                                             <segue destination="L6G-1Q-oZ8" kind="showDetail" id="uRu-m3-GhM"/>
                                         </connections>
                                     </tableViewCell>
@@ -715,7 +736,7 @@
                                 <rect key="frame" x="0.0" y="54" width="414" height="60"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="bAj-uZ-RGw"/>
+                                    <constraint firstAttribute="height" constant="60" id="RiF-ob-Awc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
                                 <nil key="textColor"/>
@@ -725,13 +746,13 @@
                         <viewLayoutGuide key="safeArea" id="mRq-Gs-qNU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0dr-4y-MtR" firstAttribute="top" secondItem="ugV-1T-lvr" secondAttribute="bottom" id="KcH-tR-tPj"/>
-                            <constraint firstItem="0dr-4y-MtR" firstAttribute="bottom" secondItem="mRq-Gs-qNU" secondAttribute="bottom" id="Lkq-pR-6lc"/>
-                            <constraint firstItem="ugV-1T-lvr" firstAttribute="top" secondItem="mRq-Gs-qNU" secondAttribute="top" constant="10" id="MFe-co-Zu6"/>
-                            <constraint firstItem="ugV-1T-lvr" firstAttribute="leading" secondItem="0dr-4y-MtR" secondAttribute="leading" id="PGO-op-DVt"/>
-                            <constraint firstItem="ugV-1T-lvr" firstAttribute="centerX" secondItem="Wwn-1e-rQY" secondAttribute="centerX" id="sV0-lk-LuR"/>
-                            <constraint firstItem="ugV-1T-lvr" firstAttribute="trailing" secondItem="0dr-4y-MtR" secondAttribute="trailing" id="u1n-u6-cem"/>
-                            <constraint firstItem="ugV-1T-lvr" firstAttribute="leading" secondItem="mRq-Gs-qNU" secondAttribute="leading" id="wpB-5O-rAE"/>
+                            <constraint firstItem="0dr-4y-MtR" firstAttribute="bottom" secondItem="mRq-Gs-qNU" secondAttribute="bottom" id="0GM-Nh-MZq"/>
+                            <constraint firstItem="ugV-1T-lvr" firstAttribute="trailing" secondItem="0dr-4y-MtR" secondAttribute="trailing" id="Je0-JY-nCz"/>
+                            <constraint firstItem="ugV-1T-lvr" firstAttribute="leading" secondItem="0dr-4y-MtR" secondAttribute="leading" id="KQo-On-Afg"/>
+                            <constraint firstItem="ugV-1T-lvr" firstAttribute="leading" secondItem="mRq-Gs-qNU" secondAttribute="leading" id="YAr-33-rX1"/>
+                            <constraint firstItem="ugV-1T-lvr" firstAttribute="centerX" secondItem="Wwn-1e-rQY" secondAttribute="centerX" id="am8-gS-a5c"/>
+                            <constraint firstItem="ugV-1T-lvr" firstAttribute="top" secondItem="mRq-Gs-qNU" secondAttribute="top" constant="10" id="giH-ZK-oul"/>
+                            <constraint firstItem="0dr-4y-MtR" firstAttribute="top" secondItem="ugV-1T-lvr" secondAttribute="bottom" id="mfQ-nO-byi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -971,7 +992,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Dark_default" width="400" height="300"/>
-        <image name="gearshape" catalog="system" width="32" height="32"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="icons8-deadlift-50" width="25" height="25"/>
         <image name="icons8-line-chart-50" width="25" height="25"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>

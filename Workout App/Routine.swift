@@ -136,6 +136,8 @@ struct Constants {
     public static let LAOD_ERR_MSG_3 = "RoutineViewVontroller: unable to get data for the routine keys"
     public static let CELL_ID_0 = "proto_cell"
     public static let CELL_ID_1 = "set_cell"
+    public static let CELL_ID_2 = "exercise_cell"
+    public static let CELL_ID_3 = "color_cell"
     public static let ROUTINES = "Routines"
     public static let CYCLES = "Cycles"
     public static let DAYS = "Days"

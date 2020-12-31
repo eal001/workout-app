@@ -54,7 +54,7 @@ class SettingsViewController: UIViewController , UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "color_cell", for: indexPath) as! ColorCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CELL_ID_3, for: indexPath) as! ColorCell
         
         var name : String
         var image : UIImage
