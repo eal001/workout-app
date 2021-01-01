@@ -169,7 +169,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             msg = "\((exercise!.max_weight.weight * (Constants.KILOS ? 1 : Constants.K_TO_LB)).round(places: 1)) \(Constants.WEIGHT_UNIT()) : \(exercise!.max_weight.reps) \(Constants.REP_UNIT)"
             title = "\(Constants.WEIGHT_MSG) \(exercise!.name)"
         } else if info_segment.selectedSegmentIndex == 1 {
-            msg = "\(exercise!.max_reps.weight) \(Constants.WEIGHT_UNIT()) : \(exercise!.max_reps.reps) \(Constants.REP_UNIT)"
+            msg = "\(exercise!.max_reps.weight * (Constants.KILOS ? 1 : Constants.K_TO_LB)) \(Constants.WEIGHT_UNIT()) : \(exercise!.max_reps.reps) \(Constants.REP_UNIT)"
             title = "\(Constants.REPS_MSG) \(exercise!.name)"
         }else {
             msg = "\((exercise!.max_volume.weight * (Constants.KILOS ? 1 : Constants.K_TO_LB)).round(places: 1)) \(Constants.WEIGHT_UNIT()) : \(exercise!.max_volume.reps) \(Constants.REP_UNIT)"
