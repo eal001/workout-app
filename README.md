@@ -25,6 +25,8 @@ Currently bug fixing with numerous issues, testing with personal use
 >switch progression graph for weight or volume
 >Accessory exercises automatically increase weight by 5 lbs and reset reps to 12 each time, no matter change
 >sets do not update when editing numbers, they must be set and reset
+>doesnt round on max reps information alert box (?)
+>doesnt start on the max rep label for calisthenic exercises
 
 
 ## Planned Functionality
