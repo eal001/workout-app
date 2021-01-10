@@ -11,11 +11,21 @@ aspects, and we can use them once made (setting weight/reps/names).
 can keep track of the maximum reps/weight and volume sets done for each exercise
 can display the volume per date per exercise in graphs 
 can change color and weight units
+Currently bug fixing with numerous issues, testing with personal use
 
 ## Known Bugs
 
 >each routine is set up for linear progresstion, (should also have a manual mode)
 >max label does not update after a text change until the set is marked/RE-marked as complete
+>rest day , set rep/set weight, count with unreasonably large numbers do not work
+>showing spaces when entering names, 
+>disable keyboard on tap of different areas (nav bar) (tableview)
+>constraints for smaller iphones
+>shift up the tableview when writing to it (for sets)
+>switch progression graph for weight or volume
+>Accessory exercises automatically increase weight by 5 lbs and reset reps to 12 each time, no matter change
+>sets do not update when editing numbers, they must be set and reset
+
 
 ## Planned Functionality
 
