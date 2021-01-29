@@ -25,6 +25,10 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var rest_days_indicator_label: UILabel!
     @IBOutlet weak var rest_days_background: UILabel!
     @IBOutlet weak var nav_bar: UINavigationItem!
+    @IBOutlet weak var progression_background: UILabel!
+    @IBOutlet weak var progression_switch: UISwitch!
+    @IBOutlet weak var progression_label: UILabel!
+    @IBOutlet weak var progression_info_button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,11 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         rest_days_background.backgroundColor = Constants.SECTION()
         create_button.tintColor = Constants.TINT()
         new_day_button.tintColor = Constants.TINT()
+        progression_background.backgroundColor = Constants.SECTION()
+        progression_label.textColor = Constants.TEXT()
+        progression_switch.onTintColor = Constants.TINT()
+        progression_switch.thumbTintColor = Constants.TEXT()
+        progression_info_button.tintColor = Constants.TINT()
         
     }
     

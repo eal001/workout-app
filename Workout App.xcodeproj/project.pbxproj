@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		78C3195EB457AAF41A136A45 /* Pods_Workout_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B9F2BF0F8EF9F289161B07 /* Pods_Workout_AppTests.framework */; };
+		17C1BFC6B0AB870A325DDA10 /* Pods_Workout_App_Workout_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3B85C9C0ED1976E885C75A /* Pods_Workout_App_Workout_AppUITests.framework */; };
+		1C7DECE8136A8AC67A37230E /* Pods_Workout_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE73366004CE6267EF69417 /* Pods_Workout_AppTests.framework */; };
 		8B62BE9E2592FFD100A9DCA8 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BE9D2592FFD100A9DCA8 /* TabViewController.swift */; };
 		8B62BEA7259306A800A9DCA8 /* CyclesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BEA6259306A800A9DCA8 /* CyclesViewController.swift */; };
 		8B62BEB225931E1C00A9DCA8 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62BEB125931E1C00A9DCA8 /* ProgressViewController.swift */; };
@@ -37,8 +38,7 @@
 		8BB643B42599A509008267BA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB643B32599A509008267BA /* SettingsViewController.swift */; };
 		8BB643C22599A914008267BA /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB643C12599A914008267BA /* ColorCell.swift */; };
 		8BF44DFE2594624B00C9DC0D /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF44DFD2594624B00C9DC0D /* SetViewController.swift */; };
-		9B5C361774965D62AD2C56C8 /* Pods_Workout_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5B86BFADF5C6CEDF31997B /* Pods_Workout_App.framework */; };
-		A857FD45EC6C0514BC981084 /* Pods_Workout_App_Workout_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B09DAF6353AF8C923E1CD7B /* Pods_Workout_App_Workout_AppUITests.framework */; };
+		E9DD3DFD77A4EE3EF152D534 /* Pods_Workout_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A416FC4156EE6348E95DABD1 /* Pods_Workout_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B09DAF6353AF8C923E1CD7B /* Pods_Workout_App_Workout_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workout_App_Workout_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		56D3E3C20DBBC0E795EAD578 /* Pods-Workout App-Workout AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout App-Workout AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Workout App-Workout AppUITests/Pods-Workout App-Workout AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		5A96672C85508C15142BB6EB /* Pods-Workout App-Workout AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout App-Workout AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Workout App-Workout AppUITests/Pods-Workout App-Workout AppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		5F5B86BFADF5C6CEDF31997B /* Pods_Workout_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workout_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17C9880161B5120C33EB29F7 /* Pods-Workout AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout AppTests.release.xcconfig"; path = "Target Support Files/Pods-Workout AppTests/Pods-Workout AppTests.release.xcconfig"; sourceTree = "<group>"; };
+		537F3358B80D3EAAA276FC6C /* Pods-Workout App-Workout AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout App-Workout AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Workout App-Workout AppUITests/Pods-Workout App-Workout AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6D917E160556582B849F40C0 /* Pods-Workout App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout App.debug.xcconfig"; path = "Target Support Files/Pods-Workout App/Pods-Workout App.debug.xcconfig"; sourceTree = "<group>"; };
+		6F3B85C9C0ED1976E885C75A /* Pods_Workout_App_Workout_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workout_App_Workout_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B62BE9D2592FFD100A9DCA8 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		8B62BEA6259306A800A9DCA8 /* CyclesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclesViewController.swift; sourceTree = "<group>"; };
 		8B62BEB125931E1C00A9DCA8 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
@@ -99,11 +99,11 @@
 		8BB643C12599A914008267BA /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		8BF44DFD2594624B00C9DC0D /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		8BF44E0F2594A23A00C9DC0D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A9F70E07FCDC5A799E17AC5A /* Pods-Workout AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout AppTests.release.xcconfig"; path = "Target Support Files/Pods-Workout AppTests/Pods-Workout AppTests.release.xcconfig"; sourceTree = "<group>"; };
-		B28EB7CB874FBDDA6DFEE6C1 /* Pods-Workout App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout App.debug.xcconfig"; path = "Target Support Files/Pods-Workout App/Pods-Workout App.debug.xcconfig"; sourceTree = "<group>"; };
-		D2B9F2BF0F8EF9F289161B07 /* Pods_Workout_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workout_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAC97FE7A8E6755CAE04AD03 /* Pods-Workout App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout App.release.xcconfig"; path = "Target Support Files/Pods-Workout App/Pods-Workout App.release.xcconfig"; sourceTree = "<group>"; };
-		FEBFEAB5F8D3E4EB3AA55742 /* Pods-Workout AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout AppTests.debug.xcconfig"; path = "Target Support Files/Pods-Workout AppTests/Pods-Workout AppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A3AAED669C6D07D7B5FF3486 /* Pods-Workout App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout App.release.xcconfig"; path = "Target Support Files/Pods-Workout App/Pods-Workout App.release.xcconfig"; sourceTree = "<group>"; };
+		A416FC4156EE6348E95DABD1 /* Pods_Workout_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workout_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAE73366004CE6267EF69417 /* Pods_Workout_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workout_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D88383DA19498C9400D7E046 /* Pods-Workout App-Workout AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout App-Workout AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Workout App-Workout AppUITests/Pods-Workout App-Workout AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F3E09CFB5F4B1D72EDF7A23B /* Pods-Workout AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workout AppTests.debug.xcconfig"; path = "Target Support Files/Pods-Workout AppTests/Pods-Workout AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B5C361774965D62AD2C56C8 /* Pods_Workout_App.framework in Frameworks */,
+				E9DD3DFD77A4EE3EF152D534 /* Pods_Workout_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78C3195EB457AAF41A136A45 /* Pods_Workout_AppTests.framework in Frameworks */,
+				1C7DECE8136A8AC67A37230E /* Pods_Workout_AppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A857FD45EC6C0514BC981084 /* Pods_Workout_App_Workout_AppUITests.framework in Frameworks */,
+				17C1BFC6B0AB870A325DDA10 /* Pods_Workout_App_Workout_AppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,24 +137,11 @@
 		1EC20AE0569941DFA7546554 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5F5B86BFADF5C6CEDF31997B /* Pods_Workout_App.framework */,
-				1B09DAF6353AF8C923E1CD7B /* Pods_Workout_App_Workout_AppUITests.framework */,
-				D2B9F2BF0F8EF9F289161B07 /* Pods_Workout_AppTests.framework */,
+				A416FC4156EE6348E95DABD1 /* Pods_Workout_App.framework */,
+				6F3B85C9C0ED1976E885C75A /* Pods_Workout_App_Workout_AppUITests.framework */,
+				CAE73366004CE6267EF69417 /* Pods_Workout_AppTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		20059146BE1B1FE32AAC21FC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B28EB7CB874FBDDA6DFEE6C1 /* Pods-Workout App.debug.xcconfig */,
-				DAC97FE7A8E6755CAE04AD03 /* Pods-Workout App.release.xcconfig */,
-				56D3E3C20DBBC0E795EAD578 /* Pods-Workout App-Workout AppUITests.debug.xcconfig */,
-				5A96672C85508C15142BB6EB /* Pods-Workout App-Workout AppUITests.release.xcconfig */,
-				FEBFEAB5F8D3E4EB3AA55742 /* Pods-Workout AppTests.debug.xcconfig */,
-				A9F70E07FCDC5A799E17AC5A /* Pods-Workout AppTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		8BA8ED8B2588AE0E001110A0 = {
@@ -165,8 +152,8 @@
 				8BA8EDAD2588AE0F001110A0 /* Workout AppTests */,
 				8BA8EDB82588AE0F001110A0 /* Workout AppUITests */,
 				8BA8ED952588AE0E001110A0 /* Products */,
-				20059146BE1B1FE32AAC21FC /* Pods */,
 				1EC20AE0569941DFA7546554 /* Frameworks */,
+				D82BC606E37F72C0FEF1A8A8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -233,6 +220,20 @@
 			path = "Workout AppUITests";
 			sourceTree = "<group>";
 		};
+		D82BC606E37F72C0FEF1A8A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D917E160556582B849F40C0 /* Pods-Workout App.debug.xcconfig */,
+				A3AAED669C6D07D7B5FF3486 /* Pods-Workout App.release.xcconfig */,
+				537F3358B80D3EAAA276FC6C /* Pods-Workout App-Workout AppUITests.debug.xcconfig */,
+				D88383DA19498C9400D7E046 /* Pods-Workout App-Workout AppUITests.release.xcconfig */,
+				F3E09CFB5F4B1D72EDF7A23B /* Pods-Workout AppTests.debug.xcconfig */,
+				17C9880161B5120C33EB29F7 /* Pods-Workout AppTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -240,11 +241,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BA8EDBE2588AE0F001110A0 /* Build configuration list for PBXNativeTarget "Workout App" */;
 			buildPhases = (
-				725C634512B9FB8F66BB8336 /* [CP] Check Pods Manifest.lock */,
+				60FE6446B15CF5587E043DD0 /* [CP] Check Pods Manifest.lock */,
 				8BA8ED902588AE0E001110A0 /* Sources */,
 				8BA8ED912588AE0E001110A0 /* Frameworks */,
 				8BA8ED922588AE0E001110A0 /* Resources */,
-				F7EDFC60CBDE9DED48B2DB2A /* [CP] Embed Pods Frameworks */,
+				D96BC35FA4B9772358B7E2DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -282,7 +283,7 @@
 				8BA8EDB12588AE0F001110A0 /* Sources */,
 				8BA8EDB22588AE0F001110A0 /* Frameworks */,
 				8BA8EDB32588AE0F001110A0 /* Resources */,
-				7D89832374720779A937DFE7 /* [CP] Embed Pods Frameworks */,
+				E0164E241FF49B955B9966AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -364,7 +365,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		725C634512B9FB8F66BB8336 /* [CP] Check Pods Manifest.lock */ = {
+		60FE6446B15CF5587E043DD0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -408,24 +409,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7D89832374720779A937DFE7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workout App-Workout AppUITests/Pods-Workout App-Workout AppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workout App-Workout AppUITests/Pods-Workout App-Workout AppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workout App-Workout AppUITests/Pods-Workout App-Workout AppUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F7EDFC60CBDE9DED48B2DB2A /* [CP] Embed Pods Frameworks */ = {
+		D96BC35FA4B9772358B7E2DF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -440,6 +424,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workout App/Pods-Workout App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0164E241FF49B955B9966AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Workout App-Workout AppUITests/Pods-Workout App-Workout AppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Workout App-Workout AppUITests/Pods-Workout App-Workout AppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workout App-Workout AppUITests/Pods-Workout App-Workout AppUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FE3D5DF3C1C77EAED04B3A79 /* [CP] Check Pods Manifest.lock */ = {
@@ -667,7 +668,7 @@
 		};
 		8BA8EDBF2588AE0F001110A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B28EB7CB874FBDDA6DFEE6C1 /* Pods-Workout App.debug.xcconfig */;
+			baseConfigurationReference = 6D917E160556582B849F40C0 /* Pods-Workout App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -688,7 +689,7 @@
 		};
 		8BA8EDC02588AE0F001110A0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAC97FE7A8E6755CAE04AD03 /* Pods-Workout App.release.xcconfig */;
+			baseConfigurationReference = A3AAED669C6D07D7B5FF3486 /* Pods-Workout App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -709,7 +710,7 @@
 		};
 		8BA8EDC22588AE0F001110A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEBFEAB5F8D3E4EB3AA55742 /* Pods-Workout AppTests.debug.xcconfig */;
+			baseConfigurationReference = F3E09CFB5F4B1D72EDF7A23B /* Pods-Workout AppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -732,7 +733,7 @@
 		};
 		8BA8EDC32588AE0F001110A0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9F70E07FCDC5A799E17AC5A /* Pods-Workout AppTests.release.xcconfig */;
+			baseConfigurationReference = 17C9880161B5120C33EB29F7 /* Pods-Workout AppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -755,7 +756,7 @@
 		};
 		8BA8EDC52588AE0F001110A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56D3E3C20DBBC0E795EAD578 /* Pods-Workout App-Workout AppUITests.debug.xcconfig */;
+			baseConfigurationReference = 537F3358B80D3EAAA276FC6C /* Pods-Workout App-Workout AppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -776,7 +777,7 @@
 		};
 		8BA8EDC62588AE0F001110A0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A96672C85508C15142BB6EB /* Pods-Workout App-Workout AppUITests.release.xcconfig */;
+			baseConfigurationReference = D88383DA19498C9400D7E046 /* Pods-Workout App-Workout AppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

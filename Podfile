@@ -16,6 +16,6 @@ target 'Workout App' do
     # Pods for testing
   end
 
-pod 'Charts'
+  pod 'Charts'
 
 end
