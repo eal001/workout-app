@@ -84,8 +84,10 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         stored_index = indexPath.row
+        if let rd = routine_delegate as? RoutinesTableViewController{
+            rd.compute_all_pr(name: exercises[indexPath.row].name)
+        }
         set_delegate?.initialize(exercise: exercises[indexPath.row], sets: exercises[indexPath.row].sets, name: exercises[indexPath.row].name )
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
