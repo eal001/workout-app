@@ -57,12 +57,12 @@ class Cycle: NSObject, Codable {
      each day must increment as well
      @return the new Cycle
      */
-    func compute_next() -> Cycle {
+    func compute_next(_ auto_progress : Bool ) -> Cycle {
         
         var new_days = [Day]()
         
         for day in days {
-            new_days.append(day.compute_next(day_offset: days.count ) )
+            new_days.append(day.compute_next(day_offset: days.count, auto_progress ) )
         }
         return Cycle(new_days) 
     }

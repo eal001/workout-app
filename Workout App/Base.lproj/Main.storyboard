@@ -473,6 +473,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4O-Xl-CZd">
                                 <rect key="frame" x="364" y="339" width="38" height="32"/>
                                 <state key="normal" image="info.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="alert_progression_info:" destination="YsJ-7U-dcx" eventType="touchUpInside" id="Q06-yy-OM1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3k-ue-K91">
                                 <rect key="frame" x="293" y="389" width="68" height="32"/>

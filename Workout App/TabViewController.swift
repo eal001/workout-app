@@ -55,6 +55,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
     @IBAction func create_new_cycle(_ sender: Any) {
             
         var new_cycle : Cycle
+        var auto_progress = true;
         if cycles_vc.cycles.count <= 0 {
             
             if let rd = routine_delegate as? RoutinesTableViewController {
@@ -64,7 +65,11 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
             }
             
         } else {
-            new_cycle = cycles_vc.cycles[0].compute_next()
+            
+            if let rd = routine_delegate as? RoutinesTableViewController {
+                auto_progress = rd.stored_cell!.linear_progression
+            }
+            new_cycle = cycles_vc.cycles[0].compute_next(auto_progress)
         }
         cycles_vc.cycles.insert(new_cycle, at: 0)
         progress_vc.cycles = cycles_vc.cycles

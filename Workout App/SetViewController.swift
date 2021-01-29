@@ -163,6 +163,8 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     @IBAction func max_info(_ sender: Any) {
+        
+        //determine message
         let msg : String
         let title : String
         if info_segment.selectedSegmentIndex == 0{
@@ -175,10 +177,25 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             msg = "\((exercise!.max_volume.weight * (Constants.KILOS ? 1 : Constants.K_TO_LB)).round(places: 1)) \(Constants.WEIGHT_UNIT()) : \(exercise!.max_volume.reps) \(Constants.REP_UNIT)"
             title = "\(Constants.VOLUME_MSG) \(exercise!.name)"
         }
+        
+        //create functional alertbox
         let alert = UIAlertController(title: title,
                                       message: msg,
                                       preferredStyle: UIAlertController.Style.alert )
         alert.addAction( UIAlertAction(title: Constants.FINISHED_TXT, style: .default, handler: nil) )
+        
+        //determine color
+        alert.view.tintColor = Constants.TINT()
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor
+            = Constants.BACKGROUND()
+        alert.setValue(NSAttributedString(string: alert.title!,
+            attributes: [ NSAttributedString.Key.foregroundColor : Constants.TEXT()]),
+            forKey: "attributedTitle")
+        alert.setValue(NSAttributedString(string: alert.message!,
+            attributes: [ NSAttributedString.Key.foregroundColor : Constants.TEXT()]),
+            forKey: "attributedMessage")
+        
+        //display
         self.present(alert, animated: true, completion: nil)
         set_table.reloadData()  //this only avoids a cell coloring issue with the accessory
                                 //-- can be removed for performance if necessary

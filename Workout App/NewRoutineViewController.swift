@@ -137,6 +137,31 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
+    /*
+     on button tap, alert box to describe what automatic linear progression is
+     */
+    @IBAction func alert_progression_info(_ sender: Any) {
+        let msg = "Each exercise will get linearly more difficult each week, if you complete them."
+        let title = "Automatic Progression"
+        
+        let alert = UIAlertController(title: title,
+                                      message: msg,
+                                      preferredStyle: UIAlertController.Style.alert )
+        alert.addAction( UIAlertAction(title: Constants.FINISHED_TXT, style: .default, handler: nil) )
+        alert.view.tintColor = Constants.TINT()
+        alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor
+            = Constants.BACKGROUND()
+        alert.setValue(NSAttributedString(string: alert.title!,
+            attributes: [ NSAttributedString.Key.foregroundColor : Constants.TEXT()]),
+            forKey: "attributedTitle")
+        alert.setValue(NSAttributedString(string: alert.message!,
+            attributes: [ NSAttributedString.Key.foregroundColor : Constants.TEXT()]),
+            forKey: "attributedMessage")
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     //MARK: Calculations
     
     /*
@@ -156,7 +181,8 @@ class NewRoutineViewController: UIViewController, UITableViewDataSource, UITable
         cycles.append(first_cycle)
         //print("days: \(days[0].name)")
         //print("cycles: \(Calendar.current.component(.day, from: cycles[0].start_date))")
-        return Routine(routine_name_field?.text ?? "", cycles)
+        
+        return Routine(routine_name_field?.text ?? "", cycles, progression_switch.isOn)
     }
     
     /*

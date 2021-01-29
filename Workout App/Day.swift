@@ -104,11 +104,18 @@ class Day: NSObject, Codable {
         return week_str
     }
     
-    func compute_next(day_offset: Int ) -> Day {
+    func compute_next(day_offset: Int , _ auto_progress : Bool) -> Day {
         
         var new_exercises = [Exercise]()
-        for exercise in exercises{
-            new_exercises.append(exercise.compute_next())
+        
+        if(auto_progress){
+            for exercise in exercises{
+                new_exercises.append(exercise.compute_next())
+            }
+        } else {
+            for exercise in exercises {
+                new_exercises.append(Exercise(exercise: exercise))
+            }
         }
         
         var components = DateComponents()

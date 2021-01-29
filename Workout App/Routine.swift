@@ -20,13 +20,15 @@ class Routine: NSObject, Codable {
     var name : String
     var cycles : [Cycle] = [Cycle]()
     var base_cycle : Cycle?
+    var linear_progression : Bool
     
     //MARK: INITIALIZATION
     
-    init(_ name : String, _ cycles : [Cycle]) {
+    init(_ name : String, _ cycles : [Cycle], _ linear_progression : Bool ) {
         self.cycles = cycles
         self.name = name
         self.base_cycle = cycles[0]
+        self.linear_progression = linear_progression
     }
     
     /*override init(){
@@ -72,7 +74,7 @@ class Routine: NSObject, Codable {
         } else {
             print("\(Constants.LOAD_ERR_MSG_1) \(key)")
         }
-        return Routine("", [Cycle]() )  //this statement could cause problems if it is run, most of this code assumes a full routine class
+        return Routine("", [Cycle](), false )  //this statement could cause problems if it is run, most of this code assumes a full routine class
     }
 }
 
