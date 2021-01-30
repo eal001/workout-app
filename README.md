@@ -15,8 +15,6 @@ Currently bug fixing with numerous issues, testing with personal use
 
 ## Known Bugs
 
->max labels remain with highest number even after set is deleted
->max label does not update after a text change until the set is marked/RE-marked as complete
 >rest day , set rep/set weight, count with unreasonably large numbers do not work
 >showing spaces when entering names, 
 >disable keyboard on tap of different areas (nav bar) (tableview)

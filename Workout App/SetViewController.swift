@@ -65,10 +65,12 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         //print("touched")
+        
         day_delegate?.reload_table()
-        //routine_delegate?.compute_all_pr(name: exercise?.name ?? "" )
-        //update_maxes_label()
-        //routine_delegate?.save_routines()
+        update_sets()
+        routine_delegate?.compute_all_pr(name: exercise?.name ?? "" )
+        update_maxes_label()
+        routine_delegate?.save_routines()
     }
     /*
      the number of sections in the tableview
@@ -201,6 +203,21 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                 //-- can be removed for performance if necessary
     }
     
+    /*
+     helper method
+     this method will be used to make sure that the text in each set textfield
+     is set to the new value of the set
+     */
+    func update_sets(){
+        var i = 0
+        for cell in set_table.visibleCells as! [SingleSetCell] {
+            sets[i].weight = (Double(cell.weight_field.text! ) ?? 0.0) * (Constants.KILOS ? 1 : 1/Constants.K_TO_LB)
+            //print("\(i) :  \(sets[i].weight)")
+            sets[i].reps = Int(cell.rep_field.text! ) ?? 0
+            i+=1
+        }
+    }
+    
     // MARK: - Navigation
     
     /*
@@ -210,6 +227,11 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        //self.viewWillDisappear(animated)
+        update_sets()
+    }
 
 }
 

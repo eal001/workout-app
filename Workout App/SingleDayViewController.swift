@@ -34,7 +34,7 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     /*
-     this method will be called in a subsequen view controller to update the sets, and be able to store them
+     this method will be called in a subsequent view controller to update the sets, and be able to store them
      */
     func update_sets(sets : [Single_Set]){
         self.exercises[stored_index].sets = sets
@@ -84,9 +84,7 @@ class SingleDayViewController: UIViewController, UITableViewDelegate, UITableVie
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         stored_index = indexPath.row
-        if let rd = routine_delegate as? RoutinesTableViewController{
-            rd.compute_all_pr(name: exercises[indexPath.row].name)
-        }
+        routine_delegate?.compute_all_pr(name: exercises[indexPath.row].name)
         set_delegate?.initialize(exercise: exercises[indexPath.row], sets: exercises[indexPath.row].sets, name: exercises[indexPath.row].name )
         tableView.deselectRow(at: indexPath, animated: true)
     }
