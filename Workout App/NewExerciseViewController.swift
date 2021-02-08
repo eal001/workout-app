@@ -227,9 +227,14 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func update_sets(){
         var i = 0
         for cell in set_table.visibleCells as! [SingleSetCell] {
-            sets[i].weight = (Double(cell.weight_field.text! ) ?? 0.0) * (Constants.KILOS ? 1 : 1/Constants.K_TO_LB)
-            //print("\(i) :  \(sets[i].weight)")
-            sets[i].reps = Int(cell.rep_field.text! ) ?? 0
+            
+            if (cell.weight_field.text?.count ?? 7 + 1 <= 7){
+                sets[i].weight = (Double(cell.weight_field.text! ) ?? 0.0) * (Constants.KILOS ? 1 : 1/Constants.K_TO_LB)
+            }
+
+            if (cell.rep_field.text?.count ?? 5 + 1 <= 5){
+                sets[i].reps = Int(cell.rep_field.text! ) ?? 0
+            }
             i+=1
         }
     }

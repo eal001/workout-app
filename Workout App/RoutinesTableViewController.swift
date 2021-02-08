@@ -29,6 +29,7 @@ class RoutinesTableViewController: UITableViewController, RoutinesTableViewContr
         self.tableView.backgroundColor = Constants.BACKGROUND()
         create_button.tintColor = Constants.TINT()
         nav_bar.backBarButtonItem?.tintColor = Constants.TINT()
+        //print("initial load success!")
         
     }
 

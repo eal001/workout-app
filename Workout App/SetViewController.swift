@@ -42,6 +42,8 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         set_table.rowHeight = Constants.STD_ROW_HEIGHT
         info_segment.selectedSegmentIndex = 0
+        
+        //print("set controller initial loadd!")
     }
     
     /*
@@ -50,6 +52,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      @param exercise, sets, name
      */
     func initialize(exercise: Exercise, sets: [Single_Set], name: String){
+        
         self.exercise = exercise
         self.sets = sets
         self.exercise_name_label.text = name
@@ -58,7 +61,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         update_maxes_label()
         set_table.reloadData()
         //day_delegate?.reload_table()
-        //print("\(self.exercise?.type)")
+        //print("set controller contents initialized!")
     }
     
     
@@ -71,6 +74,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         routine_delegate?.compute_all_pr(name: exercise?.name ?? "" )
         update_maxes_label()
         routine_delegate?.save_routines()
+        set_table.reloadData();
     }
     /*
      the number of sections in the tableview
@@ -90,6 +94,7 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      the amount of elements in each section
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("reloading set table with count \(sets.count)")
         return sets.count
     }
     
@@ -105,7 +110,13 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.backgroundColor = Constants.CELL_0()
         if(sets[indexPath.row].is_complete){
             cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
         }
+//        print("cell = \(cell)     :      indexpath = \(indexPath)")
+//        print("set @ indexPath.row = \(indexPath.row)")
+//        print("\t set complete  = \(sets[indexPath.row].is_complete)")
+//        print("\t set has check = \(cell.accessoryType == .checkmark)")
         return cell
     }
     
@@ -118,8 +129,8 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
             sets[indexPath.row].not_complete()
         } else {
-            sets[indexPath.row].complete()
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            sets[indexPath.row].complete()
         }
         tableView.cellForRow(at: indexPath)?.selectedBackgroundView?.backgroundColor = Constants.CELL_0()
         //print("\(exercise!.max_weight.weight) \(exercise!.max_reps.reps)")
@@ -209,11 +220,22 @@ class SetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      is set to the new value of the set
      */
     func update_sets(){
+        //print(set_table.visibleCells.count)
         var i = 0
         for cell in set_table.visibleCells as! [SingleSetCell] {
-            sets[i].weight = (Double(cell.weight_field.text! ) ?? 0.0) * (Constants.KILOS ? 1 : 1/Constants.K_TO_LB)
+            //MARK: - LEFT OFF HERE
+            //print(cell.rep_field.text?.count ?? 0)
+            //print(cell.weight_field.text?.count ?? 0)
+            
+            if (cell.rep_field.text?.count ?? 5 + 1 <= 5){
+                //print("updated reps")
+                sets[i].reps = Int(cell.rep_field.text! ) ?? 0
+            }
+            if (cell.weight_field.text?.count ?? 7 + 1 <= 7){
+                //print("updated weight")
+                sets[i].weight = (Double(cell.weight_field.text! ) ?? 0.0) * (Constants.KILOS ? 1 : 1/Constants.K_TO_LB)
+            }
             //print("\(i) :  \(sets[i].weight)")
-            sets[i].reps = Int(cell.rep_field.text! ) ?? 0
             i+=1
         }
     }
